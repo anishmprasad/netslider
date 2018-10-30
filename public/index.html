@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>TestApp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="#" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="#" rel="stylesheet">
+    <% for (key in htmlWebpackPlugin.files.css) { %>
+        <link href="<%= htmlWebpackPlugin.files.css[key] %>" rel="stylesheet">
+    <% } %>
+  </head>
+  <body>
+    <div id="root"></div>
+     <script type="text/javascript">
+         window.emContext||(emContext={});
+         emContext.data={"admin":{"admin_email":"anishmprasad@gmail.com","user_email":null},"user":{}};
+    </script>
+    <noscript>Please enable JavaScript to view this website.</noscript>
+    <% for (key in htmlWebpackPlugin.files.js) { %>
+        <script src="<%= htmlWebpackPlugin.files.js[key] %>" defer>
+        </script>
+    <% } %>
+  </body>
+</html>
