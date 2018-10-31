@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 import ReactDOM from 'react-dom';
 import {debounce} from 'throttle-debounce';
 import 'styleCommon/styles.scss';
-import Slider from 'components/Slider';
+import CaroSlider from 'components/CaroSlider';
 
 
 class Router extends Component {
@@ -18,7 +18,7 @@ class Router extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path='/slider' component={Slider}/>
+          <Route exact path='/slider' component={CaroSlider}/>
         </Switch>
       </div>
     )
