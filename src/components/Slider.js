@@ -36,6 +36,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SliderItem from './SliderItem';
+import TitleCardContainer from './TitleCardContainer'
 
 export default class Slider extends Component {
   constructor(props){
@@ -215,11 +217,11 @@ export default class Slider extends Component {
         uid: p,
         inViewport: c
       });
-      var u = React.cloneElement(e, {
+      var u = React.cloneElement(<TitleCardContainer />, {
         sliderItemId: p,
         itemTabbable: l
       });
-      return React.createElement(h, {
+      return React.createElement(<SliderItem />, {
         ref: p,
         key: p,
         viewportIndex: d,

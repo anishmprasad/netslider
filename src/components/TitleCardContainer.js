@@ -2,28 +2,25 @@ import React, { Component } from "React";
 import PropTypes from 'prop-types';
 
 
-export default TitleCardContainer extends Component{
+export default class TitleCardContainer extends Component{
   constructor(props){
     super(props)
-    statics: {
+    this.statics = {
       getPaths: q,
       getSize: function () {
         return J
       }
     },
-    childContextTypes: {
-      rankNum: E.number
-    },
-    _isMounted: !1,
-      scope: { },
-    videoModel: r({
+    this._isMounted = !1;
+    this.scope = { };
+    this.videoModel = r({
       id: 0
     }),
-    onBobFocusEnd:  0,
-    onBoxartFocusEnd:  0,
-    jawBoneDataLoadTimeout:  0,
-    bobOpenTimeout:  0,
-    titleCardRect:  0,
+    this.onBobFocusEnd =  0;
+    this.onBoxartFocusEnd =  0;
+    this.jawBoneDataLoadTimeout =  0;
+    this.bobOpenTimeout = 0;
+    this.titleCardRect =  0,
     this.scope = {
       isHovering: !1,
       hasFetchedBobData: !1
@@ -320,5 +317,6 @@ TitleCardContainer.propTypes = {
   models: PropTypes.object.isRequired,
   listContext: PropTypes.string.isRequired,
   isKidsPage: PropTypes.bool,
-  logger: PropTypes.object.isRequired
+  logger: PropTypes.object.isRequired,
+  rankNum: PropTypes.number
 }
