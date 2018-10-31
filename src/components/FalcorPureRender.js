@@ -1,4 +1,5 @@
 import React,{ Component }  from 'react';
+import LolomoRow from './LolomoRow'
 
 class FalcorPureRender extends Component{
   constructor(props){
@@ -56,6 +57,7 @@ class FalcorPureRender extends Component{
     return (Object.keys(r).length > 0 || Object.keys(this.state).length > 0) && (s = !a(r, n) || !a(this.state, t)), s
   }
   render() {
-    return s.createElement(e, this.props)
+    // return React.createElement(e, this.props)
+    return <LolomoRow { ...this.props} />
   }
 }

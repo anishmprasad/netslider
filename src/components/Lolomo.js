@@ -143,14 +143,14 @@ export default class Lolomo  extends Component{
     return e
   }
   renderPlaceHolder() {
-    return c.createElement(S, {
+    return React.createElement(S, {
       pulsateTitles: !0,
       pulsateHeader: !1,
       showSpinner: !1
     })
   }
   renderSiteError() {
-    return c.createElement(M, null)
+    return React.createElement(M, null)
   }
   setIsInteractive() {
     if (this.props.initialFetchCompleted && !this.isInteractive && (this.isInteractive = !0, B.emit("app:interactive", this.props), this.lolomoIsValid() && T.setLolomoCookieFalcor(this.context.jsongDocument, !1, this.props.suppressBillboard)), this.hasNthRow(3)) {
@@ -329,7 +329,7 @@ export default class Lolomo  extends Component{
     D.removeEventListener("scroll", this.onScroll), D.removeEventListener("scrollEnd", this.onScrollEnd), this.logPresentationEnd && this.logPresentationEnd(), this.context.discoveryApp.getActionCreators().removeLolomoLoggingContext()
   }
   renderBillboardTransitionGroup(t) {
-    return this.context.getModelData("truths").volatileBillboardsEnabled ? c.createElement(O, {
+    return this.context.getModelData("truths").volatileBillboardsEnabled ? React.createElement(O, {
       className: "volatile-billboard-animations-container",
       transitionName: {
         enter: "volatile-billboard-animations-enter",
@@ -363,16 +363,16 @@ export default class Lolomo  extends Component{
         g = ["billboards", 0, m, "data"],
         b = o.getValueSync(g);
       if (!b || !b.id) return null;
-      e = this.renderBillboardTransitionGroup(c.createElement(R, (0, s.
+      e = this.renderBillboardTransitionGroup(React.createElement(R, (0, s.
         default)({}, h, {
           forceStatic: u
         }))), this.hasBillboard = !0
-    } else if (n === N.BIG_ROW) e = c.createElement(x, (0, s.
+    } else if (n === N.BIG_ROW) e = React.createElement(x, (0, s.
       default)({}, h, {
         toggleBigRowState: this.props.toggleBigRowState,
         bigRowIsOpen: this.props.bigRowIsOpen
       }));
-    else if (n === N.CHARACTER_ROW) e = c.createElement(E, (0, s.
+    else if (n === N.CHARACTER_ROW) e = React.createElement(E, (0, s.
       default)({
         model: o
       }, h, {
@@ -393,7 +393,7 @@ export default class Lolomo  extends Component{
         default:
           I = f
       }
-      e = c.createElement(I, (0, s.
+      e = React.createElement(I, (0, s.
         default)({}, h, {
           listType: i,
           columnsInRow: r
@@ -413,7 +413,7 @@ export default class Lolomo  extends Component{
       "has-open-jaw": this.props.jawBoneVideoId,
       "has-open-bigRow": this.props.bigRowIsOpen
     });
-    return c.createElement("div", {
+    return React.createElement("div", {
       className: i,
       ref: function (e) {
         t.lolomoContainer = e
