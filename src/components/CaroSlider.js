@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom';
 import {debounce} from 'throttle-debounce';
 import FalcorPureRender from './FalcorPureRender'
 
+// import 'styles/caroslider.scss'
+
 
 export default class CaroSlider extends Component {
     constructor(){
