@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import ReactDOM from 'react-dom';
 import {debounce} from 'throttle-debounce';
-import FalcorPureRender from './FalcorPureRender'
+import FalcorPureRender from './FalcorPureRender';
+import Lolomo from './Lolomo';
 
+console.log(Lolomo)
 // import 'styles/caroslider.scss'
 
 
@@ -18,7 +20,7 @@ export default class CaroSlider extends Component {
         return (
           <div>
             <h1>Slider</h1>
-            <FalcorPureRender />
+            <Lolomo />
           </div>
         )
       }

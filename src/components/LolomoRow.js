@@ -34,6 +34,7 @@
 import React , { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Row from './Row'
 
 export default class LolomoRow extends Component{
   constructor(props){
@@ -168,7 +169,7 @@ export default class LolomoRow extends Component{
     }, this.props.hideRowHeader ? null : React.createElement(w, {
       id: this.getId(),
       title: this.props.title ? this.props.title : e.getValueSync(["displayName"])
-    }), React.createElement(f, {
+    }), React.createElement(<Row />, {
       model: e,
       videoRoot: this.props.videoRoot,
       totalItems: c,

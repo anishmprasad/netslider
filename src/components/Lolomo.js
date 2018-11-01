@@ -165,15 +165,27 @@ export default class Lolomo  extends Component{
     this.renderRowsChunkSize = 10
     this.renderRowsChunkDelay = 100
     this.statics = {
-      getPaths: G,
-      prefetchStrategies: _,
-      MAX_ROWS: P
+      getPaths: undefined,
+      prefetchStrategies: {allRows:{
+        bobs: false,
+        jawBones: false,
+        numRows: 50,
+        numVideos: 7,
+      }},
+      MAX_ROWS: 50
     }
     this.rowsFetching = { }
     this.isFetchingAdditionalLolomoData = !1
     this.hasfetchedLolomo = !1
     this.logPresentationEnd =  0
     this.hasBillboard = !1
+    this.scope = {
+      prefetchCallbacks: []
+    }
+    this.state = {
+      bouncing: !1,
+      maxRowToRender: j.numRows
+    }
   }
   getChildContext() {
     return {
@@ -181,14 +193,6 @@ export default class Lolomo  extends Component{
       lolomoId: this.getLolomoId(),
       isWatchlistLolomo: this.isWatchlistLolomo()
     }
-  }
-  getInitialState() {
-    return this.scope = {
-      prefetchCallbacks: []
-    }, {
-        bouncing: !1,
-        maxRowToRender: j.numRows
-      }
   }
   getRequestId() {
     return this.props.model.getValueSync(["requestId"])
@@ -358,8 +362,8 @@ export default class Lolomo  extends Component{
         o.get.apply(o, (0, a.
           default)(l)).subscribe(z, c, c)
       }
-    }, r = parseInt(p.get("netflix.ui.lolomo.firstChunkLoadIntervalMS"), 10) || 50,
-      l = parseInt(p.get("netflix.ui.lolomo.chunkLoadIntervalMS"), 10) || 750;
+    }, r = parseInt(50, 10) || 50,
+      l = parseInt(750, 10) || 750;
     d.map(i, function (t, o) {
       e.scope.prefetchCallbacks.push(y.queue(function () {
         s(t)
@@ -370,7 +374,15 @@ export default class Lolomo  extends Component{
     var t = this,
       e = this.props.model;
     if (e && e.getBoundValue()) {
-      var o = p.get("netflix.ui.akira.prefetch.home.afterWarmer"),
+      var o = {
+        bobs: false,
+        forceUpdate: false,
+        jawBones: false,
+        numBillboards: 0,
+        numRows: 50,
+        numVideos: 7,
+        rowMin: 0,
+      },
         n = G(this.context.models, o),
         i = function () {
           o.forceUpdate && t.forceUpdate()
@@ -429,7 +441,7 @@ export default class Lolomo  extends Component{
     };
     if (n === N.BILLBOARD) {
       var d = "bigRow" === this.props.model.getValueSync(["bigRow", "context"]),
-        u = d && p.get("netflix.ui.akira.originals.billboard.forceStaticWithBigRow") || this.context.getModelData("truths", "forceStaticBillboards"),
+        u = d && false || this.context.getModelData("truths", "forceStaticBillboards"),
         m = F.getExtensionForTransparentImage(this.context.models),
         g = ["billboards", 0, m, "data"],
         b = o.getValueSync(g);

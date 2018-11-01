@@ -30,6 +30,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Slider from './Slider';
+import JawBoneOnRow from './JawBoneOnRow'
+
+import onBinding from './Utils'
+
 export default class Row extends Component{
   constructor(props){
     super(props)
@@ -164,16 +169,16 @@ export default class Row extends Component{
   }
   render() {
     var e = this.props.model,
-      o = this.context.columnsInRow,
-      t = void 0,
-      s = void 0,
-      i = void 0,
-      r = void 0,
-      d = void 0;
+      o = 6,
+      t =  0,
+      s =  0,
+      i =  0,
+      r =  0,
+      d =  0;
       this.props.columnsInRow && (o = this.props.columnsInRow), this.isJawBoneOpen() && (s = this.getJawBoneModel(), t = s && s.getValueSync(["summary"]), i = t && "show" === t.type, r = p.getPaths(this.context.models, null, {
         isShow: i
       }), d = s && r);
-      var c = a({
+    var c = onBinding({
         rowContainer: !0,
         jawBoneOpen: d && this.props.isGallery,
         bobOpen: this.state.isBobOpen,
@@ -182,10 +187,10 @@ export default class Row extends Component{
       return React.createElement("div", {
         className: c,
         id: "row-" + this.props.rowNum
-      }, React.createElement(w, null, React.createElement("div", {
+      }, React.createElement(<PresTrackedContainer />, null, React.createElement("div", {
         className: "rowContent slider-hover-trigger-layer",
         onMouseLeave: this.handleRowBlur
-      }, React.createElement(l, {
+      }, React.createElement(<Slider />, {
         ref: "slider",
         itemsInRow: o,
         totalItems: this.props.totalItems,
@@ -196,7 +201,7 @@ export default class Row extends Component{
         parentContext: {
           rowIndex: this.props.rowNum
         }
-      }, this.wrapChildItems(this.props.children))), React.createElement(h, {
+      }, this.wrapChildItems(this.props.children))), React.createElement(<JawBoneOnRow />, {
         model: e,
         sliderRef: this.refs.slider,
         jawBoneRankNum: this.props.jawBoneRankNum,
