@@ -87,6 +87,76 @@
 
 import React,{ Component } from "React";
 import PropTypes from 'prop-types';
+import BillboardRow from './BillboardRow';
+import LolomoBigRow from './LolomoBigRow';
+
+let U = {
+  bobs: false,
+  jawBones: false,
+  numBillboards: 0,
+  numRows: 50,
+  numVideos: 7,
+  rowMin: 25,
+}
+
+let H = 25;
+
+let j = {
+  bobs: false,
+  jawBones: false, 
+  numBillboards: 2,
+  numRows: 3,
+  numVideos: 7,
+}
+
+let P = 50;
+
+let N = {
+  BIG_ROW: "bigRow",
+  BILLBOARD: "billboard",
+  CHARACTER_ROW: "character",
+  CONTINUE_WATCHING: "continueWatching",
+  MY_LIST: "queue",
+  NETFLIX_ORIGINALS: "netflixOriginals",
+  RATE_MOVIES: "rateMovies",
+  SHORT_FORM: "shortForm",
+  SIMILIARS: "similars",
+  SOCIAL_POPULAR: "socialPopular",
+  SUGGESTION_GALLERY: "suggestionsForYouGallery",
+  SUGGESTION_ROW: "galleryDisplayAsRow",
+  WATCHLIST: "watchlist",
+}
+
+let E = {
+  stub: true
+}
+
+let I = {
+  LAZY_LOADING: { IMAGES: 6 }
+  LIST_CONTEXTS: {
+    BIG_ROW: "bigRow"
+    BILLBOARD: "billboard"
+    CHARACTER_ROW: "character"
+    CONTINUE_WATCHING: "continueWatching"
+    MY_LIST: "queue"
+    NETFLIX_ORIGINALS: "netflixOriginals"
+    RATE_MOVIES: "rateMovies"
+    SHORT_FORM: "shortForm"
+    SIMILIARS: "similars"
+    SOCIAL_POPULAR: "socialPopular"
+    SUGGESTION_GALLERY: "suggestionsForYouGallery"
+    SUGGESTION_ROW: "galleryDisplayAsRow"
+    WATCHLIST: "watchlist"
+  }
+  LIST_TYPES:{
+    COMPOSITE: "composite"
+    FLAT: "flat"
+  }
+}
+
+import FalcorPureRender from './FalcorPureRender';
+import LoadingRow from './LoadingRow';
+import SiteError from './SiteError';
 
 export default class Lolomo  extends Component{
   constructor(props){
@@ -143,14 +213,14 @@ export default class Lolomo  extends Component{
     return e
   }
   renderPlaceHolder() {
-    return React.createElement(S, {
+    return React.createElement(<LoadingRow/>, {
       pulsateTitles: !0,
       pulsateHeader: !1,
       showSpinner: !1
     })
   }
   renderSiteError() {
-    return React.createElement(M, null)
+    return React.createElement(<SiteError />, null)
   }
   setIsInteractive() {
     if (this.props.initialFetchCompleted && !this.isInteractive && (this.isInteractive = !0, B.emit("app:interactive", this.props), this.lolomoIsValid() && T.setLolomoCookieFalcor(this.context.jsongDocument, !1, this.props.suppressBillboard)), this.hasNthRow(3)) {
@@ -363,11 +433,11 @@ export default class Lolomo  extends Component{
         g = ["billboards", 0, m, "data"],
         b = o.getValueSync(g);
       if (!b || !b.id) return null;
-      e = this.renderBillboardTransitionGroup(React.createElement(R, (0, s.
+      e = this.renderBillboardTransitionGroup(React.createElement(<BillboardRow />, (0, s.
         default)({}, h, {
           forceStatic: u
         }))), this.hasBillboard = !0
-    } else if (n === N.BIG_ROW) e = React.createElement(x, (0, s.
+    } else if (n === N.BIG_ROW) e = React.createElement(<LolomoBigRow />, (0, s.
       default)({}, h, {
         toggleBigRowState: this.props.toggleBigRowState,
         bigRowIsOpen: this.props.bigRowIsOpen
