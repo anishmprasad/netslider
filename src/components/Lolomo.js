@@ -132,24 +132,24 @@ let E = {
 }
 
 let I = {
-  LAZY_LOADING: { IMAGES: 6 }
-  LIST_CONTEXTS: {
-    BIG_ROW: "bigRow"
-    BILLBOARD: "billboard"
-    CHARACTER_ROW: "character"
-    CONTINUE_WATCHING: "continueWatching"
-    MY_LIST: "queue"
-    NETFLIX_ORIGINALS: "netflixOriginals"
-    RATE_MOVIES: "rateMovies"
-    SHORT_FORM: "shortForm"
-    SIMILIARS: "similars"
-    SOCIAL_POPULAR: "socialPopular"
-    SUGGESTION_GALLERY: "suggestionsForYouGallery"
-    SUGGESTION_ROW: "galleryDisplayAsRow"
-    WATCHLIST: "watchlist"
-  }
+  LAZY_LOADING : { IMAGES: 6 },
+  LIST_CONTEXTS : {
+    BIG_ROW: "bigRow",
+    BILLBOARD: "billboard",
+    CHARACTER_ROW: "character",
+    CONTINUE_WATCHING: "continueWatching",
+    MY_LIST: "queue",
+    NETFLIX_ORIGINALS: "netflixOriginals",
+    RATE_MOVIES: "rateMovies",
+    SHORT_FORM: "shortForm",
+    SIMILIARS: "similars",
+    SOCIAL_POPULAR: "socialPopular",
+    SUGGESTION_GALLERY: "suggestionsForYouGallery",
+    SUGGESTION_ROW: "galleryDisplayAsRow",
+    WATCHLIST: "watchlist",
+  },
   LIST_TYPES:{
-    COMPOSITE: "composite"
+    COMPOSITE: "composite",
     FLAT: "flat"
   }
 }
@@ -157,6 +157,7 @@ let I = {
 import FalcorPureRender from './FalcorPureRender';
 import LoadingRow from './LoadingRow';
 import SiteError from './SiteError';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 export default class Lolomo  extends Component{
   constructor(props){
@@ -399,7 +400,7 @@ export default class Lolomo  extends Component{
     D.removeEventListener("scroll", this.onScroll), D.removeEventListener("scrollEnd", this.onScrollEnd), this.logPresentationEnd && this.logPresentationEnd(), this.context.discoveryApp.getActionCreators().removeLolomoLoggingContext()
   }
   renderBillboardTransitionGroup(t) {
-    return this.context.getModelData("truths").volatileBillboardsEnabled ? React.createElement(O, {
+    return this.context.getModelData("truths").volatileBillboardsEnabled ? React.createElement(<CSSTransitionGroup />, {
       className: "volatile-billboard-animations-container",
       transitionName: {
         enter: "volatile-billboard-animations-enter",
