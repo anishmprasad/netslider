@@ -16,13 +16,13 @@ export function getModelData(t, e, o) {
   if (u) return u.getModelData(t, e, o);
   var a = n.get(r, ["reactContext", "models", t, "data"]);
   return e ? n.get(a, e, o) : a
-},
+}
 export function getModels() {
   return u ? u.getModels() : n.get(r, ["reactContext", "models"])
-},
+}
 export function getAB() {
   return u ? u.getAB() : a.evaluate(this.getModelData("ab") || {})
-},
+}
 export function getCookieDough() {
   return u ? u.getCookieDough() : new g
 }
