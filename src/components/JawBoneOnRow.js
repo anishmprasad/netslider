@@ -1,79 +1,79 @@
-C.r("3A", function (e, t, a) {
-  "use strict";
+// C.r("3A", function (e, t, a) {
+//   "use strict";
 
-  function o(e) {
-    var t = e.jawBoneModelIndex,
-      a = e.model;
-    if (t >= 0) return a.bind(e.videoRoot ? [t, e.videoRoot] : [t])
-  }
-  var i = e("dP"),
-    s = e("fE"),
-    n = e("aP"),
-    r = e("dm"),
-    l = e("9p"),
-    d = e("3z"),
-    p = e("4d"),
-    c = e("6f"),
-    u = e("pa"),
-    h = e("4q"),
-    I = e("p0"),
-    m = e("3S"),
-    y = e("6g"),
-    w = e("jP"),
-    v = e("k_"),
-    P = v.playbackInitiator,
-    b = e("kW"),
-    x = b.isPlaybackStateClosed,
-    f = e("l4").playContextRecord,
-    g = e("l5"),
-    C = g.playbackParamsData,
-    B = e("l7"),
-    k = B.sessionParamsData,
-    R = e("l3"),
-    S = R.authParamsData,
-    M = e("l4"),
-    N = M.toPlayContextData,
-    T = e("ol"),
-    J = e("3B"),
-    V = J.getVideoIdFromModel,
-    j = J.getVideoMerchDataFromModel,
-    A = J.getVideoMerchIdFromModel,
-    E = J.getRowPlayerSessionId,
-    O = J.getRelatedBob,
-    D = y(d),
-    _ = n({
-      displayName: "JawBoneOnRow",
-      childContextTypes: {
-        rankNum: i.number
-      },
-      contextTypes: Object.assign({
-        getModelData: i.func.isRequired,
-        models: i.object.isRequired,
-        rowNum: i.number,
-        listContext: i.string,
-        openJawbone: i.func.isRequired
-      }, c),
+//   function o(e) {
+//     var t = e.jawBoneModelIndex,
+//       a = e.model;
+//     if (t >= 0) return a.bind(e.videoRoot ? [t, e.videoRoot] : [t])
+//   }
+//   var i = e("dP"),
+//     s = e("fE"),
+//     n = e("aP"),
+//     r = e("dm"),
+//     l = e("9p"),
+//     d = e("3z"),
+//     p = e("4d"),
+//     c = e("6f"),
+//     u = e("pa"),
+//     h = e("4q"),
+//     I = e("p0"),
+//     m = e("3S"),
+//     y = e("6g"),
+//     w = e("jP"),
+//     v = e("k_"),
+//     P = v.playbackInitiator,
+//     b = e("kW"),
+//     x = b.isPlaybackStateClosed,
+//     f = e("l4").playContextRecord,
+//     g = e("l5"),
+//     C = g.playbackParamsData,
+//     B = e("l7"),
+//     k = B.sessionParamsData,
+//     R = e("l3"),
+//     S = R.authParamsData,
+//     M = e("l4"),
+//     N = M.toPlayContextData,
+//     T = e("ol"),
+//     J = e("3B"),
+//     V = J.getVideoIdFromModel,
+//     j = J.getVideoMerchDataFromModel,
+//     A = J.getVideoMerchIdFromModel,
+//     E = J.getRowPlayerSessionId,
+//     O = J.getRelatedBob,
+//     D = y(d),
+//     _ = n({
+//       displayName: "JawBoneOnRow",
+//       childContextTypes: {
+//         rankNum: i.number
+//       },
+//       contextTypes: Object.assign({
+//         getModelData: i.func.isRequired,
+//         models: i.object.isRequired,
+//         rowNum: i.number,
+//         listContext: i.string,
+//         openJawbone: i.func.isRequired
+//       }, c),
       
-    });
-  t.exports = w(function (e, t) {
-    if (t.hasVideoMerchInJaw && t.showJawBone) {
-      var a = A(o(t));
-      if (a) {
-        var i = e.playerApp.getAPI().videoPlayer,
-          s = E(a),
-          n = i.getPlaybackStateBySessionId(s),
-          r = !!n && x(n),
-          l = i.getVideoPlayerBySessionId(s);
-        return {
-          videoPlayerInstance: r ? void 0 : l
-        }
-      }
-    }
-    return {}
-  }, void 0, void 0, {
-      appKeys: ["playerApp"]
-    })(_)
-});
+//     });
+//   t.exports = w(function (e, t) {
+//     if (t.hasVideoMerchInJaw && t.showJawBone) {
+//       var a = A(o(t));
+//       if (a) {
+//         var i = e.playerApp.getAPI().videoPlayer,
+//           s = E(a),
+//           n = i.getPlaybackStateBySessionId(s),
+//           r = !!n && x(n),
+//           l = i.getVideoPlayerBySessionId(s);
+//         return {
+//           videoPlayerInstance: r ? void 0 : l
+//         }
+//       }
+//     }
+//     return {}
+//   }, void 0, void 0, {
+//       appKeys: ["playerApp"]
+//     })(_)
+// });
 
 
 import React , { Component } from 'react';

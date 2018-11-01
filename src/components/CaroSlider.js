@@ -8,7 +8,7 @@ import {debounce} from 'throttle-debounce';
 import FalcorPureRender from './FalcorPureRender';
 import Lolomo from './Lolomo';
 
-console.log(Lolomo)
+// console.log(Lolomo)
 // import 'styles/caroslider.scss'
 
 
@@ -20,7 +20,14 @@ export default class CaroSlider extends Component {
         return (
           <div>
             <h1>Slider</h1>
-            <Lolomo />
+            <Lolomo
+              enableInitialFetch = {true}
+              genreId ={"1592210"}
+              id={"1592210"}
+              initialFetchCompleted = {true}
+              isKidsPage= {false}
+              isLoading={false} 
+            />
           </div>
         )
       }
