@@ -37,6 +37,7 @@ import PropTypes from 'prop-types';
 import Row from './Row'
 import TitleCardContainer from "./TitleCardContainer";
 
+
 const constant = {
   LIST_CONTEXTS: {
     CONTINUE_WATCHING: "continueWatching",
@@ -127,7 +128,7 @@ export default class LolomoRow extends Component{
           l = "title_" + a + "_" + r + "_" + o;
         s[a] = o;
         try {
-          return React.createElement(<TitleCardContainer />, {
+          return React.createElement(TitleCardContainer, {
             key: l,
             model: t.model,
             rowNum: r,
@@ -208,10 +209,10 @@ export default class LolomoRow extends Component{
       key: this.props.listContext + this.props.rowNum,
       className: this.props.className,
       "data-list-context": this.props.listContext
-    }, this.props.hideRowHeader ? null : React.createElement(<RowHeader />, {
+    }, this.props.hideRowHeader ? null : React.createElement(RowHeader, {
       id: this.getId(),
       title: this.props.title ? this.props.title : e.getValueSync(["displayName"])
-    }), React.createElement(<Row />, {
+    }), React.createElement(Row, {
       model: e,
       videoRoot: this.props.videoRoot,
       totalItems: 40,
