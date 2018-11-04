@@ -89,6 +89,9 @@ import React,{ Component } from "React";
 import PropTypes from 'prop-types';
 import BillboardRow from './BillboardRow';
 import LolomoBigRow from './LolomoBigRow';
+import { profileManager } from "./Utils";
+
+console.log("profileManager", profileManager);
 
 let U = {
   bobs: false,
@@ -526,12 +529,12 @@ export default class Lolomo  extends Component{
   }
 }
 
-Lolomo.propTypes = {
-    getModelData: PropTypes.func.isRequired,
-    jsongDocument: PropTypes.object,
-    models: PropTypes.object.isRequired,
-    renderTracker: PropTypes.object,
-    requestId: PropTypes.string,
-    lolomoId: PropTypes.string,
-    isWatchlistLolomo: PropTypes.bool
-}
+// Lolomo.propTypes = {
+//     getModelData: PropTypes.func.isRequired,
+//     jsongDocument: PropTypes.object,
+//     models: PropTypes.object.isRequired,
+//     renderTracker: PropTypes.object,
+//     requestId: PropTypes.string,
+//     lolomoId: PropTypes.string,
+//     isWatchlistLolomo: PropTypes.bool
+// }
