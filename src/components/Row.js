@@ -33,14 +33,16 @@ import PropTypes from 'prop-types';
 import Slider from './Slider';
 import JawBoneOnRow from './JawBoneOnRow'
 
-import onBinding from './Utils'
+import {onBinding} from './Utils'
 
 export default class Row extends Component{
   constructor(props){
     super(props)
     this.lowestVisibleItemIndex= 0;
-    this.isBobOpen = !1;
-    this.sliderMoveDirection = null;
+    this.state  = {
+      isBobOpen : !1,
+      sliderMoveDirection : null
+    }
   }
   componentDidMount() {
     this.props.isMyListRow && (u.on("myList:remove:end", this._decreaseSelectedIndex), u.on("myList:add:end", this._increaseSelectedIndex))
@@ -180,17 +182,17 @@ export default class Row extends Component{
       }), d = s && r);
     var c = onBinding({
         rowContainer: !0,
-        jawBoneOpen: d && this.props.isGallery,
+        jawBoneOpen: d && true,
         bobOpen: this.state.isBobOpen,
         rowContainer_title_card: !0
       });
       return React.createElement("div", {
         className: c,
         id: "row-" + this.props.rowNum
-      }, React.createElement(<PresTrackedContainer />, null, React.createElement("div", {
+      }, React.createElement(PresTrackedContainer, null, React.createElement("div", {
         className: "rowContent slider-hover-trigger-layer",
         onMouseLeave: this.handleRowBlur
-      }, React.createElement(<Slider />, {
+      }, React.createElement(Slider, {
         ref: "slider",
         itemsInRow: o,
         totalItems: this.props.totalItems,
@@ -201,7 +203,7 @@ export default class Row extends Component{
         parentContext: {
           rowIndex: this.props.rowNum
         }
-      }, this.wrapChildItems(this.props.children))), React.createElement(<JawBoneOnRow />, {
+      }, this.wrapChildItems(this.props.children))), React.createElement(JawBoneOnRow, {
         model: e,
         sliderRef: this.refs.slider,
         jawBoneRankNum: this.props.jawBoneRankNum,
@@ -218,9 +220,9 @@ export default class Row extends Component{
   }
 }
 
-Row.propTypes = {
-  getModelData: PropTypes.func.isRequired,
-  models: PropTypes.object.isRequired,
-  openJawbone: PropTypes.func.isRequired
-}
+// Row.propTypes = {
+//   getModelData: PropTypes.func.isRequired,
+//   models: PropTypes.object.isRequired,
+//   openJawbone: PropTypes.func.isRequired
+// }
 

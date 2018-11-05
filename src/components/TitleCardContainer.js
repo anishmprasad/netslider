@@ -307,16 +307,16 @@ export default class TitleCardContainer extends Component{
   }
 }
 
-TitleCardContainer.propTypes = {
-  getModelData: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
-  openJawbone: PropTypes.func.isRequired,
-  rowNum: PropTypes.number,
-  trackId: PropTypes.number,
-  requestId: PropTypes.string,
-  models: PropTypes.object.isRequired,
-  listContext: PropTypes.string.isRequired,
-  isKidsPage: PropTypes.bool,
-  logger: PropTypes.object.isRequired,
-  rankNum: PropTypes.number
-}
+// TitleCardContainer.propTypes = {
+//   getModelData: PropTypes.func.isRequired,
+//   history: PropTypes.object.isRequired,
+//   openJawbone: PropTypes.func.isRequired,
+//   rowNum: PropTypes.number,
+//   trackId: PropTypes.number,
+//   requestId: PropTypes.string,
+//   models: PropTypes.object.isRequired,
+//   listContext: PropTypes.string.isRequired,
+//   isKidsPage: PropTypes.bool,
+//   logger: PropTypes.object.isRequired,
+//   rankNum: PropTypes.number
+// }
