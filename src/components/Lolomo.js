@@ -221,14 +221,14 @@ export default class Lolomo  extends Component{
     return e
   }
   renderPlaceHolder() {
-    return React.createElement(<LoadingRow/>, {
+    return React.createElement(LoadingRow, {
       pulsateTitles: !0,
       pulsateHeader: !1,
       showSpinner: !1
     })
   }
   renderSiteError() {
-    return React.createElement(<SiteError />, null)
+    return React.createElement(SiteError, null)
   }
   setIsInteractive() {
     if (this.props.initialFetchCompleted && !this.isInteractive && (this.isInteractive = !0, B.emit("app:interactive", this.props), this.lolomoIsValid() && T.setLolomoCookieFalcor(this.context.jsongDocument, !1, this.props.suppressBillboard)), this.hasNthRow(3)) {
@@ -415,7 +415,7 @@ export default class Lolomo  extends Component{
     D.removeEventListener("scroll", this.onScroll), D.removeEventListener("scrollEnd", this.onScrollEnd), this.logPresentationEnd && this.logPresentationEnd(), this.context.discoveryApp.getActionCreators().removeLolomoLoggingContext()
   }
   renderBillboardTransitionGroup(t) {
-    return this.context.getModelData("truths").volatileBillboardsEnabled ? React.createElement(<CSSTransitionGroup />, {
+    return this.context.getModelData("truths").volatileBillboardsEnabled ? React.createElement(CSSTransitionGroup , {
       className: "volatile-billboard-animations-container",
       transitionName: {
         enter: "volatile-billboard-animations-enter",
@@ -449,11 +449,11 @@ export default class Lolomo  extends Component{
         g = ["billboards", 0, m, "data"],
         b = o.getValueSync(g);
       if (!b || !b.id) return null;
-      e = this.renderBillboardTransitionGroup(React.createElement(<BillboardRow />, (0, s.
+      e = this.renderBillboardTransitionGroup(React.createElement(BillboardRow, (0, s.
         default)({}, h, {
           forceStatic: u
         }))), this.hasBillboard = !0
-    } else if (n === N.BIG_ROW) e = React.createElement(<LolomoBigRow />, (0, s.
+    } else if (n === N.BIG_ROW) e = React.createElement(LolomoBigRow, (0, s.
       default)({}, h, {
         toggleBigRowState: this.props.toggleBigRowState,
         bigRowIsOpen: this.props.bigRowIsOpen
