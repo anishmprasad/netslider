@@ -92,6 +92,9 @@ import LolomoBigRow from './LolomoBigRow';
 import { profileManager } from "./Utils";
 import LolomoRow from './LolomoRow';
 
+import { onBinding } from './Utils'
+
+
 let U = {
   bobs: false,
   jawBones: false,
@@ -457,6 +460,22 @@ export default class Lolomo  extends Component{
       "showJawBone": false,
       "jawBoneRankNum": null
     }
+    // {
+    //   "model": {
+    //     "$type": "ref",
+    //       "value": [
+    //         "genres",
+    //         "59849",
+    //         "rw",
+    //         2
+    //       ]
+    //   },
+    //   "rowNum": 2,
+    //     "key": "617df370-484a-4749-afed-c4b57baeff49_19760274X28X70031X1541610124986",
+    //       "listContext": "genre",
+    //         "showJawBone": false,
+    //           "jawBoneRankNum": null
+    // }
     if (n === N.BILLBOARD) {
       var d = "bigRow" === this.props.model.getValueSync(["bigRow", "context"]),
         u = d && false || this.context.getModelData("truths", "forceStaticBillboards"),
@@ -499,12 +518,16 @@ export default class Lolomo  extends Component{
     return e
   }
   renderLolomo() {
+    this.rowsFetching = {
+      0 : false,
+      50 : false
+    }
     for (var t = this, e = [], o = 0, n = this.rowsFetching || {}; o < P;) {
       if (this.hasNthRow(o)) this.shouldRenderNthRow(o) && e.push(this.renderRow(o));
       else if (n[o]) break;
       o++
     }
-    var i = u({
+    var i = onBinding({
       lolomo: !0,
       "is-fullbleed": this.hasBillboard,
       "has-open-jaw": this.props.jawBoneVideoId,
