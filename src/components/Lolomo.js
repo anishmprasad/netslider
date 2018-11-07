@@ -90,8 +90,7 @@ import PropTypes from 'prop-types';
 import BillboardRow from './BillboardRow';
 import LolomoBigRow from './LolomoBigRow';
 import { profileManager } from "./Utils";
-
-console.log("profileManager", profileManager);
+import LolomoRow from './LolomoRow';
 
 let U = {
   bobs: false,
@@ -442,6 +441,22 @@ export default class Lolomo  extends Component{
       showJawBone: l,
       jawBoneRankNum: a
     };
+    var h = {
+      "model": {
+        "$type": "ref",
+        "value": [
+          "genres",
+          "59849",
+          "rw",
+          0
+        ]
+      },
+      "rowNum": 0,
+      "key": "617df370-484a-4749-afed-c4b57baeff49_19760272X29X80234235X1541610124986",
+      "listContext": "similars",
+      "showJawBone": false,
+      "jawBoneRankNum": null
+    }
     if (n === N.BILLBOARD) {
       var d = "bigRow" === this.props.model.getValueSync(["bigRow", "context"]),
         u = d && false || this.context.getModelData("truths", "forceStaticBillboards"),
@@ -449,23 +464,20 @@ export default class Lolomo  extends Component{
         g = ["billboards", 0, m, "data"],
         b = o.getValueSync(g);
       if (!b || !b.id) return null;
-      e = this.renderBillboardTransitionGroup(React.createElement(BillboardRow, (0, s.
-        default)({}, h, {
+      e = this.renderBillboardTransitionGroup(React.createElement(BillboardRow, Object.assign({}, h, {
           forceStatic: u
         }))), this.hasBillboard = !0
-    } else if (n === N.BIG_ROW) e = React.createElement(LolomoBigRow, (0, s.
-      default)({}, h, {
+    } else if (n === N.BIG_ROW) e = React.createElement(LolomoBigRow, Object.assign({}, h, {
         toggleBigRowState: this.props.toggleBigRowState,
         bigRowIsOpen: this.props.bigRowIsOpen
       }));
-    else if (n === N.CHARACTER_ROW) e = React.createElement(E, (0, s.
-      default)({
+    else if (n === N.CHARACTER_ROW) e = React.createElement(E, Object.assign({
         model: o
       }, h, {
           columnsInRow: r
         }));
     else {
-      var I = void 0;
+      var I;
       switch (n) {
         case N.CONTINUE_WATCHING:
           I = w;
@@ -479,8 +491,7 @@ export default class Lolomo  extends Component{
         default:
           I = f
       }
-      e = React.createElement(I, (0, s.
-        default)({}, h, {
+      e = React.createElement(LolomoRow, Object.assign({}, h, {
           listType: i,
           columnsInRow: r
         }))
