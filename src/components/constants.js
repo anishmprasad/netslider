@@ -855,3 +855,17 @@ export const PathEvaluator = {
   "_treatDataSourceErrorsAsJSONGraphErrors": false,
   "_useServerPaths": false,
 }
+
+export const genreConstant = {
+  "ARO_DEFAULT_SORT_ORDER": "rw",
+  "DEFAULT_SORT_ORDER": "su",
+  "ORDER_BY": {
+    "A_Z": "az",
+    "MATURITY": "mr",
+    "ROW": "rw",
+    "SUGGESTIONS": "su",
+    "YEAR": "yr",
+    "Z_A": "za"
+  },
+  "SORT_ORDER_QUERY_PARAMS": ["su", "yr", "az", "za", "mr", "rw"]
+  }
