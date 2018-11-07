@@ -52,6 +52,7 @@
 import React ,{Component} from 'react';
 import PropTypes from 'prop-types';
 import Lolomo from './Lolomo';
+import { PathEvaluator } from './constants'
 
 export default class HomeContent extends Component{
   constructor(props){
@@ -67,7 +68,7 @@ export default class HomeContent extends Component{
   }
   getRootModel() {
     var t = this.props.suppressBillboard ? "lolomonobillboard" : "lolomo";
-    return this.props.model.pathEvaluator.bind([t])
+    return PathEvaluator
   }
   render() {
     var t = this.getRootModel(),

@@ -838,3 +838,20 @@ export const truths = {
   "useIconFont": true,
   "emailsForSecondaryProfiles": false
 }
+
+export const PathEvaluator = {
+  "isSoftBound": true,
+  "setCache": undefined,
+  "_ID": 2741,
+  "_allowFromWhenceYouCame": false,
+  "_collectRatio": 0.75,
+  "_maxRetries": 3,
+  "_maxSize": 5000000,
+  "_path": ["lolomo"],
+  "_request": { model: o, scheduler: e, _requests: Array(0), requests: Array(0) },
+  "_root": { syncRefCount: 0, expired: Array(0), unsafeMode: true, collectionScheduler: o },
+  "_scheduler": { },
+  "_source": { },
+  "_treatDataSourceErrorsAsJSONGraphErrors": false,
+  "_useServerPaths": false,
+}
