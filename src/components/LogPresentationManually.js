@@ -101,8 +101,7 @@ export default class LogPresentationManually extends Component{
     }
   }
   render() {
-    return React.createElement(e, (0, g.
-      default)({}, this.props, {
+    return React.createElement(e, Object.assign({}, this.props, {
         logPresentationStart: this.logPresentationStart,
         logPresented: this.logPresented,
         logFocus: this.logFocus,

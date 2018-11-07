@@ -64,8 +64,7 @@ export default class HomeContent extends Component{
   render() {
     var t = this.getRootModel(),
       e = E.NUM_ROWS_TO_RENDER;
-    return React.createElement(Lolomo, (0, r.
-      default)({}, this.props, {
+    return React.createElement(Lolomo, Object.assign({}, this.props, {
         ref: "lolomo",
         model: t,
         paths: _(this.context.models),
