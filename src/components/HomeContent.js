@@ -56,6 +56,14 @@ import Lolomo from './Lolomo';
 export default class HomeContent extends Component{
   constructor(props){
     super(props)
+    this.statics = {
+      NUM_ROWS_TO_RENDER: 15,
+      NUM_TITLES_TO_RENDER: 20,
+      getPaths: R,
+      prefetchStrategies: h,
+      defaultStrategy: g,
+      getInitialPaths: _
+    }
   }
   getRootModel() {
     var t = this.props.suppressBillboard ? "lolomonobillboard" : "lolomo";
@@ -63,7 +71,7 @@ export default class HomeContent extends Component{
   }
   render() {
     var t = this.getRootModel(),
-      e = E.NUM_ROWS_TO_RENDER;
+      e = this.statics.NUM_ROWS_TO_RENDER;
     return React.createElement(Lolomo, Object.assign({}, this.props, {
         ref: "lolomo",
         model: t,
@@ -73,6 +81,6 @@ export default class HomeContent extends Component{
   }
 }
 
-HomeContent.contextTypes = {
-  models: PropTypes.object.isRequired
-}
+// HomeContent.contextTypes = {
+//   models: PropTypes.object.isRequired
+// }
