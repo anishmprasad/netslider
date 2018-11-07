@@ -93,6 +93,7 @@ import { profileManager } from "./Utils";
 import LolomoRow from './LolomoRow';
 
 import { onBinding } from './Utils'
+import { truths } from './constants'
 
 
 let U = {
@@ -312,14 +313,14 @@ export default class Lolomo  extends Component{
     return d.get(this.props.model, "_path[0]")
   }
   isUsingWarmer() {
-    return this.context.getModelData("truths", "isLolomoWarmerEnabled") && "lolomo" === this.getLolomoType()
+    return truths.isLolomoWarmerEnabled && "lolomo" === this.getLolomoType()
   }
   shouldDisableScrollHandlers() {
     return this.state.maxRowToRender >= this.lolomoLength
   }
   updateMaxRowToRender() {
     if (this.hasMoreRowsToRender())
-      if (this.context.getModelData("truths", "lazyLoadLolomoDOM")) {
+      if (truths.lazyLoadLolomoDOM) {
         var t = Math.min(this.state.maxRowToRender + 5, this.lolomoLength);
         this.setState({
           maxRowToRender: t
@@ -334,20 +335,20 @@ export default class Lolomo  extends Component{
       } else this.shouldDisableScrollHandlers() && (D.removeEventListener("scroll", this.onScroll), D.removeEventListener("scrollEnd", this.onScrollEnd))
   }
   onScroll() {
-    this.hasMoreRowsToRender() && (this.renderRowsChunkDelay = 200, this.context.getModelData("truths", "lazyLoadLolomoDOM") && this.isWithinDistanceBuffer(700) ? this.updateMaxRowToRender() : this.renderRowsChunkSize = 1)
+    this.hasMoreRowsToRender() && (this.renderRowsChunkDelay = 200, truths.lazyLoadLolomoDOM && this.isWithinDistanceBuffer(700) ? this.updateMaxRowToRender() : this.renderRowsChunkSize = 1)
   }
   isWithinDistanceBuffer(t) {
     var e = this.lolomoContainer && m.findDOMNode(this.lolomoContainer);
     return e && A.getDistanceToBottomOfElement(e) < t
   }
   onScrollEnd() {
-    this.hasMoreRowsToRender() && !this.context.getModelData("truths", "lazyLoadLolomoDOM") && (this.renderRowsChunkDelay = 100, this.renderRowsChunkSize = 10, window.cancelIdleCallback(this.renderWarmLolomoChunkTimer), this.updateMaxRowToRender())
+    this.hasMoreRowsToRender() && !truths.lazyLoadLolomoDOM && (this.renderRowsChunkDelay = 100, this.renderRowsChunkSize = 10, window.cancelIdleCallback(this.renderWarmLolomoChunkTimer), this.updateMaxRowToRender())
   }
   loadAdditionalData() {
     return this.lastRowdataExists() ? (this.hasfetchedLolomo = !0, this.updateMaxRowToRender(), !1) : (this.isFetchingAdditionalLolomoData = !0, this.loadAdditionalDataWithFalcor(), null)
   }
   loadAdditionalDataWithFalcor() {
-    var t = this.context.getModelData("truths", "fetchLolomoInChunks"),
+    var t = truths.fetchLolomoInChunks,
       e = this,
       o = this.props.model,
       n = "netflix.ui.akira.prefetch.homeLoaded",
@@ -417,7 +418,7 @@ export default class Lolomo  extends Component{
     D.removeEventListener("scroll", this.onScroll), D.removeEventListener("scrollEnd", this.onScrollEnd), this.logPresentationEnd && this.logPresentationEnd(), this.context.discoveryApp.getActionCreators().removeLolomoLoggingContext()
   }
   renderBillboardTransitionGroup(t) {
-    return this.context.getModelData("truths").volatileBillboardsEnabled ? React.createElement(CSSTransitionGroup , {
+    return truths.volatileBillboardsEnabled ? React.createElement(CSSTransitionGroup , {
       className: "volatile-billboard-animations-container",
       transitionName: {
         enter: "volatile-billboard-animations-enter",
@@ -478,7 +479,7 @@ export default class Lolomo  extends Component{
     // }
     if (n === N.BILLBOARD) {
       var d = "bigRow" === this.props.model.getValueSync(["bigRow", "context"]),
-        u = d && false || this.context.getModelData("truths", "forceStaticBillboards"),
+        u = d && false || truths.forceStaticBillboards,
         m = F.getExtensionForTransparentImage(this.context.models),
         g = ["billboards", 0, m, "data"],
         b = o.getValueSync(g);
