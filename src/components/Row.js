@@ -32,6 +32,7 @@ import PropTypes from 'prop-types';
 
 import Slider from './Slider';
 import JawBoneOnRow from './JawBoneOnRow'
+import PresTrackedContainer from './PresTrackedContainer';
 
 import {onBinding} from './Utils'
 
@@ -159,7 +160,7 @@ export default class Row extends Component{
   wrapChildItems(e) {
     var o = this;
     return e.map(function (e) {
-      return n.cloneElement(e, {
+      return React.cloneElement(e, {
         onBobOpen: o.onBobOpen,
         onBobClose: o.onBobClose,
         onBobLeave: o.onBobLeave,

@@ -6,7 +6,7 @@ export function onBinding() {
       if ("string" === f || "number" === f) n.push(t);
       else if (Array.isArray(t)) n.push(e.apply(null, t));
       else if ("object" === f)
-        for (var o in t) r.call(t, o) && t[o] && n.push(o)
+        for (var o in t) hasOwnProperty.call(t, o) && t[o] && n.push(o)
     }
   }
   return n.join(" ")
