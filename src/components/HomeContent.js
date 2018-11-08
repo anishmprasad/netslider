@@ -84,4 +84,4 @@ export default class HomeContent extends Component{
 
 // HomeContent.contextTypes = {
 //   models: PropTypes.object.isRequired
-// }
+// }    
