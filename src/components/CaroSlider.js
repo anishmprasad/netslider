@@ -8,6 +8,7 @@ import {debounce} from 'throttle-debounce';
 import FalcorPureRender from './FalcorPureRender';
 import Lolomo from './Lolomo';
 import LolomoRow from './LolomoRow';
+import HomeContent from './HomeContent'
 
 // console.log(Lolomo)
 // import 'styles/caroslider.scss'
@@ -29,7 +30,8 @@ export default class CaroSlider extends Component {
               isKidsPage= {false}
               isLoading={false} 
             /> */}
-            <LolomoRow />
+            <HomeContent />
+            {/* <LolomoRow /> */}
           </div>
         )
       }
