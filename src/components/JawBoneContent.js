@@ -482,88 +482,94 @@ C.r("3z", function (e, t, i) {
           className: s
         }, a && this.videoModel.logoUrl ? this.renderOriginalsTitle(e, t) : this.renderText(e))))
       },
-      render: function () {
-        var e = this.props,
-          t = e.model,
-          i = e.videoId,
-          o = e.disableClose,
-          a = e.hideMoreLikeThis,
-          s = this.context.getModelData("truths"),
-          n = s.jawAudioOffByDefault,
-          l = t.getValueSync(["summary"]),
-          d = t.getValueSync(["title"]) || this.context.getI18nString(U, "overview.loading"),
-          h = this.getHasEpisodes(),
-          u = x.isInResumeState(this.props.model) || x.isInNextUpState(this.props.model),
-          m = !this.videoModel.isPlayable && !this.videoModel.hasTrailers,
-          g = !this.context.isRtl && this.videoModel.isOriginal && !u && !this.props.hasVideoMerchInJaw;
-        if (!i || l && p.isValueError(l)) return null;
-        var v = h || "Episodes" !== this.state.visiblePane ? this.state.visiblePane : "Overview",
-          y = "Overview" === v,
-          M = "Warning" === v,
-          S = y || M,
-          f = R.hasContentWarning(this.videoModel),
-          w = this.props.hasVideoMerchInJaw ? y && !this.state.videoMerchPlaying : y;
-        return r.createElement("div", {
-          id: i,
-          className: "jawBoneContainer slider-hover-trigger-layer",
-          onKeyDown: this.handleKeyDown
-        }, r.createElement(b, {
-          id: i,
-          dim: !y,
-          rotateStills: w,
-          model: t,
-          isStandalone: !h,
-          isFullBleed: g,
-          videoMerchPlayerElement: !!this.videoModel.videoMerchId && (this.props.videoMerchPlayer || this.props.isStandaloneJawbone) && r.createElement(W, {
-            allowPlayback: y,
-            videoStartTime: this.videoModel.videoMerchStartTime || 0,
-            videoId: this.videoModel.videoMerchId,
-            playerSessionId: this.props.playerSessionId,
-            onPlayerError: this.onPlayerError,
-            onPlayerPlaying: this.onPlayerPlaying,
-            onPlaybackComplete: this.handleVideoMerchPlayerComplete,
-            trackId: this.context.trackId,
-            videoMerchPlayer: this.props.videoMerchPlayer,
-            isStandaloneJawBone: this.props.isStandaloneJawbone,
-            playContextRecord: H({
-              location: "VIDEO_MERCH",
-              row: this.context.rowNum,
-              rank: this.context.rankNum,
-              requestId: this.context.requestId,
-              videoMerchComputeId: this.videoModel.videoMerchComputeId
-            })
-          })
-        }), r.createElement("div", {
-          className: "jawBone"
-        }, this.renderTitle(d, S, i), r.createElement("div", {
-          className: c("jawBoneCommon")
-        }, r.createElement("div", {
-          className: c("jawBonePanes", {
-            "offset-for-logo": this.videoModel.isOriginal && this.videoModel.logoUrl && !S,
-            fullBleed: g
-          })
-        }, this.getVisiblePane(v, u))), !m && r.createElement(P, {
-          hideMoreLikeThis: a,
-          hasEpisodes: h,
-          hasTrailers: this.videoModel.hasTrailers,
-          isPrePromo: this.videoModel.isPrePromo,
-          visiblePane: v,
-          onTabClicked: this.onTabClicked,
-          hasContentWarning: f,
-          onMouseEnter: this.handleNavHover
-        })), !o && r.createElement("a", {
-          className: c("close-button", "icon-close"),
-          ref: "closeJawboneButton",
-          onClick: this.handleCloseJawBone,
-          tabIndex: 0,
-          role: "button",
-          "aria-label": this.context.getI18nString(U, "button.close")
-        }), !!this.videoModel.videoMerchId && this.state.videoMerchPlaying && r.createElement(q, {
-          key: "audio-toggle",
-          isHidden: !y,
-          isMutedByDefault: n
-        }))
-      }
+      
     });
   t.exports = X
 });
+
+import React,{ Component } from 'react';
+
+export default class JawBoneContent extends Component{
+  render() {
+    var e = this.props,
+      t = e.model,
+      i = e.videoId,
+      o = e.disableClose,
+      a = e.hideMoreLikeThis,
+      s = this.context.getModelData("truths"),
+      n = s.jawAudioOffByDefault,
+      l = t.getValueSync(["summary"]),
+      d = t.getValueSync(["title"]) || this.context.getI18nString(U, "overview.loading"),
+      h = this.getHasEpisodes(),
+      u = x.isInResumeState(this.props.model) || x.isInNextUpState(this.props.model),
+      m = !this.videoModel.isPlayable && !this.videoModel.hasTrailers,
+      g = !this.context.isRtl && this.videoModel.isOriginal && !u && !this.props.hasVideoMerchInJaw;
+    if (!i || l && p.isValueError(l)) return null;
+    var v = h || "Episodes" !== this.state.visiblePane ? this.state.visiblePane : "Overview",
+      y = "Overview" === v,
+      M = "Warning" === v,
+      S = y || M,
+      f = R.hasContentWarning(this.videoModel),
+      w = this.props.hasVideoMerchInJaw ? y && !this.state.videoMerchPlaying : y;
+    return r.createElement("div", {
+      id: i,
+      className: "jawBoneContainer slider-hover-trigger-layer",
+      onKeyDown: this.handleKeyDown
+    }, r.createElement(b, {
+      id: i,
+      dim: !y,
+      rotateStills: w,
+      model: t,
+      isStandalone: !h,
+      isFullBleed: g,
+      videoMerchPlayerElement: !!this.videoModel.videoMerchId && (this.props.videoMerchPlayer || this.props.isStandaloneJawbone) && r.createElement(W, {
+        allowPlayback: y,
+        videoStartTime: this.videoModel.videoMerchStartTime || 0,
+        videoId: this.videoModel.videoMerchId,
+        playerSessionId: this.props.playerSessionId,
+        onPlayerError: this.onPlayerError,
+        onPlayerPlaying: this.onPlayerPlaying,
+        onPlaybackComplete: this.handleVideoMerchPlayerComplete,
+        trackId: this.context.trackId,
+        videoMerchPlayer: this.props.videoMerchPlayer,
+        isStandaloneJawBone: this.props.isStandaloneJawbone,
+        playContextRecord: H({
+          location: "VIDEO_MERCH",
+          row: this.context.rowNum,
+          rank: this.context.rankNum,
+          requestId: this.context.requestId,
+          videoMerchComputeId: this.videoModel.videoMerchComputeId
+        })
+      })
+    }), r.createElement("div", {
+      className: "jawBone"
+    }, this.renderTitle(d, S, i), r.createElement("div", {
+      className: c("jawBoneCommon")
+    }, r.createElement("div", {
+      className: c("jawBonePanes", {
+        "offset-for-logo": this.videoModel.isOriginal && this.videoModel.logoUrl && !S,
+        fullBleed: g
+      })
+    }, this.getVisiblePane(v, u))), !m && r.createElement(P, {
+      hideMoreLikeThis: a,
+      hasEpisodes: h,
+      hasTrailers: this.videoModel.hasTrailers,
+      isPrePromo: this.videoModel.isPrePromo,
+      visiblePane: v,
+      onTabClicked: this.onTabClicked,
+      hasContentWarning: f,
+      onMouseEnter: this.handleNavHover
+    })), !o && r.createElement("a", {
+      className: c("close-button", "icon-close"),
+      ref: "closeJawboneButton",
+      onClick: this.handleCloseJawBone,
+      tabIndex: 0,
+      role: "button",
+      "aria-label": this.context.getI18nString(U, "button.close")
+    }), !!this.videoModel.videoMerchId && this.state.videoMerchPlaying && r.createElement(q, {
+      key: "audio-toggle",
+      isHidden: !y,
+      isMutedByDefault: n
+    }))
+  }
+} 
