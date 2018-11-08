@@ -428,60 +428,8 @@ C.r("3z", function (e, t, i) {
       shouldComponentUpdate: function (e, t, i) {
         return this.props.videoId !== e.videoId || this.state.visiblePane !== t.visiblePane || this.state.isLoading !== t.isLoading || this.props.videoMerchPlayer !== e.videoMerchPlayer || this.state.videoMerchPlaying !== t.videoMerchPlaying || u.includes(_, this.state.visiblePane) && this.context.columnsInRow !== i.columnsInRow
       },
-      componentDidUpdate: function () {
-        this.prefetchOnLoad()
-      },
-      componentWillUnmount: function () {
-        var e = this,
-          t = d.findDOMNode(this),
-          i = this.context.getModelData("truths").mdx2Enabled,
-          o = i && L.getManagerInstance();
-        t && O.show(t, function (t, i) {
-          e.animateInfo(t, {
-            opacity: 0,
-            duration: 250
-          }), setTimeout(i, 950)
-        }), clearTimeout(this.mountPrefetchTimeout), o && o.removeListener(o.EVENTS.SHOW_EPISODES, this.showEpisodesTab), this.props.hasVideoMerchInJaw && (this.logVideoMerchCancelPlay(), this.props.closePlayer && this.props.closePlayer(this.props.playerSessionId))
-      },
-      componentWillReceiveProps: function (e) {
-        var t = {};
-        e.videoId !== this.props.videoId && (t.isShow = this.getHasEpisodes(), t.visiblePane = this.getDefaultPane(e.model)), this.props.videoMerchPlayer !== e.videoMerchPlayer && (t.videoMerchPlaying = !1), this.setState(t)
-      },
-      renderOriginalsTitle: function (e, t) {
-        var i = c("logo", {
-          "small-logo": !t
-        });
-        return r.createElement("img", {
-          alt: e,
-          className: i,
-          src: this.videoModel.logoUrl
-        })
-      },
-      renderText: function (e) {
-        return r.createElement("div", {
-          className: "text image-fallback-text"
-        }, e)
-      },
-      renderTitle: function (e, t, i) {
-        var o = "ja" === u.get(this.context.models, "geo.data.locale.language", "en"),
-          a = this.videoModel.isOriginal,
-          s = c("title", "has-jawbone-nav-transition", {
-            "title-small": e.length > 30,
-            "long-title-double-byte-width": o,
-            "long-title-double-byte-font": o && e.length > 25,
-            original: a
-          });
-        return r.createElement(this.props.isStandaloneJawbone ? "h1" : "h3", {}, r.createElement(I, {
-          resolver: j.getTitleRoute,
-          className: c("jawbone-title-link"),
-          params: {
-            id: i
-          },
-          tabIndex: -1
-        }, r.createElement("div", {
-          className: s
-        }, a && this.videoModel.logoUrl ? this.renderOriginalsTitle(e, t) : this.renderText(e))))
-      },
+      
+      
       
     });
   t.exports = X
@@ -490,6 +438,60 @@ C.r("3z", function (e, t, i) {
 import React,{ Component } from 'react';
 
 export default class JawBoneContent extends Component{
+  componentDidUpdate() {
+    this.prefetchOnLoad()
+  }
+  componentWillUnmount() {
+    var e = this,
+      t = d.findDOMNode(this),
+      i = this.context.getModelData("truths").mdx2Enabled,
+      o = i && L.getManagerInstance();
+    t && O.show(t, function (t, i) {
+      e.animateInfo(t, {
+        opacity: 0,
+        duration: 250
+      }), setTimeout(i, 950)
+    }), clearTimeout(this.mountPrefetchTimeout), o && o.removeListener(o.EVENTS.SHOW_EPISODES, this.showEpisodesTab), this.props.hasVideoMerchInJaw && (this.logVideoMerchCancelPlay(), this.props.closePlayer && this.props.closePlayer(this.props.playerSessionId))
+  }
+  componentWillReceiveProps(e) {
+    var t = {};
+    e.videoId !== this.props.videoId && (t.isShow = this.getHasEpisodes(), t.visiblePane = this.getDefaultPane(e.model)), this.props.videoMerchPlayer !== e.videoMerchPlayer && (t.videoMerchPlaying = !1), this.setState(t)
+  }
+  renderOriginalsTitle(e, t) {
+    var i = c("logo", {
+      "small-logo": !t
+    });
+    return r.createElement("img", {
+      alt: e,
+      className: i,
+      src: this.videoModel.logoUrl
+    })
+  }
+  renderText(e) {
+    return r.createElement("div", {
+      className: "text image-fallback-text"
+    }, e)
+  }
+  renderTitle(e, t, i) {
+    var o = "ja" === u.get(this.context.models, "geo.data.locale.language", "en"),
+      a = this.videoModel.isOriginal,
+      s = c("title", "has-jawbone-nav-transition", {
+        "title-small": e.length > 30,
+        "long-title-double-byte-width": o,
+        "long-title-double-byte-font": o && e.length > 25,
+        original: a
+      });
+    return r.createElement(this.props.isStandaloneJawbone ? "h1" : "h3", {}, r.createElement(I, {
+      resolver: j.getTitleRoute,
+      className: c("jawbone-title-link"),
+      params: {
+        id: i
+      },
+      tabIndex: -1
+    }, r.createElement("div", {
+      className: s
+    }, a && this.videoModel.logoUrl ? this.renderOriginalsTitle(e, t) : this.renderText(e))))
+  }
   render() {
     var e = this.props,
       t = e.model,
