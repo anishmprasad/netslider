@@ -178,7 +178,7 @@ getVideoModel(e) {
 }
   animateInfo(e, t) {
     if (!this.props.isFirstJaw)
-      for (var i = e.getElementsByClassName("has-jawbone-nav-transition"), o = 0; o < i.length; o++) t.target = i[o], V.animate(t)
+      for (var i = document.getElementsByClassName("has-jawbone-nav-transition"), o = 0; o < i.length; o++) t.target = i[o], V.animate(t)
   }
 
   getDefaultProps() {
@@ -265,10 +265,10 @@ getVideoModel(e) {
             isPrePromo: this.videoModel.isPrePromo,
             isTitleActionsSupported: !a
           };
-        n = r.createElement("div", null, r.createElement(l, d));
+        n = React.createElement("div", null, React.createElement(l, d));
         break;
       case "Episodes":
-        n = r.createElement(v, {
+        n = React.createElement(v, {
           model: o,
           pathPrefix: o.getPath(),
           videoId: s,
@@ -281,7 +281,7 @@ getVideoModel(e) {
         });
         break;
       case "Trailers":
-        n = r.createElement(S, {
+        n = React.createElement(S, {
           model: o,
           trackId: this.context.jawBoneTrailerTrackId,
           isLoading: this.state.isLoading,
@@ -290,28 +290,28 @@ getVideoModel(e) {
         });
         break;
       case "Warning":
-        n = r.createElement(y, {
+        n = React.createElement(y, {
           model: o,
           videoModel: this.videoModel,
           contentWarning: R.getContentWarning(this.videoModel)
         });
         break;
       case "MoreLikeThis":
-        n = r.createElement(M, {
+        n = React.createElement(M, {
           model: o,
           isLoading: this.state.isLoading,
           onSliderMove: this._handleSliderMove
         });
         break;
       case "ShowDetails":
-        n = r.createElement(f, {
+        n = React.createElement(f, {
           model: o,
           isLoading: this.state.isLoading,
           onSliderMove: this._handleSliderMove,
           watched: t
         })
     }
-    return r.createElement(w, {
+    return React.createElement(w, {
       key: "pane-" + e,
       ariaId: e,
       hasClickedMenu: this.state.hasClickedMenu
@@ -377,7 +377,7 @@ getVideoModel(e) {
         this.handleCloseJawBone();
         break;
       case C.ENTER:
-        var t = d.findDOMNode(this.refs.closeJawboneButton);
+        var t = ReactDOM.findDOMNode(this.refs.closeJawboneButton);
         t && t.contains(e.target) && this.handleCloseJawBone()
     }
   }
@@ -466,14 +466,14 @@ getVideoModel(e) {
     var i = c("logo", {
       "small-logo": !t
     });
-    return r.createElement("img", {
+    return React.createElement("img", {
       alt: e,
       className: i,
       src: this.videoModel.logoUrl
     })
   }
   renderText(e) {
-    return r.createElement("div", {
+    return React.createElement("div", {
       className: "text image-fallback-text"
     }, e)
   }
@@ -486,14 +486,14 @@ getVideoModel(e) {
         "long-title-double-byte-font": o && e.length > 25,
         original: a
       });
-    return r.createElement(this.props.isStandaloneJawbone ? "h1" : "h3", {}, r.createElement(I, {
+    return React.createElement(this.props.isStandaloneJawbone ? "h1" : "h3", {}, r.createElement(I, {
       resolver: j.getTitleRoute,
       className: c("jawbone-title-link"),
       params: {
         id: i
       },
       tabIndex: -1
-    }, r.createElement("div", {
+    }, React.createElement("div", {
       className: s
     }, a && this.videoModel.logoUrl ? this.renderOriginalsTitle(e, t) : this.renderText(e))))
   }
@@ -518,18 +518,18 @@ getVideoModel(e) {
       S = y || M,
       f = R.hasContentWarning(this.videoModel),
       w = this.props.hasVideoMerchInJaw ? y && !this.state.videoMerchPlaying : y;
-    return r.createElement("div", {
+    return React.createElement("div", {
       id: i,
       className: "jawBoneContainer slider-hover-trigger-layer",
       onKeyDown: this.handleKeyDown
-    }, r.createElement(b, {
+    }, React.createElement(b, {
       id: i,
       dim: !y,
       rotateStills: w,
       model: t,
       isStandalone: !h,
       isFullBleed: g,
-      videoMerchPlayerElement: !!this.videoModel.videoMerchId && (this.props.videoMerchPlayer || this.props.isStandaloneJawbone) && r.createElement(W, {
+      videoMerchPlayerElement: !!this.videoModel.videoMerchId && (this.props.videoMerchPlayer || this.props.isStandaloneJawbone) && React.createElement(W, {
         allowPlayback: y,
         videoStartTime: this.videoModel.videoMerchStartTime || 0,
         videoId: this.videoModel.videoMerchId,
@@ -548,16 +548,16 @@ getVideoModel(e) {
           videoMerchComputeId: this.videoModel.videoMerchComputeId
         })
       })
-    }), r.createElement("div", {
+    }), React.createElement("div", {
       className: "jawBone"
-    }, this.renderTitle(d, S, i), r.createElement("div", {
+    }, this.renderTitle(d, S, i), React.createElement("div", {
       className: c("jawBoneCommon")
-    }, r.createElement("div", {
+    }, React.createElement("div", {
       className: c("jawBonePanes", {
         "offset-for-logo": this.videoModel.isOriginal && this.videoModel.logoUrl && !S,
         fullBleed: g
       })
-    }, this.getVisiblePane(v, u))), !m && r.createElement(P, {
+    }, this.getVisiblePane(v, u))), !m && React.createElement(P, {
       hideMoreLikeThis: a,
       hasEpisodes: h,
       hasTrailers: this.videoModel.hasTrailers,
@@ -566,14 +566,14 @@ getVideoModel(e) {
       onTabClicked: this.onTabClicked,
       hasContentWarning: f,
       onMouseEnter: this.handleNavHover
-    })), !o && r.createElement("a", {
+    })), !o && React.createElement("a", {
       className: c("close-button", "icon-close"),
       ref: "closeJawboneButton",
       onClick: this.handleCloseJawBone,
       tabIndex: 0,
       role: "button",
       "aria-label": this.context.getI18nString(U, "button.close")
-    }), !!this.videoModel.videoMerchId && this.state.videoMerchPlaying && r.createElement(q, {
+    }), !!this.videoModel.videoMerchId && this.state.videoMerchPlaying && React.createElement(q, {
       key: "audio-toggle",
       isHidden: !y,
       isMutedByDefault: n
