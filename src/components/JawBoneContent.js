@@ -486,7 +486,7 @@ getVideoModel(e) {
         "long-title-double-byte-font": o && e.length > 25,
         original: a
       });
-    return React.createElement(this.props.isStandaloneJawbone ? "h1" : "h3", {}, r.createElement(I, {
+    return React.createElement(this.props.isStandaloneJawbone ? "h1" : "h3", {}, React.createElement(I, {
       resolver: j.getTitleRoute,
       className: c("jawbone-title-link"),
       params: {
