@@ -848,8 +848,8 @@ export const PathEvaluator = {
   "_maxRetries": 3,
   "_maxSize": 5000000,
   "_path": ["lolomo"],
-  "_request": { model: o, scheduler: e, _requests: Array(0), requests: Array(0) },
-  "_root": { syncRefCount: 0, expired: Array(0), unsafeMode: true, collectionScheduler: o },
+  // "_request": { model: o, scheduler: e, _requests: Array(0), requests: Array(0) },
+  // "_root": { syncRefCount: 0, expired: Array(0), unsafeMode: true, collectionScheduler: o },
   "_scheduler": { },
   "_source": { },
   "_treatDataSourceErrorsAsJSONGraphErrors": false,
@@ -869,3 +869,8 @@ export const genreConstant = {
   },
   "SORT_ORDER_QUERY_PARAMS": ["su", "yr", "az", "za", "mr", "rw"]
   }
+
+
+
+
+

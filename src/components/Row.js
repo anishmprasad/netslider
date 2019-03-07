@@ -33,6 +33,7 @@ import PropTypes from 'prop-types';
 import Slider from './Slider';
 import JawBoneOnRow from './JawBoneOnRow'
 import PresTrackedContainer from './PresTrackedContainer';
+import TitleCardContainer from './TitleCardContainer'
 
 import {onBinding} from './Utils'
 
@@ -159,8 +160,68 @@ export default class Row extends Component{
   }
   wrapChildItems(e) {
     var o = this;
-    return e.map(function (e) {
-      return React.cloneElement(e, {
+    var childArray = [
+      {
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 0,
+        rowNum: 1,
+        videoId: 80197526,
+        videoRoot: "reference"
+      },{
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 1,
+        rowNum: 1,
+        videoId: 70202589,
+        videoRoot: "reference"
+      },{
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 2,
+        rowNum: 1,
+        videoId: 80235864,
+        videoRoot: "reference"
+      },{
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 3,
+        rowNum: 1,
+        videoId: 70264888,
+        videoRoot: "reference"
+      },{
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 4,
+        rowNum: 1,
+        videoId: 80002479,
+        videoRoot: "reference"
+      },{
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 5,
+        rowNum: 1,
+        videoId: 70254851,
+        videoRoot: "reference"
+      },{
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 6,
+        rowNum: 1,
+        videoId: 80988062,
+        videoRoot: "reference"
+      },{
+        isShowAsARow: false,
+        isTallPanel: false,
+        rankNum: 7,
+        rowNum: 1,
+        videoId: 80025678,
+        videoRoot: "reference"
+      }
+    ]
+    return childArray.map(function (e) {
+      return React.cloneElement(TitleCardContainer, {
+        ...e,
         onBobOpen: o.onBobOpen,
         onBobClose: o.onBobClose,
         onBobLeave: o.onBobLeave,
@@ -216,7 +277,7 @@ export default class Row extends Component{
         playbackQueryParams: this.props.playbackQueryParams,
         videoRoot: this.props.videoRoot,
         disableClose: this.props.disableJawClose,
-        hasVideoMerchInJaw: this.context.getModelData("truths").hasVideoMerchInJaw
+        hasVideoMerchInJaw: true
       })))
   }
 }

@@ -1,91 +1,4 @@
-// C.r("3Q", function (t, e, o) {
-//   "use strict";
-
-//   function n(t) {
-//     return t && t.__esModule ? t : {
-//       default: t
-//     }
-//   }
-//   var i = t("9i"),
-//     s = n(i),
-//     r = t("9m"),
-//     a = n(r),
-//     l = t("dP"),
-//     c = t("fE"),
-//     h = t("aP"),
-//     d = t("dm"),
-//     u = t("9p"),
-//     m = t("eZ"),
-//     p = t("j4"),
-//     g = t("jw"),
-//     f = t("3U"),
-//     R = t("0f"),
-//     w = t("3T"),
-//     L = t("3W"),
-//     v = t("3V"),
-//     b = t("3X"),
-//     x = t("3R"),
-//     I = t("3S"),
-//     S = t("1F"),
-//     T = t("t6"),
-//     C = t("te"),
-//     k = t("6f"),
-//     y = t("6u"),
-//     D = t("p2"),
-//     B = t("pa"),
-//     E = t("3O"),
-//     M = t("74"),
-//     V = t("o-"),
-//     F = t("7k"),
-//     A = t("7r"),
-//     W = t("7V"),
-//     O = t("fu"),
-//     N = I.LIST_CONTEXTS,
-//     P = p.get("netflix.ui.akira.max.lolomo.rows"),
-//     j = p.get("netflix.ui.akira.prefetch.page"),
-//     U = p.get("netflix.ui.akira.prefetch.homeLoaded.6"),
-//     H = U ? U.rowMin : 25,
-//     _ = {
-//       allRows: {
-//         numRows: P,
-//         numVideos: 7,
-//         bobs: !1,
-//         jawBones: !1
-//       }
-//     }, q = _.allRows,
-//     z = function () { }, G = function (t, e, o) {
-//       var n = ["responseExpiration", "statusCode"],
-//         i = V.kidsProfileWithParity(t, !1);
-//       e || (e = q);
-//       var s = {
-//         from: e.rowMin || 0,
-//         to: e.numRows
-//       }, r = f.getPaths(t, e).map(function (t) {
-//         return [s].concat(t)
-//       }).concat([
-//         [s, ["context", "type"]]
-//       ]).concat([
-//         ["summary"]
-//       ]).concat([
-//         ["id"]
-//       ]).concat([
-//         ["meta", n]
-//       ]).concat([
-//         ["requestId"]
-//       ]).concat(b.getPaths(t, e)).concat(w.getPaths(t, e)).concat(L.getPaths(t, e)).concat(v.getPaths(t, e));
-//       if (e.numBillboards > 0 && (r = r.concat(R.getPaths(t, e))), i) {
-//         var a = E.getPaths(t, e).map(function (t) {
-//           return ["character"].concat(t)
-//         });
-//         return r.concat(a)
-//       }
-//       return r
-//     }
-//   e.exports = W(X)
-// });
-
-
-import React,{ Component } from "React";
+import React,{ Component } from "react";
 import PropTypes from 'prop-types';
 import BillboardRow from './BillboardRow';
 import LolomoBigRow from './LolomoBigRow';
@@ -163,7 +76,7 @@ let I = {
 import FalcorPureRender from './FalcorPureRender';
 import LoadingRow from './LoadingRow';
 import SiteError from './SiteError';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {CSSTransitionGroup} from 'react-transition-group';
 
 export default class Lolomo  extends Component{
   constructor(props){
@@ -431,92 +344,55 @@ export default class Lolomo  extends Component{
   renderRow(t) {
     var e = void 0,
       o = this.props.model.bind([t]),
-      n = o.getValueSync(["context"]),
-      i = o.getValueSync(["type"]),
-      r = this.context.columnsInRow,
+      n = 'newRelease',
+      i = 'flat',
+      r = 5,
       a = null,
       l = !1;
     this.props.jawBoneRowNum === t && (a = this.props.jawBoneRankNum, l = !0);
+    // var h = {
+    //   model: o,
+    //   rowNum: t,
+    //   key: '5ab3ebe7-2c77-4ca9-a320-7cad43f5c9c8_62598380X32XX1551977979902',
+    //   listContext: n,
+    //   showJawBone: l,
+    //   jawBoneRankNum: a
+    // };
     var h = {
-      model: o,
-      rowNum: t,
-      key: o.getValueSync(["id"]),
-      listContext: n,
-      showJawBone: l,
-      jawBoneRankNum: a
-    };
-    var h = {
-      "model": {
-        "$type": "ref",
-        "value": [
-          "genres",
-          "59849",
-          "rw",
-          0
-        ]
-      },
-      "rowNum": 0,
-      "key": "617df370-484a-4749-afed-c4b57baeff49_19760272X29X80234235X1541610124986",
-      "listContext": "similars",
-      "showJawBone": false,
-      "jawBoneRankNum": null
+      jawBoneRankNum: null,
+      key: "5ab3ebe7-2c77-4ca9-a320-7cad43f5c9c8_62598380X32XX1551977979902",
+      listContext: "newRelease",
+      rowNum: 2,
+      showJawBone: false,
     }
-    // {
-    //   "model": {
-    //     "$type": "ref",
-    //       "value": [
-    //         "genres",
-    //         "59849",
-    //         "rw",
-    //         2
-    //       ]
-    //   },
-    //   "rowNum": 2,
-    //     "key": "617df370-484a-4749-afed-c4b57baeff49_19760274X28X70031X1541610124986",
-    //       "listContext": "genre",
-    //         "showJawBone": false,
-    //           "jawBoneRankNum": null
-    // }
-    if (n === N.BILLBOARD) {
-      var d = "bigRow" === this.props.model.getValueSync(["bigRow", "context"]),
-        u = d && false || truths.forceStaticBillboards,
-        m = F.getExtensionForTransparentImage(this.context.models),
-        g = ["billboards", 0, m, "data"],
-        b = o.getValueSync(g);
-      if (!b || !b.id) return null;
-      e = this.renderBillboardTransitionGroup(React.createElement(BillboardRow, Object.assign({}, h, {
-          forceStatic: u
-        }))), this.hasBillboard = !0
-    } else if (n === N.BIG_ROW) e = React.createElement(LolomoBigRow, Object.assign({}, h, {
-        toggleBigRowState: this.props.toggleBigRowState,
-        bigRowIsOpen: this.props.bigRowIsOpen
-      }));
-    else if (n === N.CHARACTER_ROW) e = React.createElement(E, Object.assign({
-        model: o
-      }, h, {
-          columnsInRow: r
-        }));
-    else {
-      var I;
-      switch (n) {
-        case N.CONTINUE_WATCHING:
-          I = w;
-          break;
-        case N.WATCHLIST:
-          I = L;
-          break;
-        case N.SHORT_FORM:
-          I = v;
-          break;
-        default:
-          I = f
-      }
-      e = React.createElement(LolomoRow, Object.assign({}, h, {
-          listType: i,
-          columnsInRow: r
-        }))
+    var I;
+    switch (n) {
+      case N.CONTINUE_WATCHING:
+        I = w;
+        break;
+      case N.WATCHLIST:
+        I = L;
+        break;
+      case N.SHORT_FORM:
+        I = v;
+        break;
+      default:
+        I = f
     }
-    return e
+    return React.createElement(LolomoRow, 
+      Object.assign({}, 
+        {
+          jawBoneRankNum: null,
+          key: "5ab3ebe7-2c77-4ca9-a320-7cad43f5c9c8_62598380X32XX1551977979902",
+          listContext: "newRelease",
+          rowNum: 2,
+          showJawBone: false,
+        }, 
+        {
+          listType: "flat",
+          columnsInRow: r
+        }
+    ))
   }
   renderLolomo() {
     this.rowsFetching = {

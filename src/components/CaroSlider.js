@@ -8,7 +8,7 @@ import {debounce} from 'throttle-debounce';
 import FalcorPureRender from './FalcorPureRender';
 import Lolomo from './Lolomo';
 import LolomoRow from './LolomoRow';
-import HomeContent from './HomeContent'
+// import HomeContent from './HomeContent'
 
 // console.log(Lolomo)
 // import 'styles/caroslider.scss'
@@ -30,8 +30,45 @@ export default class CaroSlider extends Component {
               isKidsPage= {false}
               isLoading={false} 
             /> */}
-            <HomeContent />
-            {/* <LolomoRow /> */}
+            {/* <HomeContent /> */}
+
+              {/* {
+                historyState: undefined
+                id: "83"
+                initialFetchCompleted: true
+                isKidsPage: false
+                isLoading: false
+                enableInitialFetch: true
+                error: undefined
+                genreId: "83"
+                children: null
+                jawBoneRankNum: null
+                jawBoneRowNum: null
+                jawBoneVideoId: undefined
+                sortOrder: "rw"
+                trackId: null
+                uiView: "browseTitles"
+                renderSource: "client"
+              } */}
+
+            <LolomoRow 
+                historyState={ undefined}
+                id={ "83"}
+                initialFetchCompleted={ true}
+                isKidsPage={ false}
+                isLoading={ false}
+                enableInitialFetch={ true}
+                error={ undefined}
+                genreId={ "83"}
+                children={ null}
+                jawBoneRankNum={ null}
+                jawBoneRowNum={ null}
+                jawBoneVideoId={ undefined}
+                sortOrder={ "rw"}
+                trackId={ null}
+                uiView={ "browseTitles"}
+                renderSource={ "client"}
+            />
           </div>
         )
       }

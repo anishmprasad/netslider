@@ -67,8 +67,16 @@ export default class LolomoRow extends Component{
   constructor(props){
     super(props)
     fullDataLoaded: !1
-    this.getLoadedItemModels = [
-      { model: { $type: "ref", value: ["lolomo", 9, 0] }, id: 60020549 }, { model: { $type: "ref", value: ["lolomo", 9, 1] }, id: 80084088 }, { model: { $type: "ref", value: ["lolomo", 9, 2] }, id: 70065124 }, { model: { $type: "ref", value: ["lolomo", 9, 3] }, id: 80023638 }, { model: { $type: "ref", value: ["lolomo", 9, 4] }, id: 70108778 }, { model: { $type: "ref", value: ["lolomo", 9, 5] }, id: 70058021 }, { model: { $type: "ref", value: ["lolomo", 9, 6] }, id: 70054920 }, { model: { $type: "ref", value: ["lolomo", 9, 7] }, id: 70128681 }
+    this.getLoadedItemModelsx = [
+      { model: { $type: "ref", value: ["lolomo", 9, 0] }, id: 60020549 }, 
+      { model: { $type: "ref", value: ["lolomo", 9, 1] }, id: 80084088 }, 
+      { model: { $type: "ref", value: ["lolomo", 9, 2] }, id: 70065124 }, 
+      { model: { $type: "ref", value: ["lolomo", 9, 3] }, id: 80023638 }, 
+      { model: { $type: "ref", value: ["lolomo", 9, 4] }, id: 70108778 }, 
+      { model: { $type: "ref", value: ["lolomo", 9, 5] }, id: 70058021 }, 
+      { model: { $type: "ref", value: ["lolomo", 9, 6] }, id: 70054920 }, 
+      { model: { $type: "ref", value: ["lolomo", 9, 7] }, id: 70128681 },
+      { model: { $type: "ref", value: ["lolomo", 9, 7] }, id: 80115328 }
     ];
   }
   getChildContext() {
@@ -123,7 +131,7 @@ export default class LolomoRow extends Component{
       r = this.props.rowNum,
       s = {};
     return {
-      titleList: this.getLoadedItemModels.map(function (t, o) {
+      titleList: this.getLoadedItemModelsx.map(function (t, o) {
         var a = t.id,
           l = "title_" + a + "_" + r + "_" + o;
         s[a] = o;
@@ -192,6 +200,7 @@ export default class LolomoRow extends Component{
     }))
   }
   render() {
+    debugger
     var e = this.props.model,
       t = false,
       o = false,
