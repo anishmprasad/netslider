@@ -39,6 +39,7 @@ export default class TitleCardContainer extends Component {
 	}
 
 	componentWillMount() {
+		debugger;
 		this.videoModel = this.getVideoModel(this.state);
 	}
 	componentDidMount() {
