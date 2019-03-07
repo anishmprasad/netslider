@@ -337,6 +337,7 @@ export default class Slider extends Component {
     }))
   }
   render() {
+    debugger
     var e = this.getReactAnimationStyle(this.getBaseSliderOffset()),
       t = l("sliderContent", "row-with-x-columns"),
       i = this.getTotalPages(),

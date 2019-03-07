@@ -870,6 +870,28 @@ export const genreConstant = {
   "SORT_ORDER_QUERY_PARAMS": ["su", "yr", "az", "za", "mr", "rw"]
   }
 
+export const listContexts = {
+  LAZY_LOADING: { IMAGES: 6 },
+  LIST_CONTEXTS: {
+    BIG_ROW: "bigRow",
+    BILLBOARD: "billboard",
+    CHARACTER_ROW: "character",
+    CONTINUE_WATCHING: "continueWatching",
+    MY_LIST: "queue",
+    NETFLIX_ORIGINALS: "netflixOriginals",
+    RATE_MOVIES: "rateMovies",
+    SHORT_FORM: "shortForm",
+    SIMILIARS: "similars",
+    SOCIAL_POPULAR: "socialPopular",
+    SUGGESTION_GALLERY: "suggestionsForYouGallery",
+    SUGGESTION_ROW: "galleryDisplayAsRow",
+    WATCHLIST: "watchlist"
+  },
+  LIST_TYPES: {
+    COMPOSITE: "composite",
+    FLAT: "flat"
+  }
+};
 
 
 
