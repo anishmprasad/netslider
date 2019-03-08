@@ -1,15 +1,15 @@
 {
-  "isSoftBound": true,
-  "setCache": "",
-  "_ID": 5159,
-  "_allowFromWhenceYouCame": false,
-  "_boxed": false,
-  "_collectRatio": 0.75,
-  "_materialized": false,
-  "_maxRetries": 3,
-  "_maxSize": 5000000,
-  "_path": ["genres","59849","rw"],
-  "_treatDataSourceErrorsAsJSONGraphErrors": false,
-  "_treatErrorsAsValues": false,
-  "_useServerPaths": false
+	"isSoftBound": true,
+	"setCache": "",
+	"_ID": 5159,
+	"_allowFromWhenceYouCame": false,
+	"_boxed": false,
+	"_collectRatio": 0.75,
+	"_materialized": false,
+	"_maxRetries": 3,
+	"_maxSize": 5000000,
+	"_path": ["genres", "59849", "rw"],
+	"_treatDataSourceErrorsAsJSONGraphErrors": false,
+	"_treatErrorsAsValues": false,
+	"_useServerPaths": false
 }

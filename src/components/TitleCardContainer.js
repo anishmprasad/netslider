@@ -2,6 +2,7 @@ import React, { Component } from 'React';
 import PropTypes from 'prop-types';
 import { listContexts } from './constants';
 import TitleCard from './TitleCard';
+import TitleCardS from './TitleCardS';
 import ReactDOM from 'react-dom';
 
 export default class TitleCardContainer extends Component {

@@ -1,33 +1,3 @@
-// L = a({
-//   displayName: "LolomoRow",
-
-//   contextTypes: Object.assign({
-//     getModelData: s.func.isRequired,
-//     models: s.object.isRequired,
-//     renderTracker: s.object
-//   }, p),
-//   statics: {
-//     getPaths: j,
-//     defaultStrategy: R,
-//     prefetchStrategies: T,
-//     defaultSliderMoveStrategy: S
-//   },
-
-//   childContextTypes: {
-//     requestId: s.string.isRequired,
-//     trackId: s.number,
-//     jawBoneTrackId: s.number,
-//     jawBoneEpisodeTrackId: s.number,
-//     jawBoneTrailerTrackId: s.number,
-//     listContext: s.string,
-//     listId: s.string,
-//     listType: s.string,
-//     isTallRow: s.bool,
-//     impressionToken: s.string
-//   },
-
-// });
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
