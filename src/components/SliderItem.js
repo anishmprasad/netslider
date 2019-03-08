@@ -17,20 +17,21 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import lodash from 'lodash';
 
 export default class SliderItem extends Component {
 	constructor(props) {
 		super(props);
 	}
 	render() {
-		var e = a.extend(
+		var e = lodash.extend(
 			{
 				'slider-item': !0
 			},
 			this.props.additionalClasses
 		);
 		return (
-			0 !== this.props.viewportIndex && (e['slider-item-' + this.props.viewportIndex] = !0),
+			undefined !== this.props.viewportIndex && (e['slider-item-' + this.props.viewportIndex] = !0),
 			React.createElement(
 				'div',
 				{
@@ -44,3 +45,28 @@ export default class SliderItem extends Component {
 SliderItem.defaultProps = {
 	additionalClasses: {}
 };
+
+// C.r("4p", function(e, s, t) {
+//     "use strict";
+//     var i = e("eP")
+//       , r = e("a3")
+//       , a = e("cC")
+//       , d = e("9-")
+//       , n = r({
+//         displayName: "SliderItem",
+
+//         statics: {
+//             className: "slider-item"
+//         },
+//         render: function() {
+//             var e = a.extend({
+//                 "slider-item": !0
+//             }, this.props.additionalClasses);
+//             return void 0 !== this.props.viewportIndex && (e["slider-item-" + this.props.viewportIndex] = !0),
+//             i.createElement("div", {
+//                 className: d(e)
+//             }, this.props.children)
+//         }
+//     });
+//     s.exports = n
+// });

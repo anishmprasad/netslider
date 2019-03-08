@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 export default class TitleCardContainer extends Component {
 	constructor(props) {
 		super(props);
+		debugger;
 		(this.statics = {
 			getPaths: q,
 			getSize: function() {

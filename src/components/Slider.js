@@ -39,6 +39,7 @@ import SliderItem from './SliderItem';
 import TitleCardContainer from './TitleCardContainer';
 import PaginationIndicator from './PaginationIndicator';
 import LoadingBox from './LoadingBox';
+import { KeyboardConstants } from './constants';
 
 function l() {
 	for (var n = [], i = 0; i < arguments.length; i++) {
@@ -52,7 +53,16 @@ function l() {
 	}
 	return n.join(' ');
 }
-
+const x = {
+	next: {
+		b: 'discovery/akira/Common',
+		k: 'slider.handle.next'
+	},
+	previous: {
+		b: 'discovery/akira/Common',
+		k: 'slider.handle.previous'
+	}
+};
 export default class Slider extends Component {
 	constructor(props) {
 		super(props);
@@ -326,7 +336,7 @@ export default class Slider extends Component {
 			n = 0;
 		return (
 			(this.sliderWrappedItems = []),
-			o.Children.map(e, function(e, r) {
+			React.Children.map(e, function(e, r) {
 				var a = '',
 					l = !1;
 				r === t
@@ -443,6 +453,15 @@ export default class Slider extends Component {
 				e.removeEventListener('pointermove', this.handleTouchMove);
 		}
 	}
+	executeOnEnterOrSpace(c) {
+		return function(e) {
+			switch (e && e.which) {
+				case KeyboardConstants.ENTER:
+				case KeyboardConstants.SPACE:
+					c(e);
+			}
+		};
+	}
 	renderPageHandle(e, t, i, s, n) {
 		var r = l('handle', {
 			handlePrev: t,
@@ -464,12 +483,10 @@ export default class Slider extends Component {
 				'icon-leftCaret': a ? !t : t,
 				'icon-rightCaret': a ? t : !t
 			}),
-			d = this.props.sliderHandlePrevString
-				? this.props.sliderHandlePrevString
-				: this.context.formatString(x.previous),
-			p = this.props.sliderHandleNextString
-				? this.props.sliderHandleNextString
-				: this.context.formatString(x.next),
+			d = this.props.sliderHandlePrevString ? this.props.sliderHandlePrevString : 'See previous titles',
+			// : this.context.formatString(x.previous),
+			p = this.props.sliderHandleNextString ? this.props.sliderHandleNextString : 'See more titles',
+			// : this.context.formatString(x.next),
 			c = t ? d : p;
 		return React.createElement(
 			'span',
@@ -478,7 +495,7 @@ export default class Slider extends Component {
 				tabIndex: !t || this.state.hasMovedOnce ? 0 : -1,
 				ref: i,
 				onClick: n,
-				onKeyDown: m.executeOnEnterOrSpace(n),
+				onKeyDown: this.executeOnEnterOrSpace(n),
 				onMouseEnter: this.props.onMouseEnterSliderHandle,
 				onFocus: this.props.onMouseEnterSliderHandle,
 				onMouseLeave: this.props.onMouseLeaveSliderHandle,
