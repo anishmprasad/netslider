@@ -24,7 +24,7 @@
 // 	t.exports = y;
 // });
 
-import React from 'react';
+import React, { Component } from 'react';
 export default class TitleCardS extends Component {
 	getAnimationStyle() {
 		var e = this.props,

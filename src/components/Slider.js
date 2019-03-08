@@ -37,6 +37,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SliderItem from './SliderItem';
 import TitleCardContainer from './TitleCardContainer';
+import PaginationIndicator from './PaginationIndicator';
+import LoadingBox from './LoadingBox';
+
+function l() {
+	for (var n = [], i = 0; i < arguments.length; i++) {
+		var t = arguments[i];
+		if (t) {
+			var f = typeof t;
+			if ('string' === f || 'number' === f) n.push(t);
+			else if (Array.isArray(t)) n.push(e.apply(null, t));
+			else if ('object' === f) for (var o in t) Object.hasOwnProperty.call(t, o) && t[o] && n.push(o);
+		}
+	}
+	return n.join(' ');
+}
 
 export default class Slider extends Component {
 	constructor(props) {
@@ -51,18 +66,26 @@ export default class Slider extends Component {
 		this.sliderWrappedItems = [];
 		var e = this.getTotalItemCount(),
 			t = this.props.initialLowestVisibleIndex || 0;
-		return (
+		// return (
+		if (
 			!this.props.enableLooping &&
-				e &&
-				t + this.props.itemsInRow > e &&
-				(t = e - this.props.itemsInRow) < 0 &&
-				(t = 0),
-			{
+			e &&
+			t + this.props.itemsInRow > e &&
+			(t = e - this.props.itemsInRow) < 0 &&
+			(t = 0)
+		) {
+			this.state = {
 				lowestVisibleItemIndex: t,
 				hasMovedOnce: this.props.initialLowestVisibleIndex || !1,
 				sliderHandleFocused: !1
-			}
-		);
+			};
+		}
+		this.state = {
+			lowestVisibleItemIndex: t,
+			hasMovedOnce: this.props.initialLowestVisibleIndex || !1,
+			sliderHandleFocused: !1
+		};
+		// );
 	}
 
 	advanceNext(e) {
@@ -230,7 +253,7 @@ export default class Slider extends Component {
 				(n = this.getHighestIndex() - this.getLowestIndex());
 			for (var a = 0; i.length < n && i.length < t; )
 				i.push(
-					o.createElement(p, {
+					React.createElement(LoadingBox, {
 						className: 'fullWidth',
 						delay: 0.2 * a,
 						pulsate: !1,
@@ -469,7 +492,6 @@ export default class Slider extends Component {
 		);
 	}
 	render() {
-		debugger;
 		var e = this.getReactAnimationStyle(this.getBaseSliderOffset()),
 			t = l('sliderContent', 'row-with-x-columns'),
 			i = this.getTotalPages(),
@@ -484,7 +506,7 @@ export default class Slider extends Component {
 			},
 			this.renderPageHandle(i, !0, 'handlePrev', this.isPrevNavActive(), this.advancePrev),
 			s
-				? React.createElement(d, {
+				? React.createElement(PaginationIndicator, {
 						totalPages: i,
 						activePage: this.getPageNumber(this.state.lowestVisibleItemIndex)
 				  })
