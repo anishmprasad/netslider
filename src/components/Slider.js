@@ -39,6 +39,7 @@ import SliderItem from './SliderItem';
 import TitleCardContainer from './TitleCardContainer';
 import PaginationIndicator from './PaginationIndicator';
 import LoadingBox from './LoadingBox';
+import LoadingTitle from './LoadingTitle'
 import { KeyboardConstants } from './constants';
 
 function l() {
@@ -263,7 +264,7 @@ export default class Slider extends Component {
 				(n = this.getHighestIndex() - this.getLowestIndex());
 			for (var a = 0; i.length < n && i.length < t; )
 				i.push(
-					React.createElement(LoadingBox, {
+					React.createElement(LoadingTitle, {
 						className: 'fullWidth',
 						delay: 0.2 * a,
 						pulsate: !1,
@@ -334,6 +335,7 @@ export default class Slider extends Component {
 		var i = t + this.props.itemsInRow - 1,
 			s = this,
 			n = 0;
+		console.log(e);
 		return (
 			(this.sliderWrappedItems = []),
 			React.Children.map(e, function(e, r) {
@@ -356,10 +358,11 @@ export default class Slider extends Component {
 						uid: p,
 						inViewport: c
 					});
-				var u = React.cloneElement(TitleCardContainer, {
+				var u = React.cloneElement(e, {
 					sliderItemId: p,
 					itemTabbable: l
 				});
+				console.log(u);
 				return React.createElement(
 					SliderItem,
 					{
