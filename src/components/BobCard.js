@@ -96,10 +96,27 @@
 //     o.exports = v(g)
 // });
 
-import React from 'react'
+import React,{Component} from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import BobCardElement from './BobCardElement'
+
+class BobCardEle extends Component{
+    render(){
+        var e = this.props.isBobOpen;
+        return React.createElement(TransitionGroup, null, e && React.createElement(BobCardElement, {
+            boxShape: this.props.boxShape,
+            className: this.props.className,
+            videoModel: this.props.videoModel,
+            titleCardImage: this.props.titleCardImage,
+            getParentSliderItem: this.props.getParentSliderItem,
+            onBobOpen: this.props.onBobOpen,
+            onBobClose: this.props.onBobClose
+        }, this.props.children))
+    }
+}
 
 export default function BobCard(e) {
-        return React.createElement(r, {
+        return React.createElement(BobCardEle, {
             boxShape: "16x9",
             className: "bob-card-adult-video-merch",
             videoModel: e.videoModel,
@@ -107,7 +124,8 @@ export default function BobCard(e) {
             onBobOpen: e.onBobOpen,
             onBobClose: e.onBobClose,
             isBobOpen: e.isBobOpen
-        }, React.createElement(n, {
+        }, 
+        React.createElement("div", {
             videoModel: e.videoModel,
             isMutedByDefault: e.isMutedByDefault,
             isShowAsARow: e.isShowAsARow
@@ -116,13 +134,13 @@ export default function BobCard(e) {
               , t = o.playerState
               , n = o.mouseHandlers
               , r = o.showMetaData;
-            return React.createElement("div", null, t !== d.POST_PLAYBACK && React.createElement("img", {
+            return React.createElement("div", null, t !== 'POST_PLAYBACK' && React.createElement("img", {
                 src: e.titleCardImageHighRes,
                 className: "bob-title-art",
                 style: {
                     zIndex: 0
                 }
-            }), t === d.POST_PLAYBACK && React.createElement(b, {
+            }), t === "POST_PLAYBACK" && React.createElement(b, {
                 model: e.model,
                 auto: !0,
                 size: "_665x375",
@@ -163,7 +181,7 @@ export default function BobCard(e) {
                 onClickJawHitZone: e.onClickJawHitZone
             })), React.createElement("div", {
                 className: "bob-actions-wrapper"
-            }, React.createElement(m, {
+            }, React.createElement(TransitionGroup, {
                 videoModel: e.videoModel,
                 model: e.model,
                 svgButton: !0,

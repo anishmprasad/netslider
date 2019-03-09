@@ -46,7 +46,8 @@ export default class TitleCardContainer extends Component {
 		this.videoModel = willmount
 	}
 	componentDidMount() {
-		l.on('rating:set', this.onRating), (this._isMounted = !0);
+		// l.on('rating:set', this.onRating), (this._isMounted = !0);
+		this._isMounted = !0
 	}
 	componentWillUpdate(e, t) {
 		// this.videoModel = this.getVideoModel(t);
