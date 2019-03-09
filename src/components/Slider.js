@@ -1,12 +1,7 @@
 // C.r("4d", function (e, t, i) {
 //   "use strict";
 
-//   function s(e, t, i) {
-//     var s = t / e,
-//       n = i / e,
-//       o = n / s;
-//     return Math.ceil(o)
-//   }
+
 //   var n = e("dP"),
 //     o = e("fE"),
 //     r = e("aP"),
@@ -35,12 +30,14 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom'
 import SliderItem from './SliderItem';
 import TitleCardContainer from './TitleCardContainer';
 import PaginationIndicator from './PaginationIndicator';
 import LoadingBox from './LoadingBox';
 import LoadingTitle from './LoadingTitle'
 import { KeyboardConstants } from './constants';
+import GlobalFunctions from './GlobalFunctions'
 
 function l() {
 	for (var n = [], i = 0; i < arguments.length; i++) {
@@ -54,6 +51,34 @@ function l() {
 	}
 	return n.join(' ');
 }
+function ObjectCheck(){
+    var c = e("9H")
+      , r = c(e("9U"))
+      , s = !1;
+    try {
+        s = "object" === ("undefined" == typeof process ? "undefined" : (0,
+        r.default)(process)) && "[object process]" === Object.prototype.toString.call(process) || "undefined" == typeof window
+    } catch (e) {}
+}
+function isTouchEnabled() {
+	return ("ontouchstart"in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0)
+}
+function getTouchObject(t) {
+		return !this.isTouchEnabled() || t.pointerType && "mouse" === t.pointerType ? t : t.changedTouches ? t.changedTouches[0] : t
+}
+function getTouchObjectStart(t) {
+	var n = this.getTouchObject(t);
+	return {
+		x: n.clientX,
+		y: n.clientY
+	}
+}
+  function s(e, t, i) {
+    var s = t / e,
+      n = i / e,
+      o = n / s;
+    return Math.ceil(o)
+  }
 const x = {
 	next: {
 		b: 'discovery/akira/Common',
@@ -99,7 +124,7 @@ export default class Slider extends Component {
 		// );
 	}
 
-	advanceNext(e) {
+	advanceNext = (e) => {
 		var t = this.getTotalItemCount(),
 			i = this.props.itemsInRow,
 			n = this.state.lowestVisibleItemIndex,
@@ -129,7 +154,7 @@ export default class Slider extends Component {
 					: this.shiftSlider(o, h, this.statics.MOVE_DIRECTION_NEXT, null, !1, s(t, i, o));
 		}
 	}
-	advancePrev(e) {
+	advancePrev = (e) => {
 		var t = this.getTotalItemCount(),
 			i = this.props.itemsInRow,
 			n = this.state.lowestVisibleItemIndex,
@@ -159,13 +184,13 @@ export default class Slider extends Component {
 	}
 	shiftSlider(e, t, i, s, n, o) {
 		var r = this,
-			l = a.findDOMNode(this.refs.sliderContent),
-			h = this.refs.handlePrev ? a.findDOMNode(this.refs.handlePrev) : null,
+			l = ReactDOM.findDOMNode(this.refs.sliderContent),
+			h = this.refs.handlePrev ? ReactDOM.findDOMNode(this.refs.handlePrev) : null,
 			d = this.getAnimationStyle(t);
 		clearTimeout(this.animateHoverTimeout),
 			'function' == typeof this.props.onSliderMove && this.props.onSliderMove(e, i),
 			h && h.classList.add('active'),
-			v.pauseScanning(),
+			GlobalFunctions.pauseScanning(),
 			l.addEventListener('transitionend', function t(n) {
 				n.target === this &&
 					(l.removeEventListener('transitionend', t),
@@ -177,11 +202,11 @@ export default class Slider extends Component {
 					r.resetSliderPosition(),
 					(r.isAnimating = !1),
 					r.refocusAfterShift(i),
-					v.resumeScanning(),
-					v.requestScan(
+					GlobalFunctions.resumeScanning(),
+					GlobalFunctions.requestScan(
 						Object.assign(
 							{
-								event: f.LOLOMO_SCROLL,
+								event: 'lolomoScroll',
 								xScrollDirection: i,
 								rowSegment: o
 							},
@@ -204,13 +229,13 @@ export default class Slider extends Component {
 		t &&
 			t.length > 1 &&
 			((s = e === this.statics.MOVE_DIRECTION_NEXT ? 1 : t.length - 2),
-			(i = a.findDOMNode(t[s]).querySelector('.slider-refocus')) && i.focus());
+			(i = ReactDOM.findDOMNode(t[s]).querySelector('.slider-refocus')) && i.focus());
 	}
 	resetSliderPosition() {
 		if (this.refs.sliderContent) {
 			var e = this.getBaseSliderOffset(),
 				t = this.getAnimationStyle(e);
-			a.findDOMNode(this.refs.sliderContent).setAttribute('style', t);
+			ReactDOM.findDOMNode(this.refs.sliderContent).setAttribute('style', t);
 		}
 	}
 	getSliderItemWidth() {
@@ -260,9 +285,9 @@ export default class Slider extends Component {
 			n = 0,
 			r = this.state.lowestVisibleItemIndex - this.getLowestIndex();
 		if (this.props.children && this.props.children.length) {
-			(i = this.props.children.slice(this.getLowestIndex(), this.getHighestIndex())),
-				(n = this.getHighestIndex() - this.getLowestIndex());
-			for (var a = 0; i.length < n && i.length < t; )
+			i = this.props.children.slice(this.getLowestIndex(), this.getHighestIndex())
+			n = this.getHighestIndex() - this.getLowestIndex();
+			for (var a = 0; i.length < n && i.length < t;a++ ){
 				i.push(
 					React.createElement(LoadingTitle, {
 						className: 'fullWidth',
@@ -271,8 +296,9 @@ export default class Slider extends Component {
 						displayWhenNotPulsing: !0,
 						key: 'loading-title-' + a
 					})
-				),
-					a++;
+				)
+			}
+				
 			this.getTotalPages() > 1 &&
 				this.props.enableLooping &&
 				(this.getHighestIndex() - this.state.lowestVisibleItemIndex <= 2 * e &&
@@ -295,8 +321,9 @@ export default class Slider extends Component {
 		return this.wrapSliderItems(i, r);
 	}
 	cloneItemsWithNewKeys(e, t) {
+		console.log('cloneItemsWithNewKeys',e)
 		return e.map(function(e) {
-			return o.cloneElement(e, {
+			return React.cloneElement(e, {
 				key: e.key + t
 			});
 		});
@@ -335,7 +362,6 @@ export default class Slider extends Component {
 		var i = t + this.props.itemsInRow - 1,
 			s = this,
 			n = 0;
-		console.log(e);
 		return (
 			(this.sliderWrappedItems = []),
 			React.Children.map(e, function(e, r) {
@@ -362,7 +388,6 @@ export default class Slider extends Component {
 					sliderItemId: p,
 					itemTabbable: l
 				});
-				console.log(u);
 				return React.createElement(
 					SliderItem,
 					{
@@ -391,10 +416,10 @@ export default class Slider extends Component {
 		}
 		return null;
 	}
-	handleMouseLeaveSliderMask() {
+	handleMouseLeaveSliderMask = () => {
 		clearTimeout(this.animateHoverTimeout);
 	}
-	handleTouchStart(e) {
+	handleTouchStart = (e) => {
 		if (e.pointerType && 'touch' !== e.pointerType) return void e.stopPropagation();
 		this.touchStart = I.getTouchObjectStart(e);
 	}
@@ -443,15 +468,15 @@ export default class Slider extends Component {
 		return this.getPageNumber(this.state.lowestVisibleItemIndex) + 1 === this.getTotalPages();
 	}
 	componentDidMount() {
-		if (I.isTouchEnabled()) {
-			var e = a.findDOMNode(this.refs.sliderContent);
+		if (isTouchEnabled()) {
+			var e = ReactDOM.findDOMNode(this.refs.sliderContent);
 			e.addEventListener('pointerdown', this.handleTouchStart),
 				e.addEventListener('pointermove', this.handleTouchMove);
 		}
 	}
 	componentWillUnmount() {
-		if (I.isTouchEnabled()) {
-			var e = a.findDOMNode(this.refs.sliderContent);
+		if (isTouchEnabled()) {
+			var e = ReactDOM.findDOMNode(this.refs.sliderContent);
 			e.removeEventListener('pointerdown', this.handleTouchStart),
 				e.removeEventListener('pointermove', this.handleTouchMove);
 		}
@@ -519,39 +544,67 @@ export default class Slider extends Component {
 			n = l('sliderMask', {
 				showPeek: this.props.enablePeek
 			});
-		return React.createElement(
-			'div',
-			{
-				className: 'slider'
-			},
-			this.renderPageHandle(i, !0, 'handlePrev', this.isPrevNavActive(), this.advancePrev),
-			s
-				? React.createElement(PaginationIndicator, {
-						totalPages: i,
-						activePage: this.getPageNumber(this.state.lowestVisibleItemIndex)
-				  })
-				: null,
-			React.createElement(
-				'div',
-				{
-					className: n,
-					onMouseLeave: this.handleMouseLeaveSliderMask
-				},
-				React.createElement(
-					'div',
-					{
-						className: t,
-						ref: 'sliderContent',
-						style: e,
-						onTouchStart: this.handleTouchStart,
-						onTouchMove: this.handleTouchMove,
-						onWheel: this.handleMouseWheel
-					},
-					this.getSliderContents()
-				)
-			),
-			this.renderPageHandle(i, !1, 'handleNext', this.isNextNavActive(), this.advanceNext)
-		);
+		// console.log('getSliderContents',this.getSliderContents())
+		return(
+			<div className= 'slider'>
+				{this.renderPageHandle(i, !0, 'handlePrev', this.isPrevNavActive(), this.advancePrev)}
+				{s
+				? <PaginationIndicator
+						totalPages= {i}
+						activePage= {this.getPageNumber(this.state.lowestVisibleItemIndex)}
+				  />
+				: null}
+				<div 
+					className={n}
+					onMouseLeave= {this.handleMouseLeaveSliderMask}
+				>
+					<div
+						className={ t}
+						ref={ 'sliderContent'}
+						style={ e}
+						onTouchStart={ this.handleTouchStart}
+						onTouchMove={ this.handleTouchMove}
+						onWheel={ this.handleMouseWheel}
+					>
+					{ this.getSliderContents()}
+					</div>
+				</div>
+				{this.renderPageHandle(i, !1, 'handleNext', this.isNextNavActive(), this.advanceNext)}
+			</div>
+		)
+		// return React.createElement(
+		// 	'div',
+		// 	{
+		// 		className: 'slider'
+		// 	},
+		// 	this.renderPageHandle(i, !0, 'handlePrev', this.isPrevNavActive(), this.advancePrev),
+		// 	s
+		// 		? React.createElement(PaginationIndicator, {
+		// 				totalPages: i,
+		// 				activePage: this.getPageNumber(this.state.lowestVisibleItemIndex)
+		// 		  })
+		// 		: null,
+		// 	React.createElement(
+		// 		'div',
+		// 		{
+		// 			className: n,
+		// 			onMouseLeave: this.handleMouseLeaveSliderMask
+		// 		},
+		// 		React.createElement(
+		// 			'div',
+		// 			{
+		// 				className: t,
+		// 				ref: 'sliderContent',
+		// 				style: e,
+		// 				onTouchStart: this.handleTouchStart,
+		// 				onTouchMove: this.handleTouchMove,
+		// 				onWheel: this.handleMouseWheel
+		// 			},
+		// 			this.getSliderContents()
+		// 		)
+		// 	),
+		// 	this.renderPageHandle(i, !1, 'handleNext', this.isNextNavActive(), this.advanceNext)
+		// );
 	}
 }
 

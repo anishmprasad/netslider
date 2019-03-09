@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Row from './Row';
 import TitleCardContainer from './TitleCardContainer';
+import aclass from './ModalGlobalFunctions'
 
 const constant = {
 	LIST_CONTEXTS: {
@@ -28,11 +29,22 @@ const constant = {
 		IMAGES: 6
 	}
 };
+function queue(e, t) {
+            return t = t || 10,
+            setTimeout(function() {
+                e()
+            }, t)
+        }
+function cancelQueuedItem(e) {
+            clearTimeout(e)
+}
 
 export default class LolomoRow extends Component {
 	constructor(props) {
 		super(props);
-		fullDataLoaded: !1;
+		this.state = {
+			fullDataLoaded: !1
+		}
 		this.getLoadedItemModelsx = [
 			{ model: { $type: 'ref', value: ['lolomo', 9, 0] }, id: 60020549 },
 			{ model: { $type: 'ref', value: ['lolomo', 9, 1] }, id: 80084088 },
@@ -134,14 +146,17 @@ export default class LolomoRow extends Component {
 	getRowItems() {
 		var e = [],
 			t = this.getTitles();
-		// 70202589: 6
-		// 80002612: 7
-		// 80018294: 2
-		// 80025172: 5
-		// 80113647: 4
-		// 80115328: 1
-		// 80185048: 3
-		// 80235864: 0
+		var orderedItemList = {
+			70142436: 5,
+			70254851: 4,
+			70264888: 6,
+			80002479: 0,
+			80074249: 2,
+			80130521: 3,
+			80213025: 7,
+			80235864: 1
+		}
+		// console.log(this.getTitles())
 		return {
 			rowItems: e.concat(t.titleList).slice(0, 100),
 			orderedItemList: t.orderedItemList || {}
@@ -163,14 +178,14 @@ export default class LolomoRow extends Component {
 			j(e, o, t)
 		);
 	}
-	handleSliderMove() {
+	handleSliderMove = () => {
 		var e = this;
 		this.state.fullDataLoaded ||
 			((this.state.fullDataLoaded = !0),
-			c.queue(function() {
+			queue(function() {
 				var t;
-				return (t = e.props.model).get.apply(t, (0, r.default)(e.sliderMovePqls())).subscribe(
-					M,
+				return aclass.subscribe(
+					function(){},
 					function() {
 						return e.forceUpdate();
 					},
@@ -196,6 +211,7 @@ export default class LolomoRow extends Component {
 			l = a.rowItems || [],
 			u = s && a.orderedItemList,
 			c = 40;
+		console.log(this.getRowItems())
 		return 0 === c || 0 === l.length
 			? null
 			: React.createElement(
@@ -226,9 +242,9 @@ export default class LolomoRow extends Component {
 							columnsInRow: 6,
 							enablePaginationIndicator: !0,
 							isMyListRow: false,
-							orderedItemList: false
+							orderedItemList: u || null
 						},
-						this.props.children
+						l
 					)
 			  );
 	}

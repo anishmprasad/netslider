@@ -4,22 +4,23 @@ import { listContexts } from './constants';
 import TitleCard from './TitleCard';
 import TitleCardS from './TitleCardS';
 import ReactDOM from 'react-dom';
-
+const r = [["summary"], ["title"], ["titleMaturity"], ["userRating"], ["userRatingRequestId"]];
+import {willmount,update,getTrackingInfoFromContext} from './carddata';
+import BobCardContainer from './BobCardContainer'
 export default class TitleCardContainer extends Component {
 	constructor(props) {
 		super(props);
-		debugger;
 		(this.statics = {
-			getPaths: q,
+			// getPaths: q,
 			getSize: function() {
 				return J;
 			}
 		}),
 			(this._isMounted = !1);
 		this.scope = {};
-		(this.videoModel = r({
-			id: 0
-		})),
+		// (this.videoModel = r({
+		// 	id: 0
+		// })),
 			(this.onBobFocusEnd = 0);
 		this.onBoxartFocusEnd = 0;
 		this.jawBoneDataLoadTimeout = 0;
@@ -28,10 +29,10 @@ export default class TitleCardContainer extends Component {
 			(this.scope = {
 				isHovering: !1,
 				hasFetchedBobData: !1
-			}),
-			{
+			})
+		this.state = {
 				isBobOpen: !1
-			};
+		};
 	}
 
 	getChildContext() {
@@ -41,14 +42,15 @@ export default class TitleCardContainer extends Component {
 	}
 
 	componentWillMount() {
-		debugger;
-		this.videoModel = this.getVideoModel(this.state);
+		// this.videoModel = this.getVideoModel(this.state);
+		this.videoModel = willmount
 	}
 	componentDidMount() {
 		l.on('rating:set', this.onRating), (this._isMounted = !0);
 	}
 	componentWillUpdate(e, t) {
-		this.videoModel = this.getVideoModel(t);
+		// this.videoModel = this.getVideoModel(t);
+		this.videoModel = update
 	}
 	componentWillReceiveProps(e) {
 		!this.props.myJawBoneOpen && e.myJawBoneOpen
@@ -97,24 +99,25 @@ export default class TitleCardContainer extends Component {
 		}
 		return d;
 	}
-	getBobTrackingInfo() {
+	getBobTrackingInfo =() => {
 		var e = this.videoModel,
 			t = e.userRating,
 			o = e.userRatingRequestId,
 			i = t.matchScore,
 			n = t.tooNewForMatchScore,
 			s = t.predicted;
-		return this.props.getTrackingInfoFromContext(
-			{
-				matchRequestId: o,
-				predictedRating: s,
-				matchScore: i,
-				tooNewForMatchScore: n,
-				rowNum: 'number' == typeof this.props.rowNum ? this.props.rowNum : this.context.rowNum,
-				rankNum: this.props.rankNum
-			},
-			['trackId', 'lolomoId', 'listId', 'requestId', 'videoId']
-		);
+		return getTrackingInfoFromContext;
+		// return this.props.getTrackingInfoFromContext(
+		// 	{
+		// 		matchRequestId: o,
+		// 		predictedRating: s,
+		// 		matchScore: i,
+		// 		tooNewForMatchScore: n,
+		// 		rowNum: 'number' == typeof this.props.rowNum ? this.props.rowNum : this.context.rowNum,
+		// 		rankNum: this.props.rankNum
+		// 	},
+		// 	['trackId', 'lolomoId', 'listId', 'requestId', 'videoId']
+		// );
 	}
 	getBoxartTrackingInfo() {
 		return this.props.getTrackingInfoFromContext(
@@ -304,12 +307,13 @@ export default class TitleCardContainer extends Component {
 	}
 	getWatchURL() {
 		var e = this.getBobTrackingInfo();
-		return M.buildAkiraPlayerURL(
-			this.videoModel && this.videoModel.summary && this.videoModel.summary.id,
-			M.buildAkiraPlayerQuery({
-				videoTrackingInfo: e
-			})
-		);
+		return '/watch/80234795?tctx=2%2C1%2C%2C%2C'
+		// return M.buildAkiraPlayerURL(
+		// 	this.videoModel && this.videoModel.summary && this.videoModel.summary.id,
+		// 	M.buildAkiraPlayerQuery({
+		// 		videoTrackingInfo: e
+		// 	})
+		// );
 	}
 	shouldShowProgress() {
 		return this.context.listContext === listContexts.LIST_CONTEXTS.WATCHLIST
@@ -318,7 +322,6 @@ export default class TitleCardContainer extends Component {
 					!!this.videoModel.episodeRuntime;
 	}
 	render() {
-		debugger;
 		var e = this.props,
 			t = e.itemTabbable,
 			o = e.className,
@@ -328,11 +331,11 @@ export default class TitleCardContainer extends Component {
 			a = this.getBobTrackingInfo(),
 			r = this.videoModel,
 			d = this.shouldShowProgress(),
-			c = I.isValueError(r.summary) || !r.summary,
-			u = React.createElement(h, {
+			// c = I.isValueError(r.summary) || !r.summary,
+			u = React.createElement(BobCardContainer, {
 				isBobOpen: this.state.isBobOpen,
 				isTallPanel: n,
-				model: this.getFalcorVideoModel(),
+				// model: this.getFalcorVideoModel(),
 				onBobClose: this.onBobClose,
 				onBobOpen: this.onBobOpen,
 				onJawOpen: this.handleJawOpen,
@@ -341,12 +344,12 @@ export default class TitleCardContainer extends Component {
 				videoModel: r
 			});
 		return (
-			s &&
-				c &&
-				s.logEvent(p.DebugEvent, {
-					name: 'TitleCardError',
-					data: r
-				}),
+			// s &&
+			// 	c &&
+			// 	s.logEvent(p.DebugEvent, {
+			// 		name: 'TitleCardError',
+			// 		data: r
+			// 	}),
 			this.context.listContext === listContexts.LIST_CONTEXTS.SHORT_FORM
 				? React.createElement(
 						TitleCardS,
@@ -357,9 +360,9 @@ export default class TitleCardContainer extends Component {
 							isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
 							isDisliked: this.isDisliked(),
 							isFocused: this.props.myJawBoneOpen,
-							isInvalid: c,
+							isInvalid: !r.isValid,
 							itemTabbable: t,
-							model: this.getFalcorVideoModel(),
+							// model: this.getFalcorVideoModel(),
 							onClick: this.handleClick,
 							onKeyDown: this.handleKeyDown,
 							onMouseEnter: this.handleMouseEnter,
@@ -384,7 +387,7 @@ export default class TitleCardContainer extends Component {
 							isFocused: this.props.myJawBoneOpen,
 							isInvalid: c,
 							itemTabbable: t,
-							model: this.getFalcorVideoModel(),
+							// model: this.getFalcorVideoModel(),
 							onClick: this.handleClick,
 							onKeyDown: this.handleKeyDown,
 							onMouseEnter: this.handleMouseEnter,
@@ -406,9 +409,9 @@ export default class TitleCardContainer extends Component {
 							isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
 							isDisliked: this.isDisliked(),
 							isFocused: this.props.myJawBoneOpen,
-							isInvalid: c,
+							isInvalid: !r.isValid,							
 							itemTabbable: t,
-							model: this.getFalcorVideoModel(),
+							// model: this.getFalcorVideoModel(),
 							onClick: this.handleClick,
 							onKeyDown: this.handleKeyDown,
 							onMouseEnter: this.handleMouseEnter,

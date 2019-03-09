@@ -33,6 +33,8 @@
 
 import React, { Component } from "React";
 import PropTypes from 'prop-types';
+import {getModelDataTruths} from './getModelDataTruths'
+import BobCard from './BobCard'
 
 export default class BobCardContainer extends Component{
   constructor(props){
@@ -87,10 +89,10 @@ export default class BobCardContainer extends Component{
         showAudioToggle: e.hasVideoMerch,
         showAddToMyList: !!e.queue,
         showPlayButton: e.isPlayable,
-        showRecentInterestingMoment: e.watchState !== g.STATES.UNWATCHED,
+        showRecentInterestingMoment: e.watchState !== "unwatched",
         showNewEpisodeBadge: !0
       };
-    return e.watchState === g.STATES.RESUME && (o.showProgressBar = !0), e.watchState !== g.STATES.UNWATCHED && (o.showEvidence = !1, o.showMetaData = !1), this.context.listContext === m.LIST_CONTEXTS.CONTINUE_WATCHING && (o.showEvidence = !1, o.showProgressBar = !1), e.isOriginal && !e.isPlayable && (o.showMetaData = !1), o
+    return e.watchState === 'resume' && (o.showProgressBar = !0), e.watchState !== "unwatched" && (o.showEvidence = !1, o.showMetaData = !1), this.context.listContext === 'continueWatching' && (o.showEvidence = !1, o.showProgressBar = !1), e.isOriginal && !e.isPlayable && (o.showMetaData = !1), o
   }
   render(){
     var e = this.props,
@@ -102,123 +104,132 @@ export default class BobCardContainer extends Component{
       r = e.isTallPanel,
       h = e.enableMetaDataHiding,
       d = e.videoModel.hasVideoMerch,
-      w = this.context.getModelData("truths"),
+      w = getModelDataTruths,
       l = w.videoMerchAudioOffByDefault,
       g = this.getBobToggles();
-    return C.kidsProfileWithoutParity(this.context.models) ? r ? React.createElement(P, {
-      videoModel: t,
-      model: this.props.model,
-      episodesButtonText: this.context.getI18nString(T, "label.episodes"),
-      titleCardImage: t.image,
-      playbackQueryParams: o,
-      trackingInfo: this.props.trackingInfo,
-      isBobOpen: i,
-      showProgressBar: g.showProgressBar,
-      showProgressSummary: g.showProgressSummary,
-      showPlayButton: g.showPlayButton,
-      showMetaData: g.showMetaData,
-      showEvidence: g.showEvidence,
-      onBobOpen: s,
-      onBobClose: n
-    }) : React.createElement(B, {
-      videoModel: t,
-      model: this.props.model,
-      episodesButtonText: this.context.getI18nString(T, "label.episodes"),
-      titleCardImage: t.image,
-      playbackQueryParams: o,
-      trackingInfo: this.props.trackingInfo,
-      isBobOpen: i,
-      showProgressBar: g.showProgressBar,
-      showPlayButton: g.showPlayButton,
-      showMetaData: g.showMetaData,
-      onBobOpen: s,
-      onBobClose: n
-    }) : r ? d ? React.createElement(b, {
-      videoModel: t,
-      model: this.props.model,
-      titleCardImage: t.image,
-      titleCardImageHighRes: t.imageHighRes,
-      playbackQueryParams: o,
-      isBobOpen: i,
-      showMetaData: g.showMetaData,
-      showThumbRatingIcons: g.showThumbRatingIcons,
-      showEvidence: g.showEvidence,
-      showAddToMyList: g.showAddToMyList,
-      showAudioToggle: g.showAudioToggle,
-      showRecentInterestingMoment: g.showRecentInterestingMoment,
-      showProgressBar: g.showProgressBar,
-      showProgressSummary: g.showProgressSummary,
-      showNewEpisodeBadge: g.showNewEpisodeBadge,
-      showPlayButton: g.showPlayButton,
-      enableMetaDataHiding: h,
-      onMylistChange: this.onMylistChange,
-      onBobOpen: s,
-      onBobClose: n,
-      onClickJawHitZone: this.onClickJawHitZone,
-      isMutedByDefault: l
-    }) : React.createElement(y, {
-      videoModel: t,
-      model: this.props.model,
-      titleCardImage: t.image,
-      playbackQueryParams: o,
-      isBobOpen: i,
-      showMetaData: g.showMetaData,
-      showThumbRatingIcons: g.showThumbRatingIcons,
-      showEvidence: g.showEvidence,
-      showAddToMyList: g.showAddToMyList,
-      showRecentInterestingMoment: g.showRecentInterestingMoment,
-      showProgressBar: g.showProgressBar,
-      showProgressSummary: g.showProgressSummary,
-      showNewEpisodeBadge: g.showNewEpisodeBadge,
-      showPlayButton: g.showPlayButton,
-      onMylistChange: this.onMylistChange,
-      onBobOpen: s,
-      onBobClose: n,
-      onClickJawHitZone: this.onClickJawHitZone
-    }) : d ? React.createElement(p, {
-      videoModel: t,
-      model: this.props.model,
-      titleCardImage: t.image,
-      titleCardImageHighRes: t.imageHighRes,
-      playbackQueryParams: o,
-      isBobOpen: i,
-      showMetaData: g.showMetaData,
-      showThumbRatingIcons: g.showThumbRatingIcons,
-      showEvidence: g.showEvidence,
-      showAddToMyList: g.showAddToMyList,
-      showAudioToggle: g.showAudioToggle,
-      showRecentInterestingMoment: g.showRecentInterestingMoment,
-      showProgressBar: g.showProgressBar,
-      showProgressSummary: g.showProgressSummary,
-      showNewEpisodeBadge: g.showNewEpisodeBadge,
-      showPlayButton: g.showPlayButton,
-      enableMetaDataHiding: h,
-      onMylistChange: this.onMylistChange,
-      onBobOpen: s,
-      onBobClose: n,
-      onClickJawHitZone: this.onClickJawHitZone,
-      isMutedByDefault: l
-    }) : React.createElement(M, {
-      videoModel: t,
-      model: this.props.model,
-      titleCardImage: t.image,
-      playbackQueryParams: o,
-      isBobOpen: i,
-      showMetaData: g.showMetaData,
-      showThumbRatingIcons: g.showThumbRatingIcons,
-      showEvidence: g.showEvidence,
-      showAddToMyList: g.showAddToMyList,
-      showRecentInterestingMoment: g.showRecentInterestingMoment,
-      showProgressBar: g.showProgressBar,
-      showProgressSummary: g.showProgressSummary,
-      showNewEpisodeBadge: g.showNewEpisodeBadge,
-      showPlayButton: g.showPlayButton,
-      onMylistChange: this.onMylistChange,
-      onBobOpen: s,
-      onBobClose: n,
-      onClickJawHitZone: this.onClickJawHitZone,
-      isMutedByDefault: l
-    })
+    // return false ? false ? 
+    //     React.createElement({stub: true}, {
+    //       videoModel: t,
+    //       model: this.props.model,
+    //       episodesButtonText: this.context.getI18nString(T, "label.episodes"),
+    //       titleCardImage: t.image,
+    //       playbackQueryParams: o,
+    //       trackingInfo: this.props.trackingInfo,
+    //       isBobOpen: i,
+    //       showProgressBar: g.showProgressBar,
+    //       showProgressSummary: g.showProgressSummary,
+    //       showPlayButton: g.showPlayButton,
+    //       showMetaData: g.showMetaData,
+    //       showEvidence: g.showEvidence,
+    //       onBobOpen: s,
+    //       onBobClose: n
+    //     }) 
+    //   : React.createElement({stub: true}, {
+    //       videoModel: t,
+    //       model: this.props.model,
+    //       episodesButtonText: this.context.getI18nString(T, "label.episodes"),
+    //       titleCardImage: t.image,
+    //       playbackQueryParams: o,
+    //       trackingInfo: this.props.trackingInfo,
+    //       isBobOpen: i,
+    //       showProgressBar: g.showProgressBar,
+    //       showPlayButton: g.showPlayButton,
+    //       showMetaData: g.showMetaData,
+    //       onBobOpen: s,
+    //       onBobClose: n
+    //   }) 
+    //   : r ? 
+    //     d ? React.createElement(b, {
+    //       videoModel: t,
+    //       model: this.props.model,
+    //       titleCardImage: t.image,
+    //       titleCardImageHighRes: t.imageHighRes,
+    //       playbackQueryParams: o,
+    //       isBobOpen: i,
+    //       showMetaData: g.showMetaData,
+    //       showThumbRatingIcons: g.showThumbRatingIcons,
+    //       showEvidence: g.showEvidence,
+    //       showAddToMyList: g.showAddToMyList,
+    //       showAudioToggle: g.showAudioToggle,
+    //       showRecentInterestingMoment: g.showRecentInterestingMoment,
+    //       showProgressBar: g.showProgressBar,
+    //       showProgressSummary: g.showProgressSummary,
+    //       showNewEpisodeBadge: g.showNewEpisodeBadge,
+    //       showPlayButton: g.showPlayButton,
+    //       enableMetaDataHiding: h,
+    //       onMylistChange: this.onMylistChange,
+    //       onBobOpen: s,
+    //       onBobClose: n,
+    //       onClickJawHitZone: this.onClickJawHitZone,
+    //       isMutedByDefault: l
+    //   }) 
+    //   : React.createElement(y, {
+    //       videoModel: t,
+    //       model: this.props.model,
+    //       titleCardImage: t.image,
+    //       playbackQueryParams: o,
+    //       isBobOpen: i,
+    //       showMetaData: g.showMetaData,
+    //       showThumbRatingIcons: g.showThumbRatingIcons,
+    //       showEvidence: g.showEvidence,
+    //       showAddToMyList: g.showAddToMyList,
+    //       showRecentInterestingMoment: g.showRecentInterestingMoment,
+    //       showProgressBar: g.showProgressBar,
+    //       showProgressSummary: g.showProgressSummary,
+    //       showNewEpisodeBadge: g.showNewEpisodeBadge,
+    //       showPlayButton: g.showPlayButton,
+    //       onMylistChange: this.onMylistChange,
+    //       onBobOpen: s,
+    //       onBobClose: n,
+    //       onClickJawHitZone: this.onClickJawHitZone
+    //   }) 
+    //   : d 
+    //  ? 
+    return React.createElement(BobCard, {
+          videoModel: t,
+          model: this.props.model,
+          titleCardImage: t.image,
+          titleCardImageHighRes: t.imageHighRes,
+          playbackQueryParams: o,
+          isBobOpen: i,
+          showMetaData: g.showMetaData,
+          showThumbRatingIcons: g.showThumbRatingIcons,
+          showEvidence: g.showEvidence,
+          showAddToMyList: g.showAddToMyList,
+          showAudioToggle: g.showAudioToggle,
+          showRecentInterestingMoment: g.showRecentInterestingMoment,
+          showProgressBar: g.showProgressBar,
+          showProgressSummary: g.showProgressSummary,
+          showNewEpisodeBadge: g.showNewEpisodeBadge,
+          showPlayButton: g.showPlayButton,
+          enableMetaDataHiding: h,
+          onMylistChange: this.onMylistChange,
+          onBobOpen: s,
+          onBobClose: n,
+          onClickJawHitZone: this.onClickJawHitZone,
+          isMutedByDefault: l
+      }) 
+      // : React.createElement(M, {
+      //     videoModel: t,
+      //     model: this.props.model,
+      //     titleCardImage: t.image,
+      //     playbackQueryParams: o,
+      //     isBobOpen: i,
+      //     showMetaData: g.showMetaData,
+      //     showThumbRatingIcons: g.showThumbRatingIcons,
+      //     showEvidence: g.showEvidence,
+      //     showAddToMyList: g.showAddToMyList,
+      //     showRecentInterestingMoment: g.showRecentInterestingMoment,
+      //     showProgressBar: g.showProgressBar,
+      //     showProgressSummary: g.showProgressSummary,
+      //     showNewEpisodeBadge: g.showNewEpisodeBadge,
+      //     showPlayButton: g.showPlayButton,
+      //     onMylistChange: this.onMylistChange,
+      //     onBobOpen: s,
+      //     onBobClose: n,
+      //     onClickJawHitZone: this.onClickJawHitZone,
+      //     isMutedByDefault: l
+      // })
   }
 }
 

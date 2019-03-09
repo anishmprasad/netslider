@@ -86,15 +86,15 @@ export default class Row extends Component {
 			rowNum: this.props.rowNum
 		};
 	}
-	handleSliderMove(e, o) {
+	handleSliderMove =(e, o) => {
 		this.setState({
 			lowestVisibleItemIndex: e
 		}),
 			(this.sliderMoveDirection = o),
 			'function' == typeof this.props.handleSliderMove && this.props.handleSliderMove(e, o);
 	}
-	// closingBobs: [],
-	onBobLeave(e, o) {
+	closingBobs= []
+	onBobLeave = (e, o) => {
 		var t = this,
 			s = {
 				position: e,
@@ -105,19 +105,19 @@ export default class Row extends Component {
 			};
 		this.closingBobs.push(s);
 	}
-	onBobOpen(e, o, t, s) {
+	onBobOpen = (e, o, t, s) => {
 		this.pushSliderItems(e, o, t, s),
 			this.closePrevBobs(!0),
 			this.setState({
 				isBobOpen: !0
 			});
 	}
-	onBobClose(e, o, t, s) {
+	onBobClose = (e, o, t, s) => {
 		s && this.handleRowBlur(),
 			!this.ignoreClosingPush || this.isJawBoneOpen() ? this.pushSliderItems(e, 0, o, t) : t && t(),
 			(this.ignoreClosingPush = !1);
 	}
-	closePrevBobs(e) {
+	closePrevBobs =(e) => {
 		this.ignoreClosingPush = e;
 		for (var o = 0, t = this.closingBobs.length; o < t; o++) {
 			var s = this.closingBobs[o];
@@ -177,7 +177,7 @@ export default class Row extends Component {
 		}
 		return null;
 	}
-	handleRowBlur() {
+	handleRowBlur =() => {
 		return (
 			this.closePrevBobs(!1),
 			this.getIsBobOpen() && setTimeout(this.cleanUpAllBobStyles, 500),
@@ -255,9 +255,8 @@ export default class Row extends Component {
 				videoRoot: 'reference'
 			}
 		];
-		return childArray.map(function(e) {
-			return React.cloneElement(TitleCardContainer, {
-				...e,
+		return e.map(function(e) {
+			return React.cloneElement(e, {
 				onBobOpen: o.onBobOpen,
 				onBobClose: o.onBobClose,
 				onBobLeave: o.onBobLeave,

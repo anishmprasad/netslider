@@ -16,6 +16,7 @@ import LoadingBox from './LoadingBox';
 import classnames from 'classnames'
 export default class LoadingTitle extends Component{
     render() {
+            console.log('LoadingTitle')
             var s = {
                 smallTitleCard: !0,
                 loadingTitle: !0

@@ -478,11 +478,30 @@
 // });
 
 import React, { Component } from 'react';
+import classnames from 'classnames'
+import BoxArtContainer from './BoxArtContainer'
+import TitleCardFocus from './TitleCardFocus'
 
 export default class TitleCard extends Component {
+	e() {
+            for (var n = [], i = 0; i < arguments.length; i++) {
+                var t = arguments[i];
+                if (t) {
+                    var f = typeof t;
+                    if ("string" === f || "number" === f)
+                        n.push(t);
+                    else if (Array.isArray(t))
+                        n.push(e.apply(null, t));
+                    else if ("object" === f)
+                        for (var o in t)
+                            Object.hasOwnProperty.call(t, o) && t[o] && n.push(o)
+                }
+            }
+            return n.join(" ")
+        }
 	renderTallPanel() {
 		var e = this.props.videoModel,
-			t = s('boxart-size-1x2', 'boxart-tall-panel'),
+			t = classnames('boxart-size-1x2', 'boxart-tall-panel'),
 			a = e || {},
 			i = a.tallImage,
 			o = a.tallImageFocalPoint;
@@ -550,7 +569,7 @@ export default class TitleCard extends Component {
 			k = t.showProgress,
 			y = t.rowNum,
 			f = t.rankNum,
-			x = s({
+			x = this.e({
 				'title-card': !0,
 				'slider-refocus': !0,
 				'title-card-tall-panel': !0,
@@ -563,7 +582,7 @@ export default class TitleCard extends Component {
 			M = 'title-card-' + (void 0 !== y ? y : -1) + '-' + (void 0 !== f ? f : -1);
 		return a
 			? React.createElement(d, {
-					className: s(x, 'boxart-size-16x9')
+					className: classnames(x, 'boxart-size-16x9')
 			  })
 			: React.createElement(
 					'div',
@@ -578,30 +597,26 @@ export default class TitleCard extends Component {
 							},
 							id: M,
 							style: this.getAnimationStyle(),
-							className: s(x, this.props.className),
+							className: classnames(x, this.props.className),
 							onMouseEnter: this.handleMouseEnter,
 							onMouseLeave: this.handleMouseLeave,
 							onClick: this.props.onClick,
 							onKeyDown: this.props.onKeyDown
 						},
 						React.createElement(
-							o,
+							'a',
 							{
 								videoId: b.id,
-								imageKey: b.tallImageKey
+								imageKey: b.tallImageKey,
+								href: b.id,
+								onClick: this.onAnchorClick,
+								tabIndex: i ? 0 : -1,
+								role: i ? 'link' : null,
+								'aria-label': b.title ? b.title : null,
+								'aria-hidden': !i
 							},
 							React.createElement(
-								'a',
-								{
-									href: v,
-									onClick: this.onAnchorClick,
-									tabIndex: i ? 0 : -1,
-									role: i ? 'link' : null,
-									'aria-label': b.title ? b.title : null,
-									'aria-hidden': !i
-								},
-								React.createElement(
-									n,
+									BoxArtContainer,
 									{
 										className: 'boxart-size-16x9',
 										title: b.title
@@ -611,12 +626,11 @@ export default class TitleCard extends Component {
 										src: b.wideImage,
 										alt: ''
 									})
-								)
 							),
 							this.renderTallPanel()
 						),
 						r &&
-							React.createElement(u, {
+							React.createElement(TitleCardFocus, {
 								model: g,
 								playbackQueryParams: this.props.playbackQueryParams
 							}),
