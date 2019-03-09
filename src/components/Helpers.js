@@ -52,5 +52,34 @@ export const Helpers = {
                 height: document.body ? document.body.clientHeight : t,
                 width: document.body ? document.body.clientWidth : e
             }
+        },
+        MIN_HORZ_SWIPE_THRESHOLD_IN_PX: 65,
+        MIN_VERT_SWIPE_THRESHOLD_IN_PX: 30,
+        ADVANCE_NEXT: "next",
+        ADVANCE_PREV: "prev",
+        deltaIndicatesAdvancement: function(t, e, _) {
+            var n = (_ ? -1 : 1) * t;
+            if (Math.abs(e) <= this.MIN_VERT_SWIPE_THRESHOLD_IN_PX) {
+                if (n >= this.MIN_HORZ_SWIPE_THRESHOLD_IN_PX)
+                    return this.ADVANCE_NEXT;
+                if (n <= -this.MIN_HORZ_SWIPE_THRESHOLD_IN_PX)
+                    return this.ADVANCE_PREV
+            }
+            return null
+        },
+        wheelAdvanceDirection: function(t, e) {
+            var _ = Math.abs(t.deltaY);
+            return "wheel" === t.type && _ <= this.MIN_VERT_SWIPE_THRESHOLD_IN_PX ? (t.stopPropagation(),
+            this.deltaIndicatesAdvancement(t.deltaX, t.deltaY, e)) : null
+        },
+        touchAdvanceDirection: function(t, e, _) {
+            var i = n.getTouchObject(t)
+              , a = e ? e.x - i.clientX : 0
+              , E = e ? e.y - i.clientY : 0;
+            return {
+                deltaX: a,
+                deltaY: E,
+                direction: this.deltaIndicatesAdvancement(a, E, _)
+            }
         }
     };

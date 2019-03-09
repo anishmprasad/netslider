@@ -162,3 +162,38 @@ function aZ(a, t, e) {
         getWithPathsAsJSONGraph: n
     }
 };
+
+function e(o, n, t) {
+        this._observer = o && "object" == typeof o ? {
+            onNext: "function" == typeof o.onNext ? function(n) {
+                o.onNext(n)
+            }
+            : r,
+            onError: "function" == typeof o.onError ? function(n) {
+                o.onError(n)
+            }
+            : r,
+            onCompleted: "function" == typeof o.onCompleted ? function() {
+                o.onCompleted()
+            }
+            : r
+        } : {
+            onNext: "function" == typeof o ? o : r,
+            onError: "function" == typeof n ? n : r,
+            onCompleted: "function" == typeof t ? t : r
+        }
+    }
+    // var r = o("ca");
+    e.prototype = {
+        onNext: function(o) {
+            this._closed || this._observer.onNext(o)
+        },
+        onError: function(o) {
+            this._closed || (this._closed = !0,
+            this._observer.onError(o))
+        },
+        onCompleted: function() {
+            this._closed || (this._closed = !0,
+            this._observer.onCompleted())
+        }
+    }

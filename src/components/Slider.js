@@ -38,6 +38,7 @@ import LoadingBox from './LoadingBox';
 import LoadingTitle from './LoadingTitle'
 import { KeyboardConstants } from './constants';
 import GlobalFunctions from './GlobalFunctions'
+import {Helpers} from './Helpers'
 
 function l() {
 	for (var n = [], i = 0; i < arguments.length; i++) {
@@ -425,19 +426,19 @@ export default class Slider extends Component {
 	}
 	handleTouchMove = (e) => {
 		if (e.pointerType && 'touch' !== e.pointerType) return void e.stopPropagation();
-		var t = c.touchAdvanceDirection(e, this.touchStart, this.context.isRtl);
+		var t = Helpers.touchAdvanceDirection(e, this.touchStart, this.context.isRtl);
 		Math.abs(t.deltaX) > Math.abs(t.deltaY) && e.preventDefault(),
 			this.isAnimating ||
-				(t.direction === c.ADVANCE_NEXT && this.isNextNavActive()
+				(t.direction === Helpers.ADVANCE_NEXT && this.isNextNavActive()
 					? (this.advanceNext(), (this.touchStart = {}))
-					: t.direction === c.ADVANCE_PREV &&
+					: t.direction === Helpers.ADVANCE_PREV &&
 					  this.isPrevNavActive() &&
 					  (this.advancePrev(), (this.touchStart = {})));
 	}
 	handleMouseWheel = (e) => {
 		if (!this.isAnimating) {
-			var t = c.wheelAdvanceDirection(e);
-			t === c.ADVANCE_NEXT ? this.advanceNext(e) : t === c.ADVANCE_PREV && this.advancePrev(e);
+			var t = Helpers.wheelAdvanceDirection(e);
+			t === Helpers.ADVANCE_NEXT ? this.advanceNext(e) : t === Helpers.ADVANCE_PREV && this.advancePrev(e);
 		}
 	}
 	componentDidUpdate(e) {

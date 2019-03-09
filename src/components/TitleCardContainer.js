@@ -73,7 +73,7 @@ export default class TitleCardContainer extends Component {
 	}
 	componentWillUnmount() {
 		this.clearDelays(),
-			l.removeListener('rating:set', this.onRating),
+			// l.removeListener('rating:set', this.onRating),
 			this.onBobFocusEnd && (this.onBobFocusEnd(), delete this.onBobFocusEnd),
 			this.onBoxartFocusEnd && (this.onBoxartFocusEnd(), delete this.onBoxartFocusEnd),
 			(this._isMounted = !1);
