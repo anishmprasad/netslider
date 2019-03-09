@@ -7,6 +7,19 @@ import ReactDOM from 'react-dom';
 const r = [["summary"], ["title"], ["titleMaturity"], ["userRating"], ["userRatingRequestId"]];
 import {willmount,update,getTrackingInfoFromContext} from './carddata';
 import BobCardContainer from './BobCardContainer'
+import { Helpers } from './Helpers'
+
+const V = {
+  bobs: {
+    bobs: !0,
+    forceUpdate: !0
+  },
+  jawBones: {
+    jawBones: !0,
+    forceUpdate: !0
+  }
+}
+
 export default class TitleCardContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -161,7 +174,7 @@ export default class TitleCardContainer extends Component {
 			this.context.openJawbone(t.rowNum, t.rankNum, this.props.videoId, e.type),
 			this.handleLeave());
 	}
-	handleMouseEnter(e, t) {
+	handleMouseEnter = (e, t) => {
 		var o = document.activeElement || document.body;
 		t &&
 			t.currentTarget &&
@@ -170,7 +183,7 @@ export default class TitleCardContainer extends Component {
 			!this.state.isBobOpen &&
 			(o && o !== document.body && !o.getAttribute('data-search-input') && o.blur(), this.handleEnter(t));
 	}
-	handleMouseLeave(e, t) {
+	handleMouseLeave = (e, t) => {
 		((t && !t.relatedTarget) ||
 			t.relatedTarget.location ||
 			(t.relatedTarget && e instanceof HTMLElement && !e.contains(t.relatedTarget))) &&
@@ -217,14 +230,22 @@ export default class TitleCardContainer extends Component {
 			  ))
 			: this.queueBobOpen();
 	}
+	// queueBobOpen() {
+	// 	if (!this.bobOpenTimeout && !this.state.isBobOpen) {
+	// 		var e = void 0;
+	// 		(this.titleCardRect = N.getRect(ReactDOM.findDOMNode(this))),
+	// 			(e = this.props.getRowHasBobOpen && this.props.getRowHasBobOpen() ? 100 : 400),
+	// 			(this.bobOpenTimeout = setTimeout(this.openBob, e));
+	// 	}
+	// }
 	queueBobOpen() {
-		if (!this.bobOpenTimeout && !this.state.isBobOpen) {
-			var e = void 0;
-			(this.titleCardRect = N.getRect(ReactDOM.findDOMNode(this))),
-				(e = this.props.getRowHasBobOpen && this.props.getRowHasBobOpen() ? 100 : 400),
-				(this.bobOpenTimeout = setTimeout(this.openBob, e));
-		}
-	}
+            if (!this.bobOpenTimeout && !this.state.isBobOpen) {
+                var e, t = ReactDOM.findDOMNode(this);
+                t instanceof Element && (this.titleCardRect = Helpers.getRect(t)),
+                e = this.props.getRowHasBobOpen && this.props.getRowHasBobOpen() ? 100 : 400,
+                this.bobOpenTimeout = setTimeout(this.openBob, e)
+            }
+        }
 	openBob() {
 		if (
 			this.scope.isHovering &&

@@ -135,7 +135,7 @@ export default class Row extends Component {
 			}
 		}
 	}
-	getIsBobOpen() {
+	getIsBobOpen = () => {
 		return this.state.isBobOpen;
 	}
 	pushSliderItems(e, o, t, s) {

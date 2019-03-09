@@ -36,6 +36,8 @@ import PropTypes from 'prop-types';
 import {getModelDataTruths} from './getModelDataTruths'
 import BobCard from './BobCard'
 
+
+
 export default class BobCardContainer extends Component{
   constructor(props){
     super(props)

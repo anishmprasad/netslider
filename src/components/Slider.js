@@ -423,7 +423,7 @@ export default class Slider extends Component {
 		if (e.pointerType && 'touch' !== e.pointerType) return void e.stopPropagation();
 		this.touchStart = I.getTouchObjectStart(e);
 	}
-	handleTouchMove(e) {
+	handleTouchMove = (e) => {
 		if (e.pointerType && 'touch' !== e.pointerType) return void e.stopPropagation();
 		var t = c.touchAdvanceDirection(e, this.touchStart, this.context.isRtl);
 		Math.abs(t.deltaX) > Math.abs(t.deltaY) && e.preventDefault(),
@@ -434,7 +434,7 @@ export default class Slider extends Component {
 					  this.isPrevNavActive() &&
 					  (this.advancePrev(), (this.touchStart = {})));
 	}
-	handleMouseWheel(e) {
+	handleMouseWheel = (e) => {
 		if (!this.isAnimating) {
 			var t = c.wheelAdvanceDirection(e);
 			t === c.ADVANCE_NEXT ? this.advanceNext(e) : t === c.ADVANCE_PREV && this.advancePrev(e);

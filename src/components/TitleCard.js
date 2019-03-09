@@ -543,10 +543,10 @@ export default class TitleCard extends Component {
 			  })
 			: {};
 	}
-	handleMouseEnter(e) {
+	handleMouseEnter = (e) => {
 		this.props.onMouseEnter && this.props.onMouseEnter(this.node, e);
 	}
-	handleMouseLeave(e) {
+	handleMouseLeave = (e) => {
 		this.props.onMouseLeave && this.props.onMouseLeave(this.node, e);
 	}
 	onAnchorClick(e) {
