@@ -1,29 +1,3 @@
-// C.r("46", function (e, o, t) {
-//   "use strict";
-//   var s = e("dP"),
-//     n = e("fE"),
-//     i = e("aP"),
-//     r = e("eZ"),
-//     a = e("9p"),
-//     l = e("4d"),
-//     p = e("3z"),
-//     h = e("3A"),
-//     d = e("p6"),
-//     c = e("6f"),
-//     u = e("pa"),
-//     m = e("6m"),
-//     w = e("7H"),
-//     B = i({
-//       displayName: "Row",
-
-//       contextTypes: Object.assign({
-
-//       }, c),
-
-//     });
-//   o.exports = m(B)
-// });
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -194,72 +168,6 @@ export default class Row extends Component {
 	}
 	wrapChildItems(e) {
 		var o = this;
-		// var childArray = [
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 0,
-		// 		rowNum: 1,
-		// 		videoId: 80197526,
-		// 		videoRoot: 'reference'
-		// 	},
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 1,
-		// 		rowNum: 1,
-		// 		videoId: 70202589,
-		// 		videoRoot: 'reference'
-		// 	},
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 2,
-		// 		rowNum: 1,
-		// 		videoId: 80235864,
-		// 		videoRoot: 'reference'
-		// 	},
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 3,
-		// 		rowNum: 1,
-		// 		videoId: 70264888,
-		// 		videoRoot: 'reference'
-		// 	},
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 4,
-		// 		rowNum: 1,
-		// 		videoId: 80002479,
-		// 		videoRoot: 'reference'
-		// 	},
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 5,
-		// 		rowNum: 1,
-		// 		videoId: 70254851,
-		// 		videoRoot: 'reference'
-		// 	},
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 6,
-		// 		rowNum: 1,
-		// 		videoId: 80988062,
-		// 		videoRoot: 'reference'
-		// 	},
-		// 	{
-		// 		isShowAsARow: false,
-		// 		isTallPanel: false,
-		// 		rankNum: 7,
-		// 		rowNum: 1,
-		// 		videoId: 80025678,
-		// 		videoRoot: 'reference'
-		// 	}
-		// ];
 		return e.map(function(e) {
 			return React.cloneElement(e, {
 				onBobOpen: o.onBobOpen,
