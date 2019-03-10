@@ -254,8 +254,9 @@ export default class TitleCardContainer extends Component {
 			(
 			this.setState({
 				isBobOpen: !0
-			}),
-			y.isPlayPredictionEnabled(this.context.getModelData('truths')))
+			})
+			// ,y.isPlayPredictionEnabled(this.context.getModelData('truths'))
+			)
 		) {
 			var e = this.getBobTrackingInfo();
 			l.emit(
@@ -285,19 +286,19 @@ export default class TitleCardContainer extends Component {
 			this.state.isBobOpen &&
 				-1 === window.location.href.indexOf('stickybob') &&
 				(this.onBobFocusEnd && (this.onBobFocusEnd(), delete this.onBobFocusEnd),
-				l.emit(
-					'bob:close',
-					s.assign(
-						{
-							trackId: this.context.trackId,
-							videoId: this.props.videoId,
-							rowNum: this.context.rowNum,
-							rankNum: this.props.rankNum,
-							requestId: this.context.requestId
-						},
-						this.props
-					)
-				),
+				// l.emit(
+				// 	'bob:close',
+				// 	Object.assign(
+				// 		{
+				// 			trackId: this.context.trackId,
+				// 			videoId: this.props.videoId,
+				// 			rowNum: this.context.rowNum,
+				// 			rankNum: this.props.rankNum,
+				// 			requestId: this.context.requestId
+				// 		},
+				// 		this.props
+				// 	)
+				// ),
 				this.props.onBobLeave(this.props.rankNum, function() {
 					e._isMounted &&
 						e.setState({
@@ -311,14 +312,14 @@ export default class TitleCardContainer extends Component {
 				isBobOpen: !1
 			});
 	}
-	onBobOpen(e, t) {
+	onBobOpen = (e, t) => {
 		if (this.props.onBobOpen && this.props.sliderItemId && this.titleCardRect) {
 			var o = this.titleCardRect.width * e,
 				i = (o - this.titleCardRect.width) / 2;
 			this.props.onBobOpen(this.props.sliderItemId, i, t);
 		}
 	}
-	onBobClose(e, t, o) {
+	onBobClose = (e, t, o) => {
 		this.props.onBobClose && this.props.sliderItemId && this.props.onBobClose(this.props.sliderItemId, e, t, o);
 	}
 	onRating() {

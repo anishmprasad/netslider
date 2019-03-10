@@ -167,34 +167,41 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Animate from './Animate'
+import classnames from 'classnames'
+import SliderItem from './SliderItem'
 
-
-class S extends Component{
+ const v = 400,
+    g = 1.95,
+    y = .51282051282051,
+    x = 1.2,
+    I = .8333333333,
+    O = 4
+export default class BobCardElement extends Component{
+   
     getParentSliderItem(e) {
         for (; e && (e = e.parentNode); )
-            if (e instanceof HTMLElement && e.classList.contains(b.className))
+            if (e instanceof HTMLElement && e.classList.contains(SliderItem.className))
                 return e;
         return null
     }
     setParentZIndex(e) {
         var t = this.getParentSliderItem(this.containerNode);
-        t && h.css({
+        t && Animate.css({
             target: t,
             zIndex: e
         })
     }
-    preExpandScale = "1x2" === e.boxShape ? I : y
-    scale = "1x2" === e.boxShape ? x : g
+    preExpandScale = "1x2" === this.props.boxShape ? I : y
+    scale = "1x2" === this.props.boxShape ? x : g
     openBOB(){
          var e = this.props.onBobOpen
             , t = this.scale
             , n = 100 * t
             , o = (n - 100) / -2;
-        a.setParentZIndex(O),
-        h.animate({
-            target: c.findDOMNode((0,
-            d.default)((0,
-            d.default)(a))),
+        this.setParentZIndex(O),
+        Animate().animate({
+            target: ReactDOM.findDOMNode((Object.assign)((Object.assign)(this))),
             before: {
                 transformOrigin: "",
                 scale: this.preExpandScale,
@@ -208,7 +215,7 @@ class S extends Component{
             easing: "cubic-bezier(0.5, 0, 0.1, 1)",
             duration: v
         }),
-        h.animate({
+        Animate().animate({
             target: this.onGrowOverlayImage,
             opacity: 0,
             duration: 1.5 * v,
@@ -227,7 +234,7 @@ class S extends Component{
             , a = this.props.onBobClose
             , n = !1
             , o = v;
-        h.animate({
+        Animate().animate({
             target: ReactDOM.findDOMNode(this),
             before: {
                 transformOrigin: "50% 50% 0",
@@ -242,7 +249,7 @@ class S extends Component{
                 "function" == typeof e && e())
             }
         }),
-        h.animate({
+        Animate().animate({
             target: this.onGrowOverlayImage,
             before: {
                 display: "block"
@@ -264,13 +271,13 @@ class S extends Component{
             , a = t.videoModel.id
             , n = t.titleCardImage
             , o = t.className;
-        return f.createElement("div", {
-            className: p("bob-card", o),
+        return React.createElement("div", {
+            className: classnames("bob-card", o),
             key: "bob-" + a.toString(),
             ref: function(t) {
                 e.containerNode = t
             }
-        }, this.props.children, f.createElement("img", {
+        }, this.props.children, React.createElement("img", {
             alt: "",
             src: n,
             className: "bob-title-art",
@@ -281,17 +288,17 @@ class S extends Component{
     }
 }
 
-export default class BobCardElement extends Component{
-    render() {
-        var e = this.props.isBobOpen;
-        return React.createElement(TransitionGroup, null, e && React.createElement(S, {
-            boxShape: this.props.boxShape,
-            className: this.props.className,
-            videoModel: this.props.videoModel,
-            titleCardImage: this.props.titleCardImage,
-            getParentSliderItem: this.props.getParentSliderItem,
-            onBobOpen: this.props.onBobOpen,
-            onBobClose: this.props.onBobClose
-        }, this.props.children))
-    }
-}
+// export default class BobCardElement extends Component{
+//     render() {
+//         var e = this.props.isBobOpen;
+//         return React.createElement(TransitionGroup, null, e && React.createElement(S, {
+//             boxShape: this.props.boxShape,
+//             className: this.props.className,
+//             videoModel: this.props.videoModel,
+//             titleCardImage: this.props.titleCardImage,
+//             getParentSliderItem: this.props.getParentSliderItem,
+//             onBobOpen: this.props.onBobOpen,
+//             onBobClose: this.props.onBobClose
+//         }, this.props.children))
+//     }
+// }

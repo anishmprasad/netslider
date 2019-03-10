@@ -31,6 +31,8 @@ import Slider from './Slider';
 import JawBoneOnRow from './JawBoneOnRow';
 import PresTrackedContainer from './PresTrackedContainer';
 import TitleCardContainer from './TitleCardContainer';
+import Animate from './Animate'
+import ReactDOM from 'react-dom'
 
 import { onBinding } from './Utils';
 
@@ -44,11 +46,13 @@ export default class Row extends Component {
 		};
 	}
 	componentDidMount() {
+  		this._ismounted = true;
 		this.props.isMyListRow &&
 			(u.on('myList:remove:end', this._decreaseSelectedIndex),
 			u.on('myList:add:end', this._increaseSelectedIndex));
 	}
 	componentWillUnmount() {
+   		this._ismounted = false;
 		this.props.isMyListRow &&
 			(u.removeListener('myList:remove:end', this._decreaseSelectedIndex),
 			u.removeListener('myList:add:end', this._increaseSelectedIndex));
@@ -94,13 +98,14 @@ export default class Row extends Component {
 			'function' == typeof this.props.handleSliderMove && this.props.handleSliderMove(e, o);
 	}
 	closingBobs= []
+
 	onBobLeave = (e, o) => {
 		var t = this,
 			s = {
 				position: e,
 				callback: o,
 				closeTimeout: setTimeout(function() {
-					t.isMounted() && t.closePrevBobs(!1);
+					t._ismounted && t.closePrevBobs(!1);
 				}, 500)
 			};
 		this.closingBobs.push(s);
@@ -126,7 +131,7 @@ export default class Row extends Component {
 		this.closingBobs = [];
 	}
 	cleanUpAllBobStyles() {
-		if (this.isMounted()) {
+		if (this._ismounted) {
 			var e = this.refs.slider;
 			if (e) {
 				(e.getAllSliderItems() || []).map(function(e) {
@@ -154,8 +159,8 @@ export default class Row extends Component {
 					a && w !== a && (m = 0), (u = w * o * m);
 				}
 				this.context.isRtl && (u *= -1),
-					d.animate({
-						target: r.findDOMNode(p),
+					Animate().animate({
+						target: ReactDOM.findDOMNode(p),
 						translate3d: Math.floor(u) + 'px, 0,0',
 						duration: t,
 						callback: s,

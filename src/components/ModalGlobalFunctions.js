@@ -38,7 +38,8 @@
           , r = this.model
           , a = t.isJSONG = this.isJSONGraph
           , p = this.isProgressive
-          , u = bt()(r, this.currentRemainingPaths, t, p, a, e, i);
+        //   , u = bt()(r, this.currentRemainingPaths, t, p, a, e, i);
+            , u = undefined
         if (!u) {
             if (this.forceCollect) {
                 var l = r._root

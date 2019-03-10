@@ -1,351 +1,49 @@
-// C.r('2L', function(e, t, i) {
-// 	'use strict';
-// 	var a = e('4B'),
-// 		s = (a.videoReactShape, e('0a')),
-// 		n = e('7L'),
-// 		o = e('9p'),
-// 		r = e('aP'),
-// 		l = e('p6'),
-// 		d = e('2I'),
-// 		m = e('19'),
-// 		c = (e('dP'), e('fE')),
-// 		u = e('2M'),
-// 		h = r({
-// 			displayName: 'TitleCard',
-// 			node: null,
-// 			getAnimationStyle: function() {
-// 				var e = this.props,
-// 					t = e.animateIn,
-// 					i = e.videoModel,
-// 					a = ((i.id % 20) * 2.5) / 100 + 0.3;
-// 				return t
-// 					? l.getAnimationStyle({
-// 							keyframes: {
-// 								delay: a + 's'
-// 							}
-// 					  })
-// 					: {};
-// 			},
-// 			handleMouseEnter: function(e) {
-// 				this.props.onMouseEnter && this.props.onMouseEnter(this.node, e);
-// 			},
-// 			handleMouseLeave: function(e) {
-// 				this.props.onMouseLeave && this.props.onMouseLeave(this.node, e);
-// 			},
-// 			onAnchorClick: function(e) {
-// 				var t = this.props.onClick;
-// 				t && (e.preventDefault(), t());
-// 			},
-// 			render: function() {
-// 				var e = this,
-// 					t = this.props,
-// 					i = t.isInvalid,
-// 					a = t.itemTabbable,
-// 					r = t.isDisliked,
-// 					l = t.isFocused,
-// 					h = t.isDimmed,
-// 					p = t.isBobOpen,
-// 					y = t.videoModel,
-// 					M = t.watchURL,
-// 					v = t.animateIn,
-// 					E = t.model,
-// 					b = t.showProgress,
-// 					f = t.rowNum,
-// 					g = t.rankNum,
-// 					k = o({
-// 						'title-card': !0,
-// 						'is-bob-open': p,
-// 						'animate-in': v,
-// 						'is-focused': l,
-// 						'is-dimmed': h,
-// 						'is-disliked': r
-// 					}),
-// 					N = 'title-card-' + (void 0 !== f ? f : -1) + '-' + (void 0 !== g ? g : -1);
-// 				return i
-// 					? c.createElement(d, {
-// 							className: o(k, 'boxart-size-16x9')
-// 					  })
-// 					: c.createElement(
-// 							'div',
-// 							{
-// 								className: 'title-card-container'
-// 							},
-// 							c.createElement(
-// 								'div',
-// 								{
-// 									ref: function(t) {
-// 										e.node = t;
-// 									},
-// 									id: N,
-// 									style: this.getAnimationStyle(),
-// 									className: o(k, this.props.className),
-// 									onMouseEnter: this.handleMouseEnter,
-// 									onMouseLeave: this.handleMouseLeave
-// 								},
-// 								c.createElement(
-// 									n,
-// 									{
-// 										videoId: y.id,
-// 										imageKey: y.imageKey,
-// 										maturityMisMatchEdgy: y.maturityMisMatchEdgy,
-// 										maturityMisMatchNonEdgy: y.maturityMisMatchNonEdgy
-// 									},
-// 									c.createElement(
-// 										'a',
-// 										{
-// 											href: M,
-// 											onClick: this.onAnchorClick,
-// 											'aria-label': y.title ? y.title : null,
-// 											tabIndex: a ? 0 : -1,
-// 											'aria-hidden': !a,
-// 											className: 'slider-refocus'
-// 										},
-// 										c.createElement(
-// 											s,
-// 											{
-// 												className: 'boxart-size-16x9',
-// 												title: y.title
-// 											},
-// 											c.createElement('img', {
-// 												className: 'boxart-image boxart-image-in-padded-container',
-// 												src: y.image,
-// 												alt: ''
-// 											})
-// 										)
-// 									)
-// 								),
-// 								l &&
-// 									c.createElement(u, {
-// 										model: E,
-// 										playbackQueryParams: this.props.playbackQueryParams
-// 									}),
-// 								this.props.children
-// 							),
-// 							b &&
-// 								c.createElement(m, {
-// 									runtime: y.episodeRuntime,
-// 									bookmarkPosition: y.episodeBookmark,
-// 									current: !0,
-// 									showSummary: !1
-// 								})
-// 					  );
-// 			}
-// 		});
-// 	t.exports = h;
-// });
-
-// C.r('2N', function(e, t, i) {
-// 	'use strict';
-// 	var a = e('4B'),
-// 		s = (a.videoReactShape, e('0a')),
-// 		n = e('7L'),
-// 		o = e('9p'),
-// 		r = e('aP'),
-// 		l = e('p6'),
-// 		d = e('1s'),
-// 		c = e('2x'),
-// 		m = e('2I'),
-// 		u = e('19'),
-// 		p = e('dP'),
-// 		h = e('fE'),
-// 		E = e('fw'),
-// 		v = e('2M'),
-// 		y = r({
-// 			displayName: 'TitleCard',
-// 			contextTypes: {
-// 				getModelData: p.func.isRequired
-// 			},
-// 			node: null,
-// 			getAnimationStyle: function() {
-// 				var e = this.props,
-// 					t = e.videoModel.id,
-// 					i = e.animateIn,
-// 					a = ((t % 20) * 2.5) / 100 + 0.3;
-// 				return i
-// 					? l.getAnimationStyle({
-// 							keyframes: {
-// 								delay: a + 's'
-// 							}
-// 					  })
-// 					: {};
-// 			},
-// 			handleMouseEnter: function(e) {
-// 				this.props.onMouseEnter && this.props.onMouseEnter(this.node, e);
-// 			},
-// 			handleMouseLeave: function(e) {
-// 				this.props.onMouseLeave && this.props.onMouseLeave(this.node, e);
-// 			},
-// 			onAnchorClick: function(e) {
-// 				var t = this.props.onClick;
-// 				t && (e.preventDefault(), t());
-// 			},
-// 			render: function() {
-// 				var e = this,
-// 					t = this.props,
-// 					i = t.isInvalid,
-// 					a = t.itemTabbable,
-// 					r = t.isDisliked,
-// 					l = t.isFocused,
-// 					p = t.isDimmed,
-// 					y = t.isBobOpen,
-// 					M = t.videoModel,
-// 					b = t.watchURL,
-// 					f = t.animateIn,
-// 					g = t.model,
-// 					k = t.rowNum,
-// 					N = t.rankNum,
-// 					x = o({
-// 						'title-card': !0,
-// 						'is-bob-open': y,
-// 						'animate-in': f,
-// 						'is-focused': l,
-// 						'is-dimmed': p,
-// 						'is-disliked': r
-// 					}),
-// 					D = this.context.getModelData('truths').shortformEpisodeDurationVisible,
-// 					L = 'title-card-' + (void 0 !== k ? k : -1) + '-' + (void 0 !== N ? N : -1);
-// 				return i
-// 					? h.createElement(m, {
-// 							className: o(x, 'boxart-size-16x9')
-// 					  })
-// 					: h.createElement(
-// 							'div',
-// 							{
-// 								className: 'title-card-container'
-// 							},
-// 							h.createElement(
-// 								'div',
-// 								{
-// 									ref: function(t) {
-// 										e.node = t;
-// 									},
-// 									id: L,
-// 									style: this.getAnimationStyle(),
-// 									className: o(x, this.props.className),
-// 									onMouseEnter: this.handleMouseEnter,
-// 									onMouseLeave: this.handleMouseLeave
-// 								},
-// 								h.createElement(
-// 									n,
-// 									{
-// 										videoId: M.id,
-// 										imageKey: M.imageKey,
-// 										maturityMisMatchEdgy: M.maturityMisMatchEdgy,
-// 										maturityMisMatchNonEdgy: M.maturityMisMatchNonEdgy
-// 									},
-// 									h.createElement(
-// 										'a',
-// 										{
-// 											href: b,
-// 											onClick: this.onAnchorClick,
-// 											'aria-label': M.title ? M.title : null,
-// 											tabIndex: a ? 0 : -1,
-// 											'aria-hidden': !a,
-// 											className: 'slider-refocus'
-// 										},
-// 										h.createElement(
-// 											s,
-// 											{
-// 												className: 'boxart-size-16x9',
-// 												title: M.title
-// 											},
-// 											h.createElement('img', {
-// 												className: 'boxart-image boxart-image-in-padded-container',
-// 												src: M.image,
-// 												alt: ''
-// 											})
-// 										)
-// 									)
-// 								),
-// 								l &&
-// 									h.createElement(v, {
-// 										model: g,
-// 										playbackQueryParams: this.props.playbackQueryParams
-// 									}),
-// 								this.props.children &&
-// 									h.createElement(E, null, this.props.isBobOpen && this.props.children),
-// 								D &&
-// 									h.createElement(
-// 										'div',
-// 										{
-// 											className: 'title-card-duration'
-// 										},
-// 										h.createElement(c, {
-// 											runtime: M.episodeRuntime || 0
-// 										})
-// 									)
-// 							),
-// 							M.evidenceData &&
-// 								h.createElement(d, {
-// 									evidenceData: M.evidenceData
-// 								}),
-// 							this.props.showProgress &&
-// 								h.createElement(u, {
-// 									runtime: M.episodeRuntime,
-// 									bookmarkPosition: M.episodeBookmark,
-// 									current: !0,
-// 									showSummary: !1
-// 								})
-// 					  );
-// 			}
-// 		});
-// 	t.exports = y;
-// });
-
-// import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import classnames from 'classnames'
+import BoxArtContainer from './BoxArtContainer'
+import TitleCardFocus from './TitleCardFocus'
 
 // export default class TitleCard extends Component {
-// 	constructor(props) {
-// 		super(props);
-// 	}
-// 	getAnimationStyle() {
-// 		var e = this.props,
-// 			a = e.videoModel,
-// 			t = e.animateIn,
-// 			i = a && ((a.id % 20) * 2.5) / 100 + 0.3;
-// 		return t
-// 			? d.getAnimationStyle({
-// 					keyframes: {
-// 						delay: i + 's'
-// 					}
-// 			  })
-// 			: {};
-// 	}
-// 	handleMouseEnter(e) {
-// 		this.props.onMouseEnter && this.props.onMouseEnter(this.node, e);
-// 	}
-// 	handleMouseLeave(e) {
-// 		this.props.onMouseLeave && this.props.onMouseLeave(this.node, e);
-// 	}
-// 	onAnchorClick(e) {
-// 		var a = this.props.onClick;
-// 		a && (e.stopPropagation(), e.preventDefault(), a());
-// 	}
+// 	e() {
+//             for (var n = [], i = 0; i < arguments.length; i++) {
+//                 var t = arguments[i];
+//                 if (t) {
+//                     var f = typeof t;
+//                     if ("string" === f || "number" === f)
+//                         n.push(t);
+//                     else if (Array.isArray(t))
+//                         n.push(e.apply(null, t));
+//                     else if ("object" === f)
+//                         for (var o in t)
+//                             Object.hasOwnProperty.call(t, o) && t[o] && n.push(o)
+//                 }
+//             }
+//             return n.join(" ")
+//         }
 // 	renderTallPanel() {
 // 		var e = this.props.videoModel,
-// 			a = s('boxart-size-1x2', 'boxart-tall-panel'),
-// 			t = e || {},
-// 			i = t.tallImage,
-// 			o = t.tallImageFocalPoint;
+// 			t = classnames('boxart-size-1x2', 'boxart-tall-panel'),
+// 			a = e || {},
+// 			i = a.tallImage,
+// 			o = a.tallImageFocalPoint;
 // 		return i
-// 			? p.createElement(
+// 			? React.createElement(
 // 					n,
 // 					{
-// 						className: a,
+// 						className: t,
 // 						title: e.title
 // 					},
 // 					o
-// 						? p.createElement(l, {
+// 						? React.createElement(l, {
 // 								url: i,
-// 								className: a,
+// 								className: t,
 // 								focalPoint: {
 // 									x: o.x,
 // 									containerWidth: 342,
 // 									imageWidth: 848
 // 								}
 // 						  })
-// 						: p.createElement('img', {
+// 						: React.createElement('img', {
 // 								className: 'boxart-image-tall boxart-image-in-padded-container',
 // 								src: i,
 // 								alt: ''
@@ -353,93 +51,111 @@
 // 			  )
 // 			: null;
 // 	}
+// 	getAnimationStyle() {
+// 		var e = this.props,
+// 			t = e.videoModel,
+// 			a = e.animateIn,
+// 			i = t && ((t.id % 20) * 2.5) / 100 + 0.3;
+// 		return a
+// 			? c.getAnimationStyle({
+// 					keyframes: {
+// 						delay: i + 's'
+// 					}
+// 			  })
+// 			: {};
+// 	}
+// 	handleMouseEnter = (e) => {
+// 		this.props.onMouseEnter && this.props.onMouseEnter(this.node, e);
+// 	}
+// 	handleMouseLeave = (e) => {
+// 		this.props.onMouseLeave && this.props.onMouseLeave(this.node, e);
+// 	}
+// 	onAnchorClick(e) {
+// 		var t = this.props.onClick;
+// 		t && (e.stopPropagation(), e.preventDefault(), t());
+// 	}
 // 	render() {
 // 		var e = this,
-// 			a = this.props,
-// 			t = a.isInvalid,
-// 			i = a.itemTabbable,
-// 			l = a.isDisliked,
-// 			r = a.isFocused,
-// 			d = a.isDimmed,
-// 			h = a.isBobOpen,
-// 			v = a.videoModel,
-// 			b = a.watchURL,
-// 			E = a.animateIn,
-// 			g = a.model,
-// 			k = a.showProgress,
-// 			y = a.rowNum,
-// 			f = a.rankNum,
-// 			x = s({
+// 			t = this.props,
+// 			a = t.isInvalid,
+// 			i = t.itemTabbable,
+// 			// l = t.isDisliked,
+// 			// r = t.isFocused,
+// 			// c = t.isDimmed,
+// 			// h = t.isBobOpen,
+// 			b = t.videoModel,
+// 			v = t.watchURL,
+// 			// E = t.animateIn,
+// 			g = t.model,
+// 			k = t.showProgress,
+// 			y = t.rowNum,
+// 			f = t.rankNum,
+// 			x = this.e({
 // 				'title-card': !0,
 // 				'slider-refocus': !0,
 // 				'title-card-tall-panel': !0,
-// 				'is-bob-open': h,
-// 				'animate-in': E,
-// 				'is-focused': r,
-// 				'is-dimmed': d,
-// 				'is-disliked': l
+// 				'is-bob-open': this.props.isBobOpen,
+// 				'animate-in': this.props.animateIn,
+// 				'is-focused': this.props.isFocused,
+// 				'is-dimmed': this.props.isDimmed,
+// 				'is-disliked': this.props.isDisliked
 // 			}),
 // 			M = 'title-card-' + (void 0 !== y ? y : -1) + '-' + (void 0 !== f ? f : -1);
-// 		return t
-// 			? p.createElement(c, {
-// 					className: s(x, 'boxart-size-16x9')
+// 		return a
+// 			? React.createElement(d, {
+// 					className: classnames(x, 'boxart-size-16x9')
 // 			  })
-// 			: p.createElement(
+// 			: React.createElement(
 // 					'div',
 // 					{
 // 						className: 'title-card-container'
 // 					},
-// 					p.createElement(
+// 					React.createElement(
 // 						'div',
 // 						{
-// 							ref: function(a) {
-// 								e.node = a;
+// 							ref: function(t) {
+// 								e.node = t;
 // 							},
 // 							id: M,
 // 							style: this.getAnimationStyle(),
-// 							className: s(x, this.props.className),
+// 							className: classnames(x, this.props.className),
 // 							onMouseEnter: this.handleMouseEnter,
 // 							onMouseLeave: this.handleMouseLeave,
 // 							onClick: this.props.onClick,
 // 							onKeyDown: this.props.onKeyDown
 // 						},
-// 						p.createElement(
-// 							o,
+// 						React.createElement(
+// 							'a',
 // 							{
-// 								videoId: v.id,
-// 								imageKey: v.tallImageKey
+// 								videoId: b.id,
+// 								imageKey: b.tallImageKey,
+// 								href: b.id,
+// 								onClick: this.onAnchorClick,
+// 								tabIndex: i ? 0 : -1,
+// 								role: i ? 'link' : null,
+// 								'aria-label': b.title ? b.title : null,
+// 								'aria-hidden': !i
 // 							},
-// 							p.createElement(
-// 								'a',
-// 								{
-// 									href: b,
-// 									onClick: this.onAnchorClick,
-// 									tabIndex: i ? 0 : -1,
-// 									role: i ? 'link' : null,
-// 									'aria-label': v.title ? v.title : null,
-// 									'aria-hidden': !i
-// 								},
-// 								p.createElement(
-// 									n,
+// 							React.createElement(
+// 									BoxArtContainer,
 // 									{
 // 										className: 'boxart-size-16x9',
-// 										title: v.title
+// 										title: b.title
 // 									},
-// 									p.createElement('img', {
+// 									React.createElement('img', {
 // 										className: 'boxart-image boxart-image-in-padded-container',
-// 										src: v.wideImage,
+// 										src: b.wideImage,
 // 										alt: ''
 // 									})
-// 								)
 // 							),
 // 							this.renderTallPanel()
 // 						),
-// 						r &&
-// 							p.createElement(u, {
+// 						this.props.isFocused &&
+// 							React.createElement(TitleCardFocus, {
 // 								model: g,
 // 								playbackQueryParams: this.props.playbackQueryParams
 // 							}),
-// 						p.createElement(
+// 						React.createElement(
 // 							'div',
 // 							{
 // 								className: 'bob-container-tall-panel'
@@ -448,9 +164,9 @@
 // 						)
 // 					),
 // 					k &&
-// 						p.createElement(m, {
-// 							runtime: v.episodeRuntime,
-// 							bookmarkPosition: v.episodeBookmark,
+// 						React.createElement(m, {
+// 							runtime: b.episodeRuntime,
+// 							bookmarkPosition: b.episodeBookmark,
 // 							current: !0,
 // 							showSummary: !1
 // 						})
@@ -458,32 +174,11 @@
 // 	}
 // }
 
-// C.r('2T', function(e, t, a) {
-// 	'use strict';
-// 	var i = e('4M'),
-// 		n = (i.videoReactShape, e('0b')),
-// 		o = e('89'),
-// 		l = e('7Y'),
-// 		s = e('9-'),
-// 		r = e('a3'),
-// 		c = e('oE'),
-// 		d = e('2N'),
-// 		m = e('1c'),
-// 		p = e('eP'),
-// 		u = e('2R'),
-// 		h = r({
-// 			displayName: 'TitleCard',
-// 			node: null
-// 		});
-// });
 
-import React, { Component } from 'react';
-import classnames from 'classnames'
-import BoxArtContainer from './BoxArtContainer'
-import TitleCardFocus from './TitleCardFocus'
 
-export default class TitleCard extends Component {
-	e() {
+
+export default class TitleCard extends Component{
+		e() {
             for (var n = [], i = 0; i < arguments.length; i++) {
                 var t = arguments[i];
                 if (t) {
@@ -499,156 +194,107 @@ export default class TitleCard extends Component {
             }
             return n.join(" ")
         }
-	renderTallPanel() {
-		var e = this.props.videoModel,
-			t = classnames('boxart-size-1x2', 'boxart-tall-panel'),
-			a = e || {},
-			i = a.tallImage,
-			o = a.tallImageFocalPoint;
-		return i
-			? React.createElement(
-					n,
-					{
-						className: t,
-						title: e.title
-					},
-					o
-						? React.createElement(l, {
-								url: i,
-								className: t,
-								focalPoint: {
-									x: o.x,
-									containerWidth: 342,
-									imageWidth: 848
-								}
-						  })
-						: React.createElement('img', {
-								className: 'boxart-image-tall boxart-image-in-padded-container',
-								src: i,
-								alt: ''
-						  })
-			  )
-			: null;
-	}
-	getAnimationStyle() {
-		var e = this.props,
-			t = e.videoModel,
-			a = e.animateIn,
-			i = t && ((t.id % 20) * 2.5) / 100 + 0.3;
-		return a
-			? c.getAnimationStyle({
-					keyframes: {
-						delay: i + 's'
-					}
-			  })
-			: {};
-	}
-	handleMouseEnter = (e) => {
-		this.props.onMouseEnter && this.props.onMouseEnter(this.node, e);
-	}
-	handleMouseLeave = (e) => {
-		this.props.onMouseLeave && this.props.onMouseLeave(this.node, e);
-	}
-	onAnchorClick(e) {
-		var t = this.props.onClick;
-		t && (e.stopPropagation(), e.preventDefault(), t());
-	}
-	render() {
-		var e = this,
-			t = this.props,
-			a = t.isInvalid,
-			i = t.itemTabbable,
-			l = t.isDisliked,
-			r = t.isFocused,
-			c = t.isDimmed,
-			h = t.isBobOpen,
-			b = t.videoModel,
-			v = t.watchURL,
-			E = t.animateIn,
-			g = t.model,
-			k = t.showProgress,
-			y = t.rowNum,
-			f = t.rankNum,
-			x = this.e({
-				'title-card': !0,
-				'slider-refocus': !0,
-				'title-card-tall-panel': !0,
-				'is-bob-open': h,
-				'animate-in': E,
-				'is-focused': r,
-				'is-dimmed': c,
-				'is-disliked': l
-			}),
-			M = 'title-card-' + (void 0 !== y ? y : -1) + '-' + (void 0 !== f ? f : -1);
-		return a
-			? React.createElement(d, {
-					className: classnames(x, 'boxart-size-16x9')
-			  })
-			: React.createElement(
-					'div',
-					{
-						className: 'title-card-container'
-					},
-					React.createElement(
-						'div',
-						{
-							ref: function(t) {
-								e.node = t;
-							},
-							id: M,
-							style: this.getAnimationStyle(),
-							className: classnames(x, this.props.className),
-							onMouseEnter: this.handleMouseEnter,
-							onMouseLeave: this.handleMouseLeave,
-							onClick: this.props.onClick,
-							onKeyDown: this.props.onKeyDown
-						},
-						React.createElement(
-							'a',
-							{
-								videoId: b.id,
-								imageKey: b.tallImageKey,
-								href: b.id,
-								onClick: this.onAnchorClick,
-								tabIndex: i ? 0 : -1,
-								role: i ? 'link' : null,
-								'aria-label': b.title ? b.title : null,
-								'aria-hidden': !i
-							},
-							React.createElement(
-									BoxArtContainer,
-									{
-										className: 'boxart-size-16x9',
-										title: b.title
-									},
-									React.createElement('img', {
-										className: 'boxart-image boxart-image-in-padded-container',
-										src: b.wideImage,
-										alt: ''
-									})
-							),
-							this.renderTallPanel()
-						),
-						r &&
-							React.createElement(TitleCardFocus, {
-								model: g,
-								playbackQueryParams: this.props.playbackQueryParams
-							}),
-						React.createElement(
-							'div',
-							{
-								className: 'bob-container-tall-panel'
-							},
-							this.props.children
-						)
-					),
-					k &&
-						React.createElement(m, {
-							runtime: b.episodeRuntime,
-							bookmarkPosition: b.episodeBookmark,
-							current: !0,
-							showSummary: !1
-						})
-			  );
-	}
+        node = null
+        getAnimationStyle() {
+            var e = this.props
+              , t = e.animateIn
+              , i = e.videoModel
+              , a = i.id % 20 * 2.5 / 100 + .3;
+            return t ? l.getAnimationStyle({
+                keyframes: {
+                    delay: a + "s"
+                }
+            }) : {}
+        }
+        handleMouseEnter = (e) => {
+            this.props.onMouseEnter && this.props.onMouseEnter(this.node, e)
+        }
+        handleMouseLeave = (e) => {
+            this.props.onMouseLeave && this.props.onMouseLeave(this.node, e)
+        }
+        onAnchorClick = (e) => {
+            var t = this.props.onClick;
+            t && (e.preventDefault(),
+            t())
+        }
+        render() {
+            var e = this
+              , t = this.props
+              , i = t.isInvalid
+              , a = t.itemTabbable
+              , r = t.isDisliked
+              , l = t.isFocused
+              , y = t.isDimmed
+              , E = t.isBobOpen
+              , M = t.videoModel
+              , v = t.watchURL
+              , b = t.animateIn
+              , N = t.model
+              , g = t.showProgress
+              , k = t.showMetaData
+              , f = t.showRichTitle
+              , x = t.rowNum
+              , R = t.rankNum
+              , w = this.e({
+                "title-card": !0,
+                "is-bob-open": E,
+                "animate-in": b,
+                "is-focused": l,
+                "is-dimmed": y,
+                "is-disliked": r
+            })
+              , A = "title-card-" + (void 0 !== x ? x : -1) + "-" + (void 0 !== R ? R : -1);
+            return i ? React.createElement(d, {
+                className: classnames(w, "boxart-size-16x9")
+            }) : React.createElement("div", {
+                className: "title-card-container"
+            }, React.createElement("div", {
+                ref: function(t) {
+                    e.node = t
+                },
+                id: A,
+                style: this.getAnimationStyle(),
+                className: classnames(w, this.props.className),
+                onMouseEnter: this.handleMouseEnter,
+                onMouseLeave: this.handleMouseLeave
+            }, React.createElement("a", {
+                videoId: M.id,
+                imageKey: M.imageKey,
+                maturityMisMatchEdgy: M.maturityMisMatchEdgy,
+				maturityMisMatchNonEdgy: M.maturityMisMatchNonEdgy,
+                href: v,
+                onClick: this.onAnchorClick,
+                "aria-label": M.title ? M.title : null,
+                tabIndex: a ? 0 : -1,
+                "aria-hidden": !a,
+                className: "slider-refocus"
+            }, React.createElement(BoxArtContainer, {
+                className: "boxart-size-16x9",
+                title: M.title
+            }, React.createElement("img", {
+                className: "boxart-image boxart-image-in-padded-container",
+                src: M.image,
+                alt: ""
+            }))), l && React.createElement(u, {
+                model: N,
+                playbackQueryParams: this.props.playbackQueryParams
+            }), this.props.children), g && React.createElement(m, {
+                runtime: M.episodeRuntime,
+                bookmarkPosition: M.episodeBookmark,
+                current: !0,
+                showSummary: !1
+            }), k && React.createElement("div", {
+                className: "metadata"
+            }, f ? React.createElement(h, {
+                videoId: M.id,
+                title: M.title,
+                isRtl: this.context.isRtl,
+                assets: M.showAsARow
+            }) : React.createElement("div", {
+                className: "episode-title"
+            }, M.title), React.createElement(p, {
+                onlyInMinutes: !0,
+                runtime: M.episodeRuntime
+            })))
+        }
 }
