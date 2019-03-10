@@ -2,6 +2,14 @@ import React , { Component } from 'react';
 import PropTypes from 'prop-types';
 import TimeoutTransitionGroup from './TimeoutTransitionGroup'
 import classnames from 'classnames'
+// import {CSSTransitionGroup} from 'react-transition-group';
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
+// import TransitionGroup from 'react-addons-css-transition-group'
+import TransitionGroup from 'react-addons-transition-group'
+
+
+
+
 
 export default class JawBoneOnRow extends Component{
   constructor(props){
@@ -148,7 +156,7 @@ export default class JawBoneOnRow extends Component{
         n = V(i);
       t = !!i, a = t && this.renderJawBone(i, n)
     }
-    return React.createElement(TimeoutTransitionGroup, {
+    return React.createElement(TransitionGroup, {
       transitionName: "jawBoneOpen",
       enterTimeout: 640,
       leaveTimeout: 640,

@@ -194,72 +194,72 @@ export default class Row extends Component {
 	}
 	wrapChildItems(e) {
 		var o = this;
-		var childArray = [
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 0,
-				rowNum: 1,
-				videoId: 80197526,
-				videoRoot: 'reference'
-			},
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 1,
-				rowNum: 1,
-				videoId: 70202589,
-				videoRoot: 'reference'
-			},
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 2,
-				rowNum: 1,
-				videoId: 80235864,
-				videoRoot: 'reference'
-			},
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 3,
-				rowNum: 1,
-				videoId: 70264888,
-				videoRoot: 'reference'
-			},
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 4,
-				rowNum: 1,
-				videoId: 80002479,
-				videoRoot: 'reference'
-			},
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 5,
-				rowNum: 1,
-				videoId: 70254851,
-				videoRoot: 'reference'
-			},
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 6,
-				rowNum: 1,
-				videoId: 80988062,
-				videoRoot: 'reference'
-			},
-			{
-				isShowAsARow: false,
-				isTallPanel: false,
-				rankNum: 7,
-				rowNum: 1,
-				videoId: 80025678,
-				videoRoot: 'reference'
-			}
-		];
+		// var childArray = [
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 0,
+		// 		rowNum: 1,
+		// 		videoId: 80197526,
+		// 		videoRoot: 'reference'
+		// 	},
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 1,
+		// 		rowNum: 1,
+		// 		videoId: 70202589,
+		// 		videoRoot: 'reference'
+		// 	},
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 2,
+		// 		rowNum: 1,
+		// 		videoId: 80235864,
+		// 		videoRoot: 'reference'
+		// 	},
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 3,
+		// 		rowNum: 1,
+		// 		videoId: 70264888,
+		// 		videoRoot: 'reference'
+		// 	},
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 4,
+		// 		rowNum: 1,
+		// 		videoId: 80002479,
+		// 		videoRoot: 'reference'
+		// 	},
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 5,
+		// 		rowNum: 1,
+		// 		videoId: 70254851,
+		// 		videoRoot: 'reference'
+		// 	},
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 6,
+		// 		rowNum: 1,
+		// 		videoId: 80988062,
+		// 		videoRoot: 'reference'
+		// 	},
+		// 	{
+		// 		isShowAsARow: false,
+		// 		isTallPanel: false,
+		// 		rankNum: 7,
+		// 		rowNum: 1,
+		// 		videoId: 80025678,
+		// 		videoRoot: 'reference'
+		// 	}
+		// ];
 		return e.map(function(e) {
 			return React.cloneElement(e, {
 				onBobOpen: o.onBobOpen,

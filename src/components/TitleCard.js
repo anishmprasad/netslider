@@ -258,10 +258,10 @@ export default class TitleCard extends Component{
                 onMouseEnter: this.handleMouseEnter,
                 onMouseLeave: this.handleMouseLeave
             }, React.createElement("a", {
-                videoId: M.id,
-                imageKey: M.imageKey,
-                maturityMisMatchEdgy: M.maturityMisMatchEdgy,
-				maturityMisMatchNonEdgy: M.maturityMisMatchNonEdgy,
+                // videoId: M.id,
+                // imageKey: M.imageKey,
+                // maturityMisMatchEdgy: M.maturityMisMatchEdgy,
+				// maturityMisMatchNonEdgy: M.maturityMisMatchNonEdgy,
                 href: v,
                 onClick: this.onAnchorClick,
                 "aria-label": M.title ? M.title : null,

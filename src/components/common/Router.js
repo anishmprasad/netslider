@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import {debounce} from 'throttle-debounce';
 import 'styleCommon/styles.scss';
 import CaroSlider from 'components/CaroSlider';
+// import HomePage from 'components/HomePage'
 
 
 class Router extends Component {
@@ -19,6 +20,7 @@ class Router extends Component {
       <div>
         <Switch>
           <Route exact path='/slider' component={CaroSlider}/>
+          {/* <Route exact path='/' component={HomePage}/> */}
         </Switch>
       </div>
     )

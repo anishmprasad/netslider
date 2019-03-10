@@ -614,8 +614,8 @@ Slider.defaultProps = {
 	showEmptyHandles: !1
 };
 Slider.propTypes = {
-	getI18nString: PropTypes.func.isRequired,
+	// getI18nString: PropTypes.func.isRequired,
 	getModelData: PropTypes.func,
 	isRtl: PropTypes.bool,
-	formatString: PropTypes.func.isRequired
+	// formatString: PropTypes.func.isRequired
 };

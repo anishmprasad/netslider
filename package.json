@@ -23,6 +23,7 @@
     "query-string": "^5.0.0",
     "react": "^16.3.2",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-transition-group": "^15.6.2",
     "react-cookies": "^0.1.0",
     "react-dom": "^16.3.2",
     "react-dropdown": "^1.2.5",

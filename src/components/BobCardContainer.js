@@ -1,36 +1,3 @@
-// C.r("12", function (e, o, s) {
-//   "use strict";
-//   var t = e("dP"),
-//     a = e("fE"),
-//     n = e("aP"),
-//     i = e("dm"),
-//     r = e("2p"),
-//     h = e("0b"),
-//     d = e("1l"),
-//     w = e("7k"),
-//     l = e("6f"),
-//     g = e("6B"),
-//     c = e("pa"),
-//     m = e("3S"),
-//     u = e("t7"),
-//     p = e("0W"),
-//     B = e("0X"),
-//     y = e("0U"),
-//     b = e("0V"),
-//     M = e("0T"),
-//     P = e("0Y"),
-//     C = e("o-"),
-//     I = e("5b"),
-//     T = "discovery/akira/Common",
-//     v = n({
-//       displayName: "BobCardContainer",
-      
-      
-//     });
-//   o.exports = v
-// });
-
-
 import React, { Component } from "React";
 import PropTypes from 'prop-types';
 import {getModelDataTruths} from './getModelDataTruths'
@@ -240,13 +207,13 @@ BobCardContainer.defaultProps= {
 }
 
 BobCardContainer.propTypes = {
-  getModelData: PropTypes.func.isRequired,
-  getI18nString: PropTypes.func.isRequired,
-  openJawbone: PropTypes.func.isRequired,
+  // getModelData: PropTypes.func.isRequired,
+  // getI18nString: PropTypes.func.isRequired,
+  // openJawbone: PropTypes.func.isRequired,
   rowNum: PropTypes.number,
   rankNum: PropTypes.number,
   trackId: PropTypes.number,
   requestId: PropTypes.string,
-  playerApp: PropTypes.object.isRequired,
+  // playerApp: PropTypes.object.isRequired,
   models: PropTypes.object
 }
