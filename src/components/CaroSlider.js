@@ -68,6 +68,7 @@ export default class CaroSlider extends Component {
                 trackId={ null}
                 uiView={ "browseTitles"}
                 renderSource={ "client"}
+                className="lolomoRow"
             />
           </div>
         )

@@ -15,6 +15,7 @@
     //     this.forceCollect = s || !1
     // }
     // ;
+    import {l} from './constants'
     function a(t, e, i, r, s) {
         this.model = t,
         this.currentRemainingPaths = e,
@@ -37,7 +38,7 @@
           , r = this.model
           , a = t.isJSONG = this.isJSONGraph
           , p = this.isProgressive
-          , u = s(r, this.currentRemainingPaths, t, p, a, e, i);
+          , u = bt()(r, this.currentRemainingPaths, t, p, a, e, i);
         if (!u) {
             if (this.forceCollect) {
                 var l = r._root
@@ -75,7 +76,7 @@
     }
     ,
     n.prototype.subscribe = n.prototype.forEach = function(t, o, e) {
-        var n = new r(t,o,e)
+        var n = new e(t,o,e)
           , s = this._subscribe(n);
         switch (typeof s) {
         case "function":
@@ -127,12 +128,13 @@
 
 
 function bt(r, t, e) {
-    var s = aZ()
-      , a = s.getWithPathsAsJSONGraph
-      , o = s.getWithPathsAsPathMap;
+    // var s = aZ()
+    //   , a = s.getWithPathsAsJSONGraph
+    //   , o = s.getWithPathsAsPathMap;
     return function(r, t, e, s, n, h, i) {
-        var l = n ? a(r, t, h) : o(r, t, h)
-          , u = l.values && l.values[0]
+        
+        // var l = n ? a(r, t, h) : o(r, t, h)
+          var u = l.values && l.values[0]
           , c = !l.requestedMissingPaths || !l.requestedMissingPaths.length || !r._source;
         if (l.errors)
             for (var g = l.errors, v = i.length, f = 0, P = g.length; f < P; ++f,
@@ -144,7 +146,7 @@ function bt(r, t, e) {
             } catch (r) {
                 throw r
             }
-        return l.criticalError ? (e.onError(l.criticalError),
+         l.criticalError ? (e.onError(l.criticalErreturnror),
         null) : c ? (i.length ? e.onError(i) : e.onCompleted(),
         null) : l
     }
@@ -156,10 +158,12 @@ function aZ(a, t, e) {
     //   , g = h(s, !1)
     //   , n = h(s, !0);
     return{
-        getValueSync: a("aX"),
-        getBoundValue: a("aT"),
-        getWithPathsAsPathMap: g,
-        getWithPathsAsJSONGraph: n
+        // getValueSync: a("aX") ,
+        // getBoundValue: a("aT"),
+         getValueSync:null,
+        getBoundValue: null,
+        getWithPathsAsPathMap: null,
+        getWithPathsAsJSONGraph: null
     }
 };
 

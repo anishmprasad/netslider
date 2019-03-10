@@ -166,6 +166,8 @@
 
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 
 class S extends Component{
     getParentSliderItem(e) {

@@ -1,4 +1,6 @@
 import lodash from 'lodash'
+    import {l} from './constants'
+
     function GlobalFunction(){
         this._viewportRegion= null
         this._onScreen= {}
@@ -86,8 +88,8 @@ import lodash from 'lodash'
         })
     GlobalFunction.prototype.requestScan = function(){ 
             lodash.debounce(function(e) {
-                s._initialized && !s._isPaused && lodash.emit(l.FULL_SCAN, s._fullScan(e))
-            }, a(l.FAST_PROPS.DEBOUNCE_MS))}
+                s._initialized && !s._isPaused && lodash.emit('pt:fullscan', s._fullScan(e))
+            })}
     GlobalFunction.prototype.init = function(e) {
             if (!this._initialized && !l.IN_NODE && a(l.FAST_PROPS.ACTIVE)) {
                 var t = this
@@ -124,3 +126,77 @@ import lodash from 'lodash'
 var GlobalFunctions = new GlobalFunction()
 export default GlobalFunctions
     
+
+
+function bt(r, t, e) {
+    // var s = aZ()
+    //   , a = s.getWithPathsAsJSONGraph
+    //   , o = s.getWithPathsAsPathMap;
+    return function(r, t, e, s, n, h, i) {
+        // var l = n ? a(r, t, h) : o(r, t, h)
+           var u = l.values && l.values[0]
+          , c = !l.requestedMissingPaths || !l.requestedMissingPaths.length || !r._source;
+        if (l.errors)
+            for (var g = l.errors, v = i.length, f = 0, P = g.length; f < P; ++f,
+            ++v)
+                i[v] = g[f];
+        if (s || (s && l.hasValues || !s) && c && void 0 !== u)
+            try {
+                // x.onNext(u)
+            } catch (r) {
+                throw r
+            }
+        return l.criticalError ? (e.onError(l.criticalError),
+        null) : c ? (i.length ? e.onError(i) : e.onCompleted(),
+        null) : l
+    }
+};
+
+function aZ(a, t, e) {
+    // var h = a("aS")
+    //   , s = a("b7")
+    //   , g = h(s, !1)
+    //   , n = h(s, !0);
+    return{
+        getValueSync: a("aX"),
+        getBoundValue: a("aT"),
+        getWithPathsAsPathMap: g,
+        getWithPathsAsJSONGraph: n
+    }
+};
+
+
+function x(o, n, t) {
+        this._observer = o && "object" == typeof o ? {
+            onNext: "function" == typeof o.onNext ? function(n) {
+                o.onNext(n)
+            }
+            : r,
+            onError: "function" == typeof o.onError ? function(n) {
+                o.onError(n)
+            }
+            : r,
+            onCompleted: "function" == typeof o.onCompleted ? function() {
+                o.onCompleted()
+            }
+            : r
+        } : {
+            onNext: "function" == typeof o ? o : r,
+            onError: "function" == typeof n ? n : r,
+            onCompleted: "function" == typeof t ? t : r
+        }
+    }
+    // var r = o("ca");
+    x.prototype = {
+        onNext: function(o) {
+            this._closed || this._observer.onNext(o)
+        },
+        onError: function(o) {
+            this._closed || (this._closed = !0,
+            this._observer.onError(o))
+        },
+        onCompleted: function() {
+            this._closed || (this._closed = !0,
+            this._observer.onCompleted())
+        }
+    }

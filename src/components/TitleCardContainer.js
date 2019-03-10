@@ -201,16 +201,16 @@ export default class TitleCardContainer extends Component {
 						r = function() {
 							e.forceUpdate && o.forceUpdate();
 						};
-					(t = i.props.model).get
-						.apply(
-							t,
-							(0, n.default)(
-								q(s, e, {
-									videoPrefix: a
-								})
-							)
-						)
-						.subscribe(_, r, r);
+					// (t = i.props.model).get
+					// 	.apply(
+					// 		t,
+					// 		(0, n.default)(
+					// 			q(s, e, {
+					// 				videoPrefix: a
+					// 			})
+					// 		)
+					// 	)
+					// 	.subscribe(_, r, r);
 				};
 			setTimeout(function() {
 				r(V.bobs);
@@ -238,7 +238,7 @@ export default class TitleCardContainer extends Component {
 	// 			(this.bobOpenTimeout = setTimeout(this.openBob, e));
 	// 	}
 	// }
-	queueBobOpen() {
+	queueBobOpen = () => {
             if (!this.bobOpenTimeout && !this.state.isBobOpen) {
                 var e, t = ReactDOM.findDOMNode(this);
                 t instanceof Element && (this.titleCardRect = Helpers.getRect(t)),
@@ -246,11 +246,12 @@ export default class TitleCardContainer extends Component {
                 this.bobOpenTimeout = setTimeout(this.openBob, e)
             }
         }
-	openBob() {
+	openBob = () => {
 		if (
 			this.scope.isHovering &&
 			this._isMounted &&
-			((this.onBobFocusEnd = this.props.logFocus('bob', this.getBobTrackingInfo())),
+			// ((this.onBobFocusEnd = this.props.logFocus('bob', this.getBobTrackingInfo())),
+			(
 			this.setState({
 				isBobOpen: !0
 			}),
