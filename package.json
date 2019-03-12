@@ -1,10 +1,9 @@
 {
 	"name": "netslider",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"main": "dist/index.js",
 	"style": "dist/styles.css",
 	"files": [
-		"lib",
 		"dist"
 	],
 	"dependencies": {
@@ -17,17 +16,7 @@
 		"react-addons-css-transition-group": "^15.6.2",
 		"react-addons-transition-group": "^15.6.2",
 		"react-dom": "^16.7.0",
-		"react-scripts": "2.1.2",
-		"rollup-plugin-commonjs": "^9.2.0",
-		"rollup-plugin-filesize": "^6.0.1",
-		"rollup-plugin-istanbul": "^2.0.1",
-		"rollup-plugin-json": "^3.1.0",
-		"rollup-plugin-node-resolve": "^4.0.0",
-		"rollup-plugin-postcss": "^2.0.3",
-		"rollup-plugin-progress": "^1.0.0",
-		"rollup-plugin-replace": "^2.1.0",
-		"rollup-plugin-uglify": "^6.0.2",
-		"rollup-plugin-visualizer": "^0.9.2"
+		"react-scripts": "2.1.2"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -47,7 +36,17 @@
 		"rollup": "^1.2.2",
 		"rollup-plugin-babel": "^2.6.1",
 		"rollup-plugin-gzip": "^2.2.0",
-		"rollup-plugin-scss": "^0.4.0"
+    "rollup-plugin-scss": "^0.4.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-istanbul": "^2.0.1",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-progress": "^1.0.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-plugin-visualizer": "^0.9.2"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
