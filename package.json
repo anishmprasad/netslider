@@ -1,7 +1,19 @@
 {
-  "name": "TestApp",
+  "name": "netslider",
   "version": "1.0.1",
-  "private": true,
+  "homepage": "https://github.com/anishmprasad/netslider#readme",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anishmprasad/netslider.git"
+  },
+  "author": "anish.m.prasad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anishmprasad/netslider/issues"
+  },
+  "homepage": "https://github.com/anishmprasad/netslider#readme",
   "scripts": {
     "stage1": "webpack --config public/webpack/web.stage1.config.js --progress --colors",
     "stage2": "webpack --config public/webpack/web.stage2.config.js --progress --colors",
@@ -78,3 +90,6 @@
     "webpack-hot-middleware": "^2.6.4"
   }
 }
+
+
+
