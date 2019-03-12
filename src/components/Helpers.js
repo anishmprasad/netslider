@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 export const Helpers = {
 	getRect: function(t) {

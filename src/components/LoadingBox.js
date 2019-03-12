@@ -9,7 +9,7 @@
 // 	e.exports = p;
 // });
 
-/**eslint-disable */
+/* eslint-disable */
 
 import React, { Component } from 'react';
 import classnames from 'classnames';

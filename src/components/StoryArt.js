@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 import React from 'react';
 export default class StoryArt extends Component {

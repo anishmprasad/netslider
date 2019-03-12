@@ -1,4 +1,4 @@
-/** eslint-disable */
+/* eslint-disable */
 
 export function onBinding() {
 	for (var n = [], i = 0; i < arguments.length; i++) {

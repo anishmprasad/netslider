@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -70,7 +70,6 @@ export default class BobCardElement extends Component {
 	}
 	componentWillLeave(e) {
 		console.log('component did leave');
-		debugger;
 		var t = this,
 			a = this.props.onBobClose,
 			n = !1,

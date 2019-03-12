@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 // C.r("bs", function(t, e, i) {
 // var r = t("bq")

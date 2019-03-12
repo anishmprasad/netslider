@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 C.r('7V', function(e, t, n) {
 	'use strict';

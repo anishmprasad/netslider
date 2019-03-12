@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 export default function Animate(){
     function i() {
         return !(arguments.length > 0 && void 0 !== arguments[0] && arguments[0]) && "function" == typeof window.Element.prototype.animate

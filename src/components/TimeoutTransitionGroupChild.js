@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 import React, { Component } from 'react';
 const p = {
@@ -20,7 +20,6 @@ const p = {
 export default class TimeoutTransitionGroupChild extends Component {
 	constructor() {
 		super();
-		debugger;
 		if (!window) {
 			var i = document.createElement('div'),
 				t = i.style;
@@ -112,7 +111,6 @@ export default class TimeoutTransitionGroupChild extends Component {
 			  this.props.afterTransitionLeave && this.props.afterTransitionLeave());
 	}
 	render() {
-		debugger;
 		return React.Children.only(this.props.children);
 	}
 }

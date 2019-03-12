@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 import lodash from 'lodash';
 import { l } from './constants';

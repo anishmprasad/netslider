@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 import React from 'react';
 import TransitionGroup from 'react-addons-transition-group';

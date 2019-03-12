@@ -1,15 +1,14 @@
-/**eslint-disable */
+/* eslint-disable */
 
 import React, { Component } from 'react';
 // import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import TransitionGroup from 'react-addons-css-transition-group'
-import TimeoutTransitionGroupChild from './TimeoutTransitionGroupChild'
+import TransitionGroup from 'react-addons-css-transition-group';
+import TimeoutTransitionGroupChild from './TimeoutTransitionGroupChild';
 
 import lodash from 'lodash';
 
 export default class TimeoutTransitionGroup extends Component {
 	_wrapChild(e) {
-		debugger
 		return React.createElement(
 			TimeoutTransitionGroupChild,
 			{
@@ -30,14 +29,20 @@ export default class TimeoutTransitionGroup extends Component {
 		);
 	}
 	render() {
-		console.log(Object.assign({},lodash.omit(this.props, ['enterTimeout', 'leaveTimeout', 'enterDelayMs', 'afterTransitionLeave']),
+		console.log(
+			Object.assign(
+				{},
+				lodash.omit(this.props, ['enterTimeout', 'leaveTimeout', 'enterDelayMs', 'afterTransitionLeave']),
 				{
 					childFactory: this._wrapChild
 				}
-			))
+			)
+		);
 		return React.createElement(
 			TransitionGroup,
-			Object.assign({},lodash.omit(this.props, ['enterTimeout', 'leaveTimeout', 'enterDelayMs', 'afterTransitionLeave']),
+			Object.assign(
+				{},
+				lodash.omit(this.props, ['enterTimeout', 'leaveTimeout', 'enterDelayMs', 'afterTransitionLeave']),
 				{
 					childFactory: this._wrapChild
 				}
@@ -56,8 +61,6 @@ TimeoutTransitionGroup.defaultProps = {
 	transitionLeave: !0
 };
 
-
-
 // children: {$$typeof: Symbol(react.element), type: ƒ, key: "/browse/genre/83", ref: null, props: {…}, …}
 // className: "mainView"
 // component: "div"
@@ -66,9 +69,6 @@ TimeoutTransitionGroup.defaultProps = {
 // transitionEnter: true
 // transitionLeave: true
 // transitionName: "pageTransition"
-
-
-
 
 // children: {$$typeof: Symbol(react.element), type: ƒ, key: "/browse/genre/83", ref: null, props: {…}, …}
 // className: "mainView"

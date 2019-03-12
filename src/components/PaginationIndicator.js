@@ -1,4 +1,4 @@
-/**eslint-disable */
+/* eslint-disable */
 
 // C.r('4l', function(a, e, t) {
 // 	'use strict';

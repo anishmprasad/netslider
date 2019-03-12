@@ -1,5 +1,4 @@
-/**eslint-disable */
-
+/* eslint-disable */
 import React, { Component } from 'react';
 export default class TitleCardS extends Component {
 	getAnimationStyle() {

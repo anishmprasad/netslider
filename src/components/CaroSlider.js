@@ -1,10 +1,7 @@
-/** eslint-disable */
+/* eslint-disable */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { withRouter } from 'react-router';
-import ReactDOM from 'react-dom';
 import LolomoRow from './LolomoRow';
 // import HomeContent from './HomeContent'
 // import 'styles/caroslider.scss'

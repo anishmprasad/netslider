@@ -1,5 +1,4 @@
-/**eslint-disable */
-
+/* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,8 +6,8 @@ import Slider from './Slider';
 import JawBoneOnRow from './JawBoneOnRow';
 import PresTrackedContainer from './PresTrackedContainer';
 import TitleCardContainer from './TitleCardContainer';
-import Animate from './Animate'
-import ReactDOM from 'react-dom'
+import Animate from './Animate';
+import ReactDOM from 'react-dom';
 
 import { onBinding } from './Utils';
 
@@ -22,13 +21,13 @@ export default class Row extends Component {
 		};
 	}
 	componentDidMount() {
-  		this._ismounted = true;
+		this._ismounted = true;
 		this.props.isMyListRow &&
 			(u.on('myList:remove:end', this._decreaseSelectedIndex),
 			u.on('myList:add:end', this._increaseSelectedIndex));
 	}
 	componentWillUnmount() {
-   		this._ismounted = false;
+		this._ismounted = false;
 		this.props.isMyListRow &&
 			(u.removeListener('myList:remove:end', this._decreaseSelectedIndex),
 			u.removeListener('myList:add:end', this._increaseSelectedIndex));
@@ -66,14 +65,14 @@ export default class Row extends Component {
 			rowNum: this.props.rowNum
 		};
 	}
-	handleSliderMove =(e, o) => {
+	handleSliderMove = (e, o) => {
 		this.setState({
 			lowestVisibleItemIndex: e
 		}),
 			(this.sliderMoveDirection = o),
 			'function' == typeof this.props.handleSliderMove && this.props.handleSliderMove(e, o);
-	}
-	closingBobs= []
+	};
+	closingBobs = [];
 
 	onBobLeave = (e, o) => {
 		var t = this,
@@ -85,27 +84,27 @@ export default class Row extends Component {
 				}, 500)
 			};
 		this.closingBobs.push(s);
-	}
+	};
 	onBobOpen = (e, o, t, s) => {
 		this.pushSliderItems(e, o, t, s),
 			this.closePrevBobs(!0),
 			this.setState({
 				isBobOpen: !0
 			});
-	}
+	};
 	onBobClose = (e, o, t, s) => {
 		s && this.handleRowBlur(),
 			!this.ignoreClosingPush || this.isJawBoneOpen() ? this.pushSliderItems(e, 0, o, t) : t && t(),
 			(this.ignoreClosingPush = !1);
-	}
-	closePrevBobs =(e) => {
+	};
+	closePrevBobs = e => {
 		this.ignoreClosingPush = e;
 		for (var o = 0, t = this.closingBobs.length; o < t; o++) {
 			var s = this.closingBobs[o];
 			clearTimeout(s.closeTimeout), s.callback && s.callback();
 		}
 		this.closingBobs = [];
-	}
+	};
 	cleanUpAllBobStyles() {
 		if (this._ismounted) {
 			var e = this.refs.slider;
@@ -118,7 +117,7 @@ export default class Row extends Component {
 	}
 	getIsBobOpen = () => {
 		return this.state.isBobOpen;
-	}
+	};
 	pushSliderItems(e, o, t, s) {
 		var n = this.refs.slider,
 			i = n && n.getItem(e);
@@ -158,7 +157,7 @@ export default class Row extends Component {
 		}
 		return null;
 	}
-	handleRowBlur =() => {
+	handleRowBlur = () => {
 		return (
 			this.closePrevBobs(!1),
 			this.getIsBobOpen() && setTimeout(this.cleanUpAllBobStyles, 500),
@@ -167,7 +166,7 @@ export default class Row extends Component {
 			}),
 			null
 		);
-	}
+	};
 	wrapChildItems(e) {
 		var o = this;
 		return e.map(function(e) {
