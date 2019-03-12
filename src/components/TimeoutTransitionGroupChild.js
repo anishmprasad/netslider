@@ -1,76 +1,25 @@
-// C.r('4C', function(i, t, n) {
-// 	'use strict';
-// 	function e() {
-// 		return 0 !== u.length;
-// 	}
-// 	var s = i('eP'),
-// 		o = i('a3'),
-// 		a = i('ef'),
-// 		r = i('iH'),
-// 		p = {
-// 			transitionend: {
-// 				transition: 'transitionend',
-// 				WebkitTransition: 'webkitTransitionEnd',
-// 				MozTransition: 'mozTransitionEnd',
-// 				OTransition: 'oTransitionEnd',
-// 				msTransition: 'MSTransitionEnd'
-// 			},
-// 			animationend: {
-// 				animation: 'animationend',
-// 				WebkitAnimation: 'webkitAnimationEnd',
-// 				MozAnimation: 'mozAnimationEnd',
-// 				OAnimation: 'oAnimationEnd',
-// 				msAnimation: 'MSAnimationEnd'
-// 			}
-// 		},
-// 		u = [];
-// 	!(function() {
-// 		if (!r) {
-// 			var i = document.createElement('div'),
-// 				t = i.style;
-// 			'AnimationEvent' in window || delete p.animationend.animation,
-// 				'TransitionEvent' in window || delete p.transitionend.transition;
-// 			for (var n in p)
-// 				if (p.hasOwnProperty(n)) {
-// 					var e = p[n];
-// 					for (var s in e)
-// 						if (s in t) {
-// 							u.push(e[s]);
-// 							break;
-// 						}
-// 				}
-// 		}
-// 	})();
-// 	var m = o({
-// 		displayName: 'TimeoutTransitionGroupChild',
-		
-		
-		
-// 	});
-// 	t.exports = m;
-// });
+/* eslint-disable */
 
 import React, { Component } from 'react';
 const p = {
-			transitionend: {
-				transition: 'transitionend',
-				WebkitTransition: 'webkitTransitionEnd',
-				MozTransition: 'mozTransitionEnd',
-				OTransition: 'oTransitionEnd',
-				msTransition: 'MSTransitionEnd'
-			},
-			animationend: {
-				animation: 'animationend',
-				WebkitAnimation: 'webkitAnimationEnd',
-				MozAnimation: 'mozAnimationEnd',
-				OAnimation: 'oAnimationEnd',
-				msAnimation: 'MSAnimationEnd'
-			}
-		}
-export default class TimeoutTransitionGroupChild extends Component{
-	constructor(){
-		super()
-		debugger
+	transitionend: {
+		transition: 'transitionend',
+		WebkitTransition: 'webkitTransitionEnd',
+		MozTransition: 'mozTransitionEnd',
+		OTransition: 'oTransitionEnd',
+		msTransition: 'MSTransitionEnd'
+	},
+	animationend: {
+		animation: 'animationend',
+		WebkitAnimation: 'webkitAnimationEnd',
+		MozAnimation: 'mozAnimationEnd',
+		OAnimation: 'oAnimationEnd',
+		msAnimation: 'MSAnimationEnd'
+	}
+};
+export default class TimeoutTransitionGroupChild extends Component {
+	constructor() {
+		super();
 		if (!window) {
 			var i = document.createElement('div'),
 				t = i.style;
@@ -106,24 +55,24 @@ export default class TimeoutTransitionGroupChild extends Component{
 		e()
 			? 'enter' === i || 'appear' === i
 				? (this.props.beforeTransitionEnter && this.props.beforeTransitionEnter(n),
-					(this.animationTimeout = setTimeout(m, u)))
+				  (this.animationTimeout = setTimeout(m, u)))
 				: 'leave' === i &&
-					(this.props.beforeTransitionLeave && this.props.beforeTransitionLeave(n),
-					(this.animationTimeout = setTimeout(m, p)))
+				  (this.props.beforeTransitionLeave && this.props.beforeTransitionLeave(n),
+				  (this.animationTimeout = setTimeout(m, p)))
 			: m(),
 			n.classList.add(o),
 			('enter' !== i && 'appear' !== i) || !this.props.enterDelayMs
 				? 'leave' === i && this.props.leaveDelayMs
 					? (this.transitionLeaveTimeout = setTimeout(function() {
 							s.queueClass(r);
-						}, this.props.leaveDelayMs))
+					  }, this.props.leaveDelayMs))
 					: this.queueClass(r)
 				: (this.transitionEnterTimeout = setTimeout(function() {
 						s.queueClass(r);
-					}, this.props.enterDelayMs));
+				  }, this.props.enterDelayMs));
 	}
 	queueClass(i) {
-			this.classNameQueue.push(i), this.timeout || (this.timeout = setTimeout(this.flushClassNameQueue, 17));
+		this.classNameQueue.push(i), this.timeout || (this.timeout = setTimeout(this.flushClassNameQueue, 17));
 	}
 	flushClassNameQueue() {
 		this.isMounted() &&
@@ -151,18 +100,17 @@ export default class TimeoutTransitionGroupChild extends Component{
 		this.props.enter
 			? this.transition('enter', i)
 			: (this.props.beforeTransitionEnter && this.props.beforeTransitionEnter(),
-				i(),
-				this.props.afterTransitionEnter && this.props.afterTransitionEnter());
+			  i(),
+			  this.props.afterTransitionEnter && this.props.afterTransitionEnter());
 	}
 	componentWillLeave(i) {
 		this.props.leave
 			? this.transition('leave', i)
 			: (this.props.beforeTransitionLeave && this.props.beforeTransitionLeave(),
-				'function' == typeof i && i(),
-				this.props.afterTransitionLeave && this.props.afterTransitionLeave());
+			  'function' == typeof i && i(),
+			  this.props.afterTransitionLeave && this.props.afterTransitionLeave());
 	}
 	render() {
-		debugger
 		return React.Children.only(this.props.children);
 	}
 }

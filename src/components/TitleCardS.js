@@ -1,29 +1,4 @@
-// C.r('2S', function(e, t, i) {
-// 	'use strict';
-// 	var a = e('4M'),
-// 		s = (a.videoReactShape, e('0b')),
-// 		n = e('89'),
-// 		o = e('9-'),
-// 		r = e('a3'),
-// 		l = e('oE'),
-// 		d = e('1w'),
-// 		c = e('2C'),
-// 		m = e('2N'),
-// 		u = e('1c'),
-// 		h = e('d3'),
-// 		p = e('eP'),
-// 		E = e('eH'),
-// 		v = e('2R'),
-// 		y = r({
-// 			displayName: 'TitleCard',
-// 			contextTypes: {
-// 				getModelData: h.func.isRequired
-// 			},
-// 			node: null
-// 		});
-// 	t.exports = y;
-// });
-
+/* eslint-disable */
 import React, { Component } from 'react';
 export default class TitleCardS extends Component {
 	getAnimationStyle() {

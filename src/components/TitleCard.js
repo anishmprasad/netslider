@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { Component } from 'react';
 import classnames from 'classnames'
 import BoxArtContainer from './BoxArtContainer'

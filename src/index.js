@@ -1,12 +1,11 @@
 import React from 'react';
-import { render } from 'react-dom';
-import secretStore from './store/secretStore';
-import Root from './containers/common/Root';
-import configureStore from './store/configureStore';
-import {loadCss} from './performance-utils/css-loader.js'
-import 'babel-polyfill';
-const store = configureStore();
-const rootElement = document.getElementById('root');
-let analytics = require('react-segment');
+import ReactDOM from 'react-dom';
+import './index.css';
+// import App from './App';
+import CaroSlider from './components/CaroSlider';
 
-render( <Root store={store} />, rootElement );
+ReactDOM.render(<CaroSlider />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
