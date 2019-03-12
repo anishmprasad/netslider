@@ -1,7 +1,6 @@
 {
   "name": "netslider",
   "version": "1.0.1",
-  "private": true,
   "homepage": "https://github.com/anishmprasad/netslider#readme",
   "description": "",
   "main": "index.js",
