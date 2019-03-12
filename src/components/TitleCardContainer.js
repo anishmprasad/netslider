@@ -1,24 +1,26 @@
-import React, { Component } from 'React';
+/**eslint-disable */
+
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { listContexts } from './constants';
 import TitleCard from './TitleCard';
 import TitleCardS from './TitleCardS';
 import ReactDOM from 'react-dom';
-const r = [["summary"], ["title"], ["titleMaturity"], ["userRating"], ["userRatingRequestId"]];
-import {willmount,update,getTrackingInfoFromContext} from './carddata';
-import BobCardContainer from './BobCardContainer'
-import { Helpers } from './Helpers'
+const r = [['summary'], ['title'], ['titleMaturity'], ['userRating'], ['userRatingRequestId']];
+import { willmount, update, getTrackingInfoFromContext } from './carddata';
+import BobCardContainer from './BobCardContainer';
+import { Helpers } from './Helpers';
 
 const V = {
-  bobs: {
-    bobs: !0,
-    forceUpdate: !0
-  },
-  jawBones: {
-    jawBones: !0,
-    forceUpdate: !0
-  }
-}
+	bobs: {
+		bobs: !0,
+		forceUpdate: !0
+	},
+	jawBones: {
+		jawBones: !0,
+		forceUpdate: !0
+	}
+};
 
 export default class TitleCardContainer extends Component {
 	constructor(props) {
@@ -34,7 +36,7 @@ export default class TitleCardContainer extends Component {
 		// (this.videoModel = r({
 		// 	id: 0
 		// })),
-			(this.onBobFocusEnd = 0);
+		this.onBobFocusEnd = 0;
 		this.onBoxartFocusEnd = 0;
 		this.jawBoneDataLoadTimeout = 0;
 		this.bobOpenTimeout = 0;
@@ -42,9 +44,9 @@ export default class TitleCardContainer extends Component {
 			(this.scope = {
 				isHovering: !1,
 				hasFetchedBobData: !1
-			})
+			});
 		this.state = {
-				isBobOpen: !1
+			isBobOpen: !1
 		};
 	}
 
@@ -56,15 +58,15 @@ export default class TitleCardContainer extends Component {
 
 	componentWillMount() {
 		// this.videoModel = this.getVideoModel(this.state);
-		this.videoModel = willmount
+		this.videoModel = willmount;
 	}
 	componentDidMount() {
 		// l.on('rating:set', this.onRating), (this._isMounted = !0);
-		this._isMounted = !0
+		this._isMounted = !0;
 	}
 	componentWillUpdate(e, t) {
 		// this.videoModel = this.getVideoModel(t);
-		this.videoModel = update
+		this.videoModel = update;
 	}
 	componentWillReceiveProps(e) {
 		!this.props.myJawBoneOpen && e.myJawBoneOpen
@@ -113,7 +115,7 @@ export default class TitleCardContainer extends Component {
 		}
 		return d;
 	}
-	getBobTrackingInfo =() => {
+	getBobTrackingInfo = () => {
 		var e = this.videoModel,
 			t = e.userRating,
 			o = e.userRatingRequestId,
@@ -132,7 +134,7 @@ export default class TitleCardContainer extends Component {
 		// 	},
 		// 	['trackId', 'lolomoId', 'listId', 'requestId', 'videoId']
 		// );
-	}
+	};
 	getBoxartTrackingInfo() {
 		return this.props.getTrackingInfoFromContext(
 			{
@@ -182,13 +184,13 @@ export default class TitleCardContainer extends Component {
 			e.contains(t.currentTarget) &&
 			!this.state.isBobOpen &&
 			(o && o !== document.body && !o.getAttribute('data-search-input') && o.blur(), this.handleEnter(t));
-	}
+	};
 	handleMouseLeave = (e, t) => {
 		((t && !t.relatedTarget) ||
 			t.relatedTarget.location ||
 			(t.relatedTarget && e instanceof HTMLElement && !e.contains(t.relatedTarget))) &&
 			this.handleLeave();
-	}
+	};
 	handleEnter(e, t) {
 		var o = this,
 			i = this,
@@ -239,24 +241,23 @@ export default class TitleCardContainer extends Component {
 	// 	}
 	// }
 	queueBobOpen = () => {
-            if (!this.bobOpenTimeout && !this.state.isBobOpen) {
-                var e, t = ReactDOM.findDOMNode(this);
-                t instanceof Element && (this.titleCardRect = Helpers.getRect(t)),
-                e = this.props.getRowHasBobOpen && this.props.getRowHasBobOpen() ? 100 : 400,
-                this.bobOpenTimeout = setTimeout(this.openBob, e)
-            }
-        }
+		if (!this.bobOpenTimeout && !this.state.isBobOpen) {
+			var e,
+				t = ReactDOM.findDOMNode(this);
+			t instanceof Element && (this.titleCardRect = Helpers.getRect(t)),
+				(e = this.props.getRowHasBobOpen && this.props.getRowHasBobOpen() ? 100 : 400),
+				(this.bobOpenTimeout = setTimeout(this.openBob, e));
+		}
+	};
 	openBob = () => {
 		if (
 			this.scope.isHovering &&
 			this._isMounted &&
 			// ((this.onBobFocusEnd = this.props.logFocus('bob', this.getBobTrackingInfo())),
-			(
 			this.setState({
 				isBobOpen: !0
 			})
 			// ,y.isPlayPredictionEnabled(this.context.getModelData('truths'))
-			)
 		) {
 			var e = this.getBobTrackingInfo();
 			l.emit(
@@ -272,7 +273,7 @@ export default class TitleCardContainer extends Component {
 				)
 			);
 		}
-	}
+	};
 	clearDelays() {
 		this.jawBoneDataLoadTimeout && clearTimeout(this.jawBoneDataLoadTimeout),
 			this.bobOpenTimeout && clearTimeout(this.bobOpenTimeout),
@@ -318,10 +319,10 @@ export default class TitleCardContainer extends Component {
 				i = (o - this.titleCardRect.width) / 2;
 			this.props.onBobOpen(this.props.sliderItemId, i, t);
 		}
-	}
+	};
 	onBobClose = (e, t, o) => {
 		this.props.onBobClose && this.props.sliderItemId && this.props.onBobClose(this.props.sliderItemId, e, t, o);
-	}
+	};
 	onRating() {
 		this._isMounted && this.forceUpdate();
 	}
@@ -331,7 +332,7 @@ export default class TitleCardContainer extends Component {
 	}
 	getWatchURL() {
 		var e = this.getBobTrackingInfo();
-		return '/watch/80234795?tctx=2%2C1%2C%2C%2C'
+		return '/watch/80234795?tctx=2%2C1%2C%2C%2C';
 		// return M.buildAkiraPlayerURL(
 		// 	this.videoModel && this.videoModel.summary && this.videoModel.summary.id,
 		// 	M.buildAkiraPlayerQuery({
@@ -433,7 +434,7 @@ export default class TitleCardContainer extends Component {
 							isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
 							isDisliked: this.isDisliked(),
 							isFocused: this.props.myJawBoneOpen,
-							isInvalid: !r.isValid,							
+							isInvalid: !r.isValid,
 							itemTabbable: t,
 							// model: this.getFalcorVideoModel(),
 							onClick: this.handleClick,

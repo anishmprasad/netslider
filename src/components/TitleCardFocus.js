@@ -1,21 +1,4 @@
-// C.r("2M", function (t, e, s) {
-//   "use strict";
-//   var a = t("fE"),
-//     n = t("eZ"),
-//     i = t("aP"),
-//     r = (t("dP"), t("ty")),
-//     o = t("1l"),
-//     d = i({
-//       displayName: "TitleCardFocus",
-//       getDefaultProps: function () {
-//         return {
-
-//         }
-//       },
-
-//     });
-//   e.exports = d
-// });
+/** eslint-disable */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

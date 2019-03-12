@@ -1,9 +1,11 @@
+/**eslint-disable */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Row from './Row';
 import TitleCardContainer from './TitleCardContainer';
-import aclass from './ModalGlobalFunctions'
+import aclass from './ModalGlobalFunctions';
 
 const constant = {
 	LIST_CONTEXTS: {
@@ -30,13 +32,15 @@ const constant = {
 	}
 };
 function queue(e, t) {
-            return t = t || 10,
-            setTimeout(function() {
-                e()
-            }, t)
-        }
+	return (
+		(t = t || 10),
+		setTimeout(function() {
+			e();
+		}, t)
+	);
+}
 function cancelQueuedItem(e) {
-            clearTimeout(e)
+	clearTimeout(e);
 }
 
 export default class LolomoRow extends Component {
@@ -44,7 +48,7 @@ export default class LolomoRow extends Component {
 		super(props);
 		this.state = {
 			fullDataLoaded: !1
-		}
+		};
 		this.getLoadedItemModelsx = [
 			{ model: { $type: 'ref', value: ['lolomo', 9, 0] }, id: 60020549 },
 			{ model: { $type: 'ref', value: ['lolomo', 9, 1] }, id: 80084088 },
@@ -155,7 +159,7 @@ export default class LolomoRow extends Component {
 			80130521: 3,
 			80213025: 7,
 			80235864: 1
-		}
+		};
 		// console.log(this.getTitles())
 		return {
 			rowItems: e.concat(t.titleList).slice(0, 100),
@@ -185,7 +189,7 @@ export default class LolomoRow extends Component {
 			queue(function() {
 				var t;
 				return aclass.subscribe(
-					function(){},
+					function() {},
 					function() {
 						return e.forceUpdate();
 					},
@@ -194,7 +198,7 @@ export default class LolomoRow extends Component {
 					}
 				);
 			}));
-	}
+	};
 	render() {
 		var e = this.props.model,
 			t = false,
@@ -211,7 +215,7 @@ export default class LolomoRow extends Component {
 			l = a.rowItems || [],
 			u = s && a.orderedItemList,
 			c = 40;
-		console.log(this.getRowItems())
+		console.log(this.getRowItems());
 		return 0 === c || 0 === l.length
 			? null
 			: React.createElement(

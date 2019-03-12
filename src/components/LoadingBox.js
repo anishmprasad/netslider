@@ -9,6 +9,8 @@
 // 	e.exports = p;
 // });
 
+/**eslint-disable */
+
 import React, { Component } from 'react';
 import classnames from 'classnames';
 export default class LoadingBox extends Component {
