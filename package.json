@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "homepage": "https://github.com/anishmprasad/netslider#readme",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anishmprasad/netslider.git"
@@ -13,7 +13,6 @@
   "bugs": {
     "url": "https://github.com/anishmprasad/netslider/issues"
   },
-  "homepage": "https://github.com/anishmprasad/netslider#readme",
   "scripts": {
     "stage1": "webpack --config public/webpack/web.stage1.config.js --progress --colors",
     "stage2": "webpack --config public/webpack/web.stage2.config.js --progress --colors",
@@ -22,10 +21,11 @@
     "prod": "webpack --config public/webpack/web.prod.config.js --progress --colors",
     "dev": "webpack --config public/webpack/web.dev.config.js --progress --colors",
     "start": "webpack-dev-server --content-base public/ --config public/webpack/web.dev.config.js --port 8001 --host 0.0.0.0 --inline --hot --colors",
-    "web-bundle": "webpack --config public/webpack/web.prod.config.js --progress --colors"
+    "web-bundle": "webpack --config public/webpack/web.prod.config.js --progress --colors",
+    "rollup": "rollup -c"
   },
   "dependencies": {
-    "@segment/snippet": "^4.0.1",
+    "@babel/core": "^7.3.4",
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^4.1.3",
@@ -40,7 +40,6 @@
     "react-dom": "^16.3.2",
     "react-dropdown": "^1.2.5",
     "react-helmet": "^5.2.0",
-    "react-id-swiper": "1.4.0",
     "react-paginate": "^4.4.3",
     "react-redux": "^5.0.5",
     "react-router": "^4.2.0",
@@ -50,7 +49,6 @@
     "react-segment": "^0.1.3",
     "react-select": "^1.0.0-rc.10",
     "react-transition-group": "^2.6.0",
-    "react-youtube": "^7.5.0",
     "redux": "^4.0.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
@@ -86,10 +84,18 @@
     "webpack": "^2.6.1",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-dev-middleware": "^1.5.1",
-    "webpack-dev-server": "2.9.1",
-    "webpack-hot-middleware": "^2.6.4"
+    "webpack-dev-server": "^3.1.11",
+    "webpack-hot-middleware": "^2.6.4",
+    "rollup": "^1.6.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-gzip": "^2.2.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-progress": "^1.0.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-uglify": "^6.0.2",
   }
 }
-
-
-
