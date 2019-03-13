@@ -14,7 +14,7 @@ import { uglify } from 'rollup-plugin-uglify';
 // const cssExportMap = {};
 
 export default {
-	input: 'src/index.js',
+	input: 'src/lib/index.js',
 	output: [
 		{
 			file: 'dist/index.js',

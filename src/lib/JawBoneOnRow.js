@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TimeoutTransitionGroup from './TimeoutTransitionGroup';
 import classnames from 'classnames';
 // import {CSSTransitionGroup} from 'react-transition-group';
 // import { CSSTransition, TransitionGroup } from 'react-transition-group';

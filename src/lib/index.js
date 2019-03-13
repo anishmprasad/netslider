@@ -7,6 +7,8 @@ import Row from './Row';
 import TitleCardContainer from './TitleCardContainer';
 import aclass from './ModalGlobalFunctions';
 
+import './index.css'
+
 const constant = {
 	LIST_CONTEXTS: {
 		CONTINUE_WATCHING: 'continueWatching',
@@ -254,6 +256,7 @@ export default class NetSlider extends Component {
 NetSlider.defaultProps = {
 	hideRowHeader: true,
 	videoRoot: 'reference',
+	className:'netslider',
 	modal: {
 		isSoftBound: true,
 		setCache: undefined,

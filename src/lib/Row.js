@@ -57,11 +57,11 @@ export default class Row extends Component {
 	// 		s - 1 >= 0 && (o < n || s + 1 >= t) && this.context.openJawbone(this.props.rowNum, s - 1));
 	// }
 
-	getChildContext() {
-		return {
-			rowNum: this.props.rowNum
-		};
-	}
+	// getChildContext() {
+	// 	return {
+	// 		rowNum: this.props.rowNum
+	// 	};
+	// }
 	handleSliderMove = (e, o) => {
 		this.setState({
 			lowestVisibleItemIndex: e

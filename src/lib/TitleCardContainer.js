@@ -49,11 +49,11 @@ export default class TitleCardContainer extends Component {
 		};
 	}
 
-	getChildContext() {
-		return {
-			rankNum: this.props.rankNum
-		};
-	}
+	// getChildContext() {
+	// 	return {
+	// 		rankNum: this.props.rankNum
+	// 	};
+	// }
 
 	componentWillMount() {
 		// this.videoModel = this.getVideoModel(this.state);
