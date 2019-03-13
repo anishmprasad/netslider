@@ -2,18 +2,18 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import NetSlider from './NetSlider';
+import NetSlider from '../lib';
 // import HomeContent from './HomeContent'
 // import 'styles/caroslider.scss'
 
-export default class CaroSlider extends Component {
+export default class NetSliderContainer extends Component {
 	constructor() {
 		super();
 	}
 	render() {
 		return (
-			<div>
-				<h1>Slider</h1>
+			<div className='wrapper'>
+				<h1>NetSlider</h1>
 				<NetSlider
 					historyState={undefined}
 					id={'83'}
@@ -31,7 +31,7 @@ export default class CaroSlider extends Component {
 					trackId={null}
 					uiView={'browseTitles'}
 					renderSource={'client'}
-					className='lolomoRow'
+					className='netslider'
 				/>
 			</div>
 		);

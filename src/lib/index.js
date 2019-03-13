@@ -254,6 +254,7 @@ export default class NetSlider extends Component {
 NetSlider.defaultProps = {
 	hideRowHeader: true,
 	videoRoot: 'reference',
+	className:'netslider',
 	modal: {
 		isSoftBound: true,
 		setCache: undefined,

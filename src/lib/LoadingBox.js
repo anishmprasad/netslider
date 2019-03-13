@@ -1,14 +1,3 @@
-// C.r('1H', function(s, e, a) {
-// 	'use strict';
-// 	var t = s('eP'),
-// 		i = s('a3'),
-// 		n = s('9-'),
-// 		p = i({
-// 			displayName: 'LoadingBox'
-// 		});
-// 	e.exports = p;
-// });
-
 /* eslint-disable */
 
 import React, { Component } from 'react';
