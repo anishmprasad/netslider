@@ -14,13 +14,11 @@ const v = 400,
 	O = 4;
 export default class BobCardElement extends Component {
 	getParentSliderItem(e) {
-		console.log('getParentSliderItem', e);
 		for (; e && (e = e.parentNode); ) if (e instanceof HTMLElement && e.classList.contains('slider-item')) return e;
 		return null;
 	}
 	setParentZIndex(e) {
 		var t = this.getParentSliderItem(this.containerNode);
-		console.log('setParentZIndex', t);
 		t &&
 			Animate().css({
 				target: t,
@@ -107,20 +105,6 @@ export default class BobCardElement extends Component {
 			a = t.videoModel.id,
 			n = t.titleCardImage,
 			o = t.className;
-		// return React.createElement("div", {
-		//     className: classnames("bob-card", o),
-		//     key: "bob-" + a.toString(),
-		//     ref: function(t) {
-		//         e.containerNode = t
-		//     }
-		// }, this.props.children, React.createElement("img", {
-		//     alt: "",
-		//     src: n,
-		//     className: "bob-title-art",
-		//     ref: function(t) {
-		//         e.onGrowOverlayImage = t
-		//     }
-		// }))
 		return (
 			<div
 				className={classnames('bob-card', o)}

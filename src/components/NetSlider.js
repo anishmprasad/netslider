@@ -39,43 +39,32 @@ function queue(e, t) {
 		}, t)
 	);
 }
-function cancelQueuedItem(e) {
-	clearTimeout(e);
-}
+// function cancelQueuedItem(e) {
+// 	clearTimeout(e);
+// }
 
-export default class LolomoRow extends Component {
+export default class NetSlider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			fullDataLoaded: !1
 		};
-		this.getLoadedItemModelsx = [
-			{ model: { $type: 'ref', value: ['lolomo', 9, 0] }, id: 60020549 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 1] }, id: 80084088 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 2] }, id: 70065124 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 3] }, id: 80023638 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 4] }, id: 70108778 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 5] }, id: 70058021 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 6] }, id: 70054920 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 7] }, id: 70128681 },
-			{ model: { $type: 'ref', value: ['lolomo', 9, 7] }, id: 80115328 }
-		];
 	}
-	getChildContext() {
-		var e = this.getTrackIds();
-		return {
-			requestId: 'c7cbdd2c-10df-43e9-a73b-f46c056c17e4-373134675  ',
-			trackId: e.trackId,
-			jawBoneTrackId: e.trackId_jaw,
-			jawBoneEpisodeTrackId: e.trackId_jawEpisode,
-			jawBoneTrailerTrackId: e.trackId_jawTrailer,
-			listContext: 'similars',
-			listId: 'e85b5860-e170-47d7-a5c0-4d3b06d6c556_46833015X29X70099790X1541349833938',
-			listType: 'flat',
-			isTallRow: false,
-			impressionToken: this.props.model.getValueSync(['impressionToken'])
-		};
-	}
+	// getChildContext() {
+	// 	var e = this.getTrackIds();
+	// 	return {
+	// 		requestId: 'c7cbdd2c-10df-43e9-a73b-f46c056c17e4-373134675  ',
+	// 		trackId: e.trackId,
+	// 		jawBoneTrackId: e.trackId_jaw,
+	// 		jawBoneEpisodeTrackId: e.trackId_jawEpisode,
+	// 		jawBoneTrailerTrackId: e.trackId_jawTrailer,
+	// 		listContext: 'similars',
+	// 		listId: 'e85b5860-e170-47d7-a5c0-4d3b06d6c556_46833015X29X70099790X1541349833938',
+	// 		listType: 'flat',
+	// 		isTallRow: false,
+	// 		impressionToken: this.props.model.getValueSync(['impressionToken'])
+	// 	};
+	// }
 	componentDidMount() {
 		var e = this.context.renderTracker;
 		if (e) {
@@ -89,9 +78,9 @@ export default class LolomoRow extends Component {
 				});
 		}
 	}
-	getVideoPath(e) {
-		return this.props.videoRoot ? [this.props.videoRoot].concat(e) : e;
-	}
+	// getVideoPath(e) {
+	// 	return this.props.videoRoot ? [this.props.videoRoot].concat(e) : e;
+	// }
 	getId() {
 		var e = this.props.model,
 			t = e.getValueSync(['genreId']),
@@ -108,26 +97,35 @@ export default class LolomoRow extends Component {
 	}
 	getTitles() {
 		var e = this,
-			// t = this.props.model,
-			// o = !!t.getValueSync(["isTallRow"]),
 			i = false,
 			r = this.props.rowNum,
 			s = {};
 		return {
-			titleList: this.getLoadedItemModelsx.map(function(t, o) {
+			titleList: this.props.getLoadedItemModels.map(function(t, o) {
 				var a = t.id,
 					l = 'title_' + a + '_' + r + '_' + o;
 				s[a] = o;
 				try {
-					return React.createElement(TitleCardContainer, {
-						key: l,
-						model: t.model,
-						rowNum: r,
-						rankNum: o,
-						videoId: a,
-						isTallPanel: i,
-						videoRoot: e.props.videoRoot
-					});
+					return (
+						<TitleCardContainer
+							key={l}
+							model={t.model}
+							rowNum={r}
+							rankNum={o}
+							videoId={a}
+							isTallPanel={i}
+							videoRoot={e.props.videoRoot}
+						/>
+					);
+					// return React.createElement(TitleCardContainer, {
+					// 	key: l,
+					// 	model: t.model,
+					// 	rowNum: r,
+					// 	rankNum: o,
+					// 	videoId: a,
+					// 	isTallPanel: i,
+					// 	videoRoot: e.props.videoRoot
+					// });
 				} catch (e) {
 					console.log('slider render error: ', o, e);
 				}
@@ -136,30 +134,30 @@ export default class LolomoRow extends Component {
 			orderedItemList: s
 		};
 	}
-	getLoadedItemModels() {
-		for (var e = this.props.model, t = e.getValueSync('length'), o = [], i = void 0, r = void 0, s = 0; s < t; s++)
-			(i = e.bind([s])),
-				(r = i.getValueSync(this.getVideoPath(['summary']))) &&
-					r.id &&
-					o.push({
-						model: i,
-						id: r.id
-					});
-		return o;
-	}
+	// getLoadedItemModels() {
+	// 	for (var e = this.props.model, t = e.getValueSync('length'), o = [], i = void 0, r = void 0, s = 0; s < t; s++)
+	// 		(i = e.bind([s])),
+	// 			(r = i.getValueSync(this.getVideoPath(['summary']))) &&
+	// 				r.id &&
+	// 				o.push({
+	// 					model: i,
+	// 					id: r.id
+	// 				});
+	// 	return o;
+	// }
 	getRowItems() {
 		var e = [],
 			t = this.getTitles();
-		var orderedItemList = {
-			70142436: 5,
-			70254851: 4,
-			70264888: 6,
-			80002479: 0,
-			80074249: 2,
-			80130521: 3,
-			80213025: 7,
-			80235864: 1
-		};
+		// var orderedItemList = {
+		// 	70142436: 5,
+		// 	70254851: 4,
+		// 	70264888: 6,
+		// 	80002479: 0,
+		// 	80074249: 2,
+		// 	80130521: 3,
+		// 	80213025: 7,
+		// 	80235864: 1
+		// };
 		// console.log(this.getTitles())
 		return {
 			rowItems: e.concat(t.titleList).slice(0, 100),
@@ -215,7 +213,6 @@ export default class LolomoRow extends Component {
 			l = a.rowItems || [],
 			u = s && a.orderedItemList,
 			c = 40;
-		console.log(this.getRowItems());
 		return 0 === c || 0 === l.length
 			? null
 			: React.createElement(
@@ -254,7 +251,7 @@ export default class LolomoRow extends Component {
 	}
 }
 
-LolomoRow.defaultProps = {
+NetSlider.defaultProps = {
 	hideRowHeader: true,
 	videoRoot: 'reference',
 	modal: {
@@ -275,5 +272,16 @@ LolomoRow.defaultProps = {
 		_treatDataSourceErrorsAsJSONGraphErrors: false,
 		_treatErrorsAsValues: false,
 		_useServerPaths: false
-	}
+	},
+	getLoadedItemModels: [
+		{ model: { value: ['lolomo', 9, 0] }, id: 60020549 },
+		{ model: { value: ['lolomo', 9, 1] }, id: 80084088 },
+		{ model: { value: ['lolomo', 9, 2] }, id: 70065124 },
+		{ model: { value: ['lolomo', 9, 3] }, id: 80023638 },
+		{ model: { value: ['lolomo', 9, 4] }, id: 70108778 },
+		{ model: { value: ['lolomo', 9, 5] }, id: 70058021 },
+		{ model: { value: ['lolomo', 9, 6] }, id: 70054920 },
+		{ model: { value: ['lolomo', 9, 7] }, id: 70128681 },
+		{ model: { value: ['lolomo', 9, 7] }, id: 80115328 }
+	]
 };

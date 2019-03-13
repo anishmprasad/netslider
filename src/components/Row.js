@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Slider from './Slider';
-import JawBoneOnRow from './JawBoneOnRow';
+// import JawBoneOnRow from './JawBoneOnRow';
 import PresTrackedContainer from './PresTrackedContainer';
-import TitleCardContainer from './TitleCardContainer';
 import Animate from './Animate';
 import ReactDOM from 'react-dom';
 
@@ -22,44 +21,42 @@ export default class Row extends Component {
 	}
 	componentDidMount() {
 		this._ismounted = true;
-		this.props.isMyListRow &&
-			(u.on('myList:remove:end', this._decreaseSelectedIndex),
-			u.on('myList:add:end', this._increaseSelectedIndex));
+		// this.props.isMyListRow &&
+		// 	(u.on('myList:remove:end', this._decreaseSelectedIndex),
+		// 	u.on('myList:add:end', this._increaseSelectedIndex));
 	}
 	componentWillUnmount() {
 		this._ismounted = false;
-		this.props.isMyListRow &&
-			(u.removeListener('myList:remove:end', this._decreaseSelectedIndex),
-			u.removeListener('myList:add:end', this._increaseSelectedIndex));
+		// this.props.isMyListRow &&
+		// 	(u.removeListener('myList:remove:end', this._decreaseSelectedIndex),
+		// 	u.removeListener('myList:add:end', this._increaseSelectedIndex));
 	}
-	_increaseSelectedIndex() {
-		var e = this.props.totalItems;
-		this.props.showJawBone &&
-			null !== this.props.jawBoneRankNum &&
-			void 0 !== this.props.jawBoneRankNum &&
-			e &&
-			(this.props.isGallery
-				? (this.context.columnsInRow && this.context.columnsInRow > e && (e = this.context.columnsInRow),
-				  this.props.jawBoneRankNum + 1 < e
-						? this.context.openJawbone(this.props.rowNum, this.props.jawBoneRankNum + 1)
-						: this.context.openJawbone(this.props.rowNum, 0))
-				: this.props.jawBoneRankNum + 1 <= e &&
-				  this.context.openJawbone(this.props.rowNum, this.props.jawBoneRankNum + 1));
-	}
-	_decreaseSelectedIndex(e) {
-		var o = this.props.orderedItemList[e.videoId],
-			t = this.props.totalItems,
-			s = this.props.jawBoneRankNum,
-			n = void 0;
-		this.props.showJawBone &&
-			this.props.orderedItemList &&
-			void 0 !== o &&
-			((n = this.props.isGallery ? (s + 1) * (this.props.rowNum + 1) : s),
-			s - 1 >= 0 && (o < n || s + 1 >= t) && this.context.openJawbone(this.props.rowNum, s - 1));
-	}
-	// childContextTypes: {
-	//   rowNum: s.number
+	// _increaseSelectedIndex() {
+	// 	var e = this.props.totalItems;
+	// 	this.props.showJawBone &&
+	// 		null !== this.props.jawBoneRankNum &&
+	// 		void 0 !== this.props.jawBoneRankNum &&
+	// 		e &&
+	// 		(this.props.isGallery
+	// 			? (this.context.columnsInRow && this.context.columnsInRow > e && (e = this.context.columnsInRow),
+	// 			  this.props.jawBoneRankNum + 1 < e
+	// 					? this.context.openJawbone(this.props.rowNum, this.props.jawBoneRankNum + 1)
+	// 					: this.context.openJawbone(this.props.rowNum, 0))
+	// 			: this.props.jawBoneRankNum + 1 <= e &&
+	// 			  this.context.openJawbone(this.props.rowNum, this.props.jawBoneRankNum + 1));
 	// }
+	// _decreaseSelectedIndex(e) {
+	// 	var o = this.props.orderedItemList[e.videoId],
+	// 		t = this.props.totalItems,
+	// 		s = this.props.jawBoneRankNum,
+	// 		n = void 0;
+	// 	this.props.showJawBone &&
+	// 		this.props.orderedItemList &&
+	// 		void 0 !== o &&
+	// 		((n = this.props.isGallery ? (s + 1) * (this.props.rowNum + 1) : s),
+	// 		s - 1 >= 0 && (o < n || s + 1 >= t) && this.context.openJawbone(this.props.rowNum, s - 1));
+	// }
+
 	getChildContext() {
 		return {
 			rowNum: this.props.rowNum
@@ -167,19 +164,18 @@ export default class Row extends Component {
 			null
 		);
 	};
-	wrapChildItems(e) {
-		var o = this;
-		return e.map(function(e) {
+	wrapChildItems = e => {
+		return e.map(e => {
 			return React.cloneElement(e, {
-				onBobOpen: o.onBobOpen,
-				onBobClose: o.onBobClose,
-				onBobLeave: o.onBobLeave,
-				getRowHasBobOpen: o.getIsBobOpen,
-				aJawBoneOpen: o.isJawBoneOpen(),
-				myJawBoneOpen: o.isJawBoneOpen() && o.props.jawBoneRankNum === e.props.rankNum
+				onBobOpen: this.onBobOpen,
+				onBobClose: this.onBobClose,
+				onBobLeave: this.onBobLeave,
+				getRowHasBobOpen: this.getIsBobOpen,
+				aJawBoneOpen: this.isJawBoneOpen(),
+				myJawBoneOpen: this.isJawBoneOpen() && this.props.jawBoneRankNum === e.props.rankNum
 			});
 		});
-	}
+	};
 	render() {
 		var e = this.props.model,
 			o = 6,
@@ -234,21 +230,21 @@ export default class Row extends Component {
 						},
 						this.wrapChildItems(this.props.children)
 					)
-				),
-				React.createElement(JawBoneOnRow, {
-					model: e,
-					sliderRef: this.refs.slider,
-					jawBoneRankNum: this.props.jawBoneRankNum,
-					showJawBone: this.isJawBoneOpen(),
-					lowestVisibleItemIndex: this.state.lowestVisibleItemIndex,
-					sliderMoveDirection: this.sliderMoveDirection,
-					infinite: !this.props.isGallery,
-					jawBoneModelIndex: this.props.jawBoneModelIndex,
-					playbackQueryParams: this.props.playbackQueryParams,
-					videoRoot: this.props.videoRoot,
-					disableClose: this.props.disableJawClose,
-					hasVideoMerchInJaw: true
-				})
+				)
+				// React.createElement(JawBoneOnRow, {
+				// 	model: e,
+				// 	sliderRef: this.refs.slider,
+				// 	jawBoneRankNum: this.props.jawBoneRankNum,
+				// 	showJawBone: this.isJawBoneOpen(),
+				// 	lowestVisibleItemIndex: this.state.lowestVisibleItemIndex,
+				// 	sliderMoveDirection: this.sliderMoveDirection,
+				// 	infinite: !this.props.isGallery,
+				// 	jawBoneModelIndex: this.props.jawBoneModelIndex,
+				// 	playbackQueryParams: this.props.playbackQueryParams,
+				// 	videoRoot: this.props.videoRoot,
+				// 	disableClose: this.props.disableJawClose,
+				// 	hasVideoMerchInJaw: true
+				// })
 			)
 		);
 	}
