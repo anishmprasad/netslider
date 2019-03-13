@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { listContexts } from './constants';
 import TitleCard from './TitleCard';
-import TitleCardS from './TitleCardS';
+// import TitleCardS from './TitleCardS';
 import ReactDOM from 'react-dom';
 const r = [['summary'], ['title'], ['titleMaturity'], ['userRating'], ['userRatingRequestId']];
 import { willmount, update, getTrackingInfoFromContext } from './carddata';
@@ -354,101 +354,159 @@ export default class TitleCardContainer extends Component {
 			s = this.context.logger,
 			a = this.getBobTrackingInfo(),
 			r = this.videoModel,
-			d = this.shouldShowProgress(),
-			// c = I.isValueError(r.summary) || !r.summary,
-			u = React.createElement(BobCardContainer, {
-				isBobOpen: this.state.isBobOpen,
-				isTallPanel: n,
-				// model: this.getFalcorVideoModel(),
-				onBobClose: this.onBobClose,
-				onBobOpen: this.onBobOpen,
-				onJawOpen: this.handleJawOpen,
-				playbackQueryParams: this.props.playbackQueryParams,
-				trackingInfo: this.getBobTrackingInfo(),
-				videoModel: r
-			});
+			d = this.shouldShowProgress();
+		// c = I.isValueError(r.summary) || !r.summary,
+		// u = React.createElement(BobCardContainer, {
+		// 	isBobOpen: this.state.isBobOpen,
+		// 	isTallPanel: n,
+		// 	// model: this.getFalcorVideoModel(),
+		// 	onBobClose: this.onBobClose,
+		// 	onBobOpen: this.onBobOpen,
+		// 	onJawOpen: this.handleJawOpen,
+		// 	playbackQueryParams: this.props.playbackQueryParams,
+		// 	trackingInfo: this.getBobTrackingInfo(),
+		// 	videoModel: r
+		// });
 		return (
-			// s &&
-			// 	c &&
-			// 	s.logEvent(p.DebugEvent, {
-			// 		name: 'TitleCardError',
-			// 		data: r
-			// 	}),
-			this.context.listContext === listContexts.LIST_CONTEXTS.SHORT_FORM
-				? React.createElement(
-						TitleCardS,
-						{
-							animateIn: i,
-							className: o,
-							isBobOpen: this.state.isBobOpen,
-							isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
-							isDisliked: this.isDisliked(),
-							isFocused: this.props.myJawBoneOpen,
-							isInvalid: !r.isValid,
-							itemTabbable: t,
-							// model: this.getFalcorVideoModel(),
-							onClick: this.handleClick,
-							onKeyDown: this.handleKeyDown,
-							onMouseEnter: this.handleMouseEnter,
-							onMouseLeave: this.handleMouseLeave,
-							rankNum: a.rankNum,
-							rowNum: a.rowNum,
-							showProgress: d,
-							videoModel: r,
-							watchURL: this.getWatchURL()
-						},
-						u
-				  )
-				: n
-				? React.createElement(
-						TitleCardD,
-						{
-							animateIn: i,
-							className: o,
-							isBobOpen: this.state.isBobOpen,
-							isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
-							isDisliked: this.isDisliked(),
-							isFocused: this.props.myJawBoneOpen,
-							isInvalid: c,
-							itemTabbable: t,
-							// model: this.getFalcorVideoModel(),
-							onClick: this.handleClick,
-							onKeyDown: this.handleKeyDown,
-							onMouseEnter: this.handleMouseEnter,
-							onMouseLeave: this.handleMouseLeave,
-							rankNum: a.rankNum,
-							rowNum: a.rowNum,
-							showProgress: d,
-							videoModel: r,
-							watchURL: this.getWatchURL()
-						},
-						u
-				  )
-				: React.createElement(
-						TitleCard,
-						{
-							animateIn: i,
-							className: o,
-							isBobOpen: this.state.isBobOpen,
-							isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
-							isDisliked: this.isDisliked(),
-							isFocused: this.props.myJawBoneOpen,
-							isInvalid: !r.isValid,
-							itemTabbable: t,
-							// model: this.getFalcorVideoModel(),
-							onClick: this.handleClick,
-							onKeyDown: this.handleKeyDown,
-							onMouseEnter: this.handleMouseEnter,
-							onMouseLeave: this.handleMouseLeave,
-							rankNum: a.rankNum,
-							rowNum: a.rowNum,
-							showProgress: d,
-							videoModel: r,
-							watchURL: this.getWatchURL()
-						},
-						u
-				  )
+			<TitleCard
+				animateIn={i}
+				className={o}
+				isBobOpen={this.state.isBobOpen}
+				isDimmed={this.props.aJawBoneOpen && !this.props.myJawBoneOpen}
+				isDisliked={this.isDisliked()}
+				isFocused={this.props.myJawBoneOpen}
+				isInvalid={!r.isValid}
+				itemTabbable={t}
+				// model: this.getFalcorVideoModel(),
+				onClick={this.handleClick}
+				onKeyDown={this.handleKeyDown}
+				onMouseEnter={this.handleMouseEnter}
+				onMouseLeave={this.handleMouseLeave}
+				rankNum={a.rankNum}
+				rowNum={a.rowNum}
+				showProgress={d}
+				videoModel={r}
+				watchURL={this.getWatchURL()}
+			>
+				<BobCardContainer
+					isBobOpen={this.state.isBobOpen}
+					isTallPanel={n}
+					// model: this.getFalcorVideoModel(),
+					onBobClose={this.onBobClose}
+					onBobOpen={this.onBobOpen}
+					onJawOpen={this.handleJawOpen}
+					playbackQueryParams={this.props.playbackQueryParams}
+					trackingInfo={this.getBobTrackingInfo()}
+					videoModel={r}
+				/>
+			</TitleCard>
+			// React.createElement(
+			// 			TitleCard,
+			// 			{
+			// 				animateIn: i,
+			// 				className: o,
+			// 				isBobOpen: this.state.isBobOpen,
+			// 				isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
+			// 				isDisliked: this.isDisliked(),
+			// 				isFocused: this.props.myJawBoneOpen,
+			// 				isInvalid: !r.isValid,
+			// 				itemTabbable: t,
+			// 				// model: this.getFalcorVideoModel(),
+			// 				onClick: this.handleClick,
+			// 				onKeyDown: this.handleKeyDown,
+			// 				onMouseEnter: this.handleMouseEnter,
+			// 				onMouseLeave: this.handleMouseLeave,
+			// 				rankNum: a.rankNum,
+			// 				rowNum: a.rowNum,
+			// 				showProgress: d,
+			// 				videoModel: r,
+			// 				watchURL: this.getWatchURL()
+			// 			},
+			// 			u
+			// 	  )
 		);
+		// return (
+		// 	// s &&
+		// 	// 	c &&
+		// 	// 	s.logEvent(p.DebugEvent, {
+		// 	// 		name: 'TitleCardError',
+		// 	// 		data: r
+		// 	// 	}),
+		// 	this.context.listContext === listContexts.LIST_CONTEXTS.SHORT_FORM
+		// 		? React.createElement(
+		// 				TitleCardS,
+		// 				{
+		// 					animateIn: i,
+		// 					className: o,
+		// 					isBobOpen: this.state.isBobOpen,
+		// 					isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
+		// 					isDisliked: this.isDisliked(),
+		// 					isFocused: this.props.myJawBoneOpen,
+		// 					isInvalid: !r.isValid,
+		// 					itemTabbable: t,
+		// 					// model: this.getFalcorVideoModel(),
+		// 					onClick: this.handleClick,
+		// 					onKeyDown: this.handleKeyDown,
+		// 					onMouseEnter: this.handleMouseEnter,
+		// 					onMouseLeave: this.handleMouseLeave,
+		// 					rankNum: a.rankNum,
+		// 					rowNum: a.rowNum,
+		// 					showProgress: d,
+		// 					videoModel: r,
+		// 					watchURL: this.getWatchURL()
+		// 				},
+		// 				u
+		// 		  )
+		// 		: n
+		// 		? React.createElement(
+		// 				TitleCardD,
+		// 				{
+		// 					animateIn: i,
+		// 					className: o,
+		// 					isBobOpen: this.state.isBobOpen,
+		// 					isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
+		// 					isDisliked: this.isDisliked(),
+		// 					isFocused: this.props.myJawBoneOpen,
+		// 					isInvalid: c,
+		// 					itemTabbable: t,
+		// 					// model: this.getFalcorVideoModel(),
+		// 					onClick: this.handleClick,
+		// 					onKeyDown: this.handleKeyDown,
+		// 					onMouseEnter: this.handleMouseEnter,
+		// 					onMouseLeave: this.handleMouseLeave,
+		// 					rankNum: a.rankNum,
+		// 					rowNum: a.rowNum,
+		// 					showProgress: d,
+		// 					videoModel: r,
+		// 					watchURL: this.getWatchURL()
+		// 				},
+		// 				u
+		// 		  )
+		// 		: React.createElement(
+		// 				TitleCard,
+		// 				{
+		// 					animateIn: i,
+		// 					className: o,
+		// 					isBobOpen: this.state.isBobOpen,
+		// 					isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
+		// 					isDisliked: this.isDisliked(),
+		// 					isFocused: this.props.myJawBoneOpen,
+		// 					isInvalid: !r.isValid,
+		// 					itemTabbable: t,
+		// 					// model: this.getFalcorVideoModel(),
+		// 					onClick: this.handleClick,
+		// 					onKeyDown: this.handleKeyDown,
+		// 					onMouseEnter: this.handleMouseEnter,
+		// 					onMouseLeave: this.handleMouseLeave,
+		// 					rankNum: a.rankNum,
+		// 					rowNum: a.rowNum,
+		// 					showProgress: d,
+		// 					videoModel: r,
+		// 					watchURL: this.getWatchURL()
+		// 				},
+		// 				u
+		// 		  )
+		// );
 	}
 }
 
