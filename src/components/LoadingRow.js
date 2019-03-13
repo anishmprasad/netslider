@@ -1,19 +1,5 @@
 /* eslint-disable */
 
-// C.r("1F", function (e, a, l) {
-//   "use strict";
-//   var t = (e("dP"), e("fE")),
-//     s = e("aP"),
-//     o = e("9p"),
-//     r = e("1G"),
-//     n = e("1H"),
-//     i = s({
-//       displayName: "LoadingRow",
-
-//     });
-//   a.exports = i
-// });
-
 import React, { Component } from 'react';
 
 export default class LoadingRow extends Component {

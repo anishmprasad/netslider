@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import LolomoRow from './LolomoRow';
+import NetSlider from './NetSlider';
 // import HomeContent from './HomeContent'
 // import 'styles/caroslider.scss'
 
@@ -14,7 +14,7 @@ export default class CaroSlider extends Component {
 		return (
 			<div>
 				<h1>Slider</h1>
-				<LolomoRow
+				<NetSlider
 					historyState={undefined}
 					id={'83'}
 					initialFetchCompleted={true}

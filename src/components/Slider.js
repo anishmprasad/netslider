@@ -1,46 +1,16 @@
 /* eslint-disable */
 
-// C.r("4d", function (e, t, i) {
-//   "use strict";
-
-
-//   var n = e("dP"),
-//     o = e("fE"),
-//     r = e("aP"),
-//     a = e("eZ"),
-//     l = e("9p"),
-//     h = e("4e"),
-//     d = e("4a"),
-//     p = e("1H"),
-//     c = e("6p"),
-//     u = e("6z"),
-//     m = e("t5"),
-//     I = e("6A"),
-//     v = e("7s"),
-//     f = e("7t"),
-//     g = e("dl"),
-//     w = "discovery/akira/Common",
-//     x = {
-//       previous: g(w, "slider.handle.previous"),
-//       next: g(w, "slider.handle.next")
-//     }, S = r({
-//       displayName: "Slider",
-
-//     });
-//   t.exports = S
-// });
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import SliderItem from './SliderItem';
 import TitleCardContainer from './TitleCardContainer';
 import PaginationIndicator from './PaginationIndicator';
 import LoadingBox from './LoadingBox';
-import LoadingTitle from './LoadingTitle'
+import LoadingTitle from './LoadingTitle';
 import { KeyboardConstants } from './constants';
-import GlobalFunctions from './GlobalFunctions'
-import {Helpers} from './Helpers'
+import GlobalFunctions from './GlobalFunctions';
+import { Helpers } from './Helpers';
 
 function l() {
 	for (var n = [], i = 0; i < arguments.length; i++) {
@@ -54,34 +24,40 @@ function l() {
 	}
 	return n.join(' ');
 }
-function ObjectCheck(){
-    var c = e("9H")
-      , r = c(e("9U"))
-      , s = !1;
-    try {
-        s = "object" === ("undefined" == typeof process ? "undefined" : (0,
-        r.default)(process)) && "[object process]" === Object.prototype.toString.call(process) || "undefined" == typeof window
-    } catch (e) {}
+function ObjectCheck() {
+	var c = e('9H'),
+		r = c(e('9U')),
+		s = !1;
+	try {
+		s =
+			('object' === ('undefined' == typeof process ? 'undefined' : (0, r.default)(process)) &&
+				'[object process]' === Object.prototype.toString.call(process)) ||
+			'undefined' == typeof window;
+	} catch (e) {}
 }
 function isTouchEnabled() {
-	return ("ontouchstart"in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0)
+	return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 }
 function getTouchObject(t) {
-		return !this.isTouchEnabled() || t.pointerType && "mouse" === t.pointerType ? t : t.changedTouches ? t.changedTouches[0] : t
+	return !this.isTouchEnabled() || (t.pointerType && 'mouse' === t.pointerType)
+		? t
+		: t.changedTouches
+		? t.changedTouches[0]
+		: t;
 }
 function getTouchObjectStart(t) {
 	var n = this.getTouchObject(t);
 	return {
 		x: n.clientX,
 		y: n.clientY
-	}
+	};
 }
-  function s(e, t, i) {
-    var s = t / e,
-      n = i / e,
-      o = n / s;
-    return Math.ceil(o)
-  }
+function s(e, t, i) {
+	var s = t / e,
+		n = i / e,
+		o = n / s;
+	return Math.ceil(o);
+}
 const x = {
 	next: {
 		b: 'discovery/akira/Common',
@@ -127,7 +103,7 @@ export default class Slider extends Component {
 		// );
 	}
 
-	advanceNext = (e) => {
+	advanceNext = e => {
 		var t = this.getTotalItemCount(),
 			i = this.props.itemsInRow,
 			n = this.state.lowestVisibleItemIndex,
@@ -156,8 +132,8 @@ export default class Slider extends Component {
 					? this.shiftSlider(o, h, this.statics.MOVE_DIRECTION_NEXT, null, !0, s(t, i, o))
 					: this.shiftSlider(o, h, this.statics.MOVE_DIRECTION_NEXT, null, !1, s(t, i, o));
 		}
-	}
-	advancePrev = (e) => {
+	};
+	advancePrev = e => {
 		var t = this.getTotalItemCount(),
 			i = this.props.itemsInRow,
 			n = this.state.lowestVisibleItemIndex,
@@ -184,7 +160,7 @@ export default class Slider extends Component {
 				? this.shiftSlider(o, l, this.statics.MOVE_DIRECTION_PREV, null, !0, s(t, i, o))
 				: this.shiftSlider(o, l, this.statics.MOVE_DIRECTION_PREV, null, !1, s(t, i, o));
 		}
-	}
+	};
 	shiftSlider(e, t, i, s, n, o) {
 		var r = this,
 			l = ReactDOM.findDOMNode(this.refs.sliderContent),
@@ -288,9 +264,9 @@ export default class Slider extends Component {
 			n = 0,
 			r = this.state.lowestVisibleItemIndex - this.getLowestIndex();
 		if (this.props.children && this.props.children.length) {
-			i = this.props.children.slice(this.getLowestIndex(), this.getHighestIndex())
+			i = this.props.children.slice(this.getLowestIndex(), this.getHighestIndex());
 			n = this.getHighestIndex() - this.getLowestIndex();
-			for (var a = 0; i.length < n && i.length < t;a++ ){
+			for (var a = 0; i.length < n && i.length < t; a++) {
 				i.push(
 					React.createElement(LoadingTitle, {
 						className: 'fullWidth',
@@ -299,9 +275,9 @@ export default class Slider extends Component {
 						displayWhenNotPulsing: !0,
 						key: 'loading-title-' + a
 					})
-				)
+				);
 			}
-				
+
 			this.getTotalPages() > 1 &&
 				this.props.enableLooping &&
 				(this.getHighestIndex() - this.state.lowestVisibleItemIndex <= 2 * e &&
@@ -324,7 +300,7 @@ export default class Slider extends Component {
 		return this.wrapSliderItems(i, r);
 	}
 	cloneItemsWithNewKeys(e, t) {
-		console.log('cloneItemsWithNewKeys',e)
+		console.log('cloneItemsWithNewKeys', e);
 		return e.map(function(e) {
 			return React.cloneElement(e, {
 				key: e.key + t
@@ -387,19 +363,27 @@ export default class Slider extends Component {
 						uid: p,
 						inViewport: c
 					});
-				var u = React.cloneElement(e, {
-					sliderItemId: p,
-					itemTabbable: l
-				});
-				return React.createElement(
-					SliderItem,
-					{
-						ref: p,
-						key: p,
-						viewportIndex: d,
-						viewportPosition: a
-					},
-					u
+				// var u = React.cloneElement(e, {
+				// 	sliderItemId: p,
+				// 	itemTabbable: l
+				// });
+				// return React.createElement(
+				// 	SliderItem,
+				// 	{
+				// 		ref: p,
+				// 		key: p,
+				// 		viewportIndex: d,
+				// 		viewportPosition: a
+				// 	},
+				// 	u
+				// );
+				return (
+					<SliderItem ref={p} key={p} viewportIndex={d} viewportPosition={a}>
+						{React.cloneElement(e, {
+							sliderItemId: p,
+							itemTabbable: l
+						})}
+					</SliderItem>
 				);
 			})
 		);
@@ -421,12 +405,12 @@ export default class Slider extends Component {
 	}
 	handleMouseLeaveSliderMask = () => {
 		clearTimeout(this.animateHoverTimeout);
-	}
-	handleTouchStart = (e) => {
+	};
+	handleTouchStart = e => {
 		if (e.pointerType && 'touch' !== e.pointerType) return void e.stopPropagation();
 		this.touchStart = I.getTouchObjectStart(e);
-	}
-	handleTouchMove = (e) => {
+	};
+	handleTouchMove = e => {
 		if (e.pointerType && 'touch' !== e.pointerType) return void e.stopPropagation();
 		var t = Helpers.touchAdvanceDirection(e, this.touchStart, this.context.isRtl);
 		Math.abs(t.deltaX) > Math.abs(t.deltaY) && e.preventDefault(),
@@ -436,13 +420,13 @@ export default class Slider extends Component {
 					: t.direction === Helpers.ADVANCE_PREV &&
 					  this.isPrevNavActive() &&
 					  (this.advancePrev(), (this.touchStart = {})));
-	}
-	handleMouseWheel = (e) => {
+	};
+	handleMouseWheel = e => {
 		if (!this.isAnimating) {
 			var t = Helpers.wheelAdvanceDirection(e);
 			t === Helpers.ADVANCE_NEXT ? this.advanceNext(e) : t === Helpers.ADVANCE_PREV && this.advancePrev(e);
 		}
-	}
+	};
 	componentDidUpdate(e) {
 		this.props.itemsInRow !== e.itemsInRow && this.resetSliderPosition();
 	}
@@ -548,66 +532,30 @@ export default class Slider extends Component {
 				showPeek: this.props.enablePeek
 			});
 		// console.log('getSliderContents',this.getSliderContents())
-		return(
-			<div className= 'slider'>
+		return (
+			<div className='slider'>
 				{this.renderPageHandle(i, !0, 'handlePrev', this.isPrevNavActive(), this.advancePrev)}
-				{s
-				? <PaginationIndicator
-						totalPages= {i}
-						activePage= {this.getPageNumber(this.state.lowestVisibleItemIndex)}
-				  />
-				: null}
-				<div 
-					className={n}
-					onMouseLeave= {this.handleMouseLeaveSliderMask}
-				>
+				{s ? (
+					<PaginationIndicator
+						totalPages={i}
+						activePage={this.getPageNumber(this.state.lowestVisibleItemIndex)}
+					/>
+				) : null}
+				<div className={n} onMouseLeave={this.handleMouseLeaveSliderMask}>
 					<div
-						className={ t}
-						ref={ 'sliderContent'}
-						style={ e}
-						onTouchStart={ this.handleTouchStart}
-						onTouchMove={ this.handleTouchMove}
-						onWheel={ this.handleMouseWheel}
+						className={t}
+						ref={'sliderContent'}
+						style={e}
+						onTouchStart={this.handleTouchStart}
+						onTouchMove={this.handleTouchMove}
+						onWheel={this.handleMouseWheel}
 					>
-					{ this.getSliderContents()}
+						{this.getSliderContents()}
 					</div>
 				</div>
 				{this.renderPageHandle(i, !1, 'handleNext', this.isNextNavActive(), this.advanceNext)}
 			</div>
-		)
-		// return React.createElement(
-		// 	'div',
-		// 	{
-		// 		className: 'slider'
-		// 	},
-		// 	this.renderPageHandle(i, !0, 'handlePrev', this.isPrevNavActive(), this.advancePrev),
-		// 	s
-		// 		? React.createElement(PaginationIndicator, {
-		// 				totalPages: i,
-		// 				activePage: this.getPageNumber(this.state.lowestVisibleItemIndex)
-		// 		  })
-		// 		: null,
-		// 	React.createElement(
-		// 		'div',
-		// 		{
-		// 			className: n,
-		// 			onMouseLeave: this.handleMouseLeaveSliderMask
-		// 		},
-		// 		React.createElement(
-		// 			'div',
-		// 			{
-		// 				className: t,
-		// 				ref: 'sliderContent',
-		// 				style: e,
-		// 				onTouchStart: this.handleTouchStart,
-		// 				onTouchMove: this.handleTouchMove,
-		// 				onWheel: this.handleMouseWheel
-		// 			},
-		// 			this.getSliderContents()
-		// 		)
-		// 	),
-		// 	this.renderPageHandle(i, !1, 'handleNext', this.isNextNavActive(), this.advanceNext)
-		// );
+		);
 	}
 }
 
@@ -616,8 +564,6 @@ Slider.defaultProps = {
 	showEmptyHandles: !1
 };
 Slider.propTypes = {
-	// getI18nString: PropTypes.func.isRequired,
 	getModelData: PropTypes.func,
-	isRtl: PropTypes.bool,
-	// formatString: PropTypes.func.isRequired
+	isRtl: PropTypes.bool
 };

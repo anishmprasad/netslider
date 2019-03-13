@@ -43,7 +43,7 @@ function cancelQueuedItem(e) {
 	clearTimeout(e);
 }
 
-export default class LolomoRow extends Component {
+export default class NetSlider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -254,7 +254,7 @@ export default class LolomoRow extends Component {
 	}
 }
 
-LolomoRow.defaultProps = {
+NetSlider.defaultProps = {
 	hideRowHeader: true,
 	videoRoot: 'reference',
 	modal: {
