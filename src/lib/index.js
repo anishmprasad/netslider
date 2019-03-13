@@ -7,6 +7,8 @@ import Row from './Row';
 import TitleCardContainer from './TitleCardContainer';
 import aclass from './ModalGlobalFunctions';
 
+import './index.css'
+
 const constant = {
 	LIST_CONTEXTS: {
 		CONTINUE_WATCHING: 'continueWatching',
