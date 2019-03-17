@@ -1,29 +1,11 @@
 /* eslint-disable */
 
-// C.r("bs", function(t, e, i) {
-// var r = t("bq")
-//   , s = t("bt")
-//   , o = t("bu")
-//   , n = {
-//     dispose: function() {}
-// }
-//   , h = t("be")
-//   , c = t("bV")
-//   , a = e.exports = function(t, e, i, r, s) {
-//     this.model = t,
-//     this.currentRemainingPaths = e,
-//     this.isJSONGraph = i || !1,
-//     this.isProgressive = r || !1,
-//     this.forceCollect = s || !1
-// }
-// ;
 import { l } from './constants';
 function a(t, e, i, r, s) {
 	(this.model = t),
 		(this.currentRemainingPaths = e),
 		(this.isJSONGraph = i || !1),
 		(this.isProgressive = new n() || !1);
-	// this.forceCollect = bt() || !1
 }
 (a.prototype = Object.create(n.prototype)),
 	(a.prototype._toJSONG = function() {
@@ -55,16 +37,10 @@ function a(t, e, i, r, s) {
 var aclass = new a();
 export default aclass;
 
-// C.r("bq", function(t, o, e) {
 function n(t) {
 	this._subscribe = t;
 }
-// var r = t("br")
-//   , s = t("iL").default
-//   , i = t("cn");
-// n.prototype[s] = function() {
-//     return i(this)
-// },
+
 (n.prototype._toJSONG = function() {
 	return this;
 }),

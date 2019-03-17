@@ -164,10 +164,9 @@ export default class JawBoneOnRow extends Component {
 		this.state.previousPlayerSessionId && this.playerClose(this.state.previousPlayerSessionId);
 	}
 	render() {
-		var e = this.props.showJawBone,
-			t = !1,
+		var t = !1,
 			a = null;
-		if (e) {
+		if (this.props.showJawBone) {
 			var i = o(this.props),
 				n = V(i);
 			(t = !!i), (a = t && this.renderJawBone(i, n));
