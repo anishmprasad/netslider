@@ -1,4 +1,3 @@
-
 /* eslint-disable */
 
 import React, { Component } from 'react';
@@ -17,8 +16,8 @@ export default class SliderItem extends Component {
 			this.props.additionalClasses
 		);
 		statics: {
-            className: "slider-item"
-        }
+			className: 'slider-item';
+		}
 		return (
 			undefined !== this.props.viewportIndex && (e['slider-item-' + this.props.viewportIndex] = !0),
 			React.createElement(
@@ -34,4 +33,3 @@ export default class SliderItem extends Component {
 SliderItem.defaultProps = {
 	additionalClasses: {}
 };
-

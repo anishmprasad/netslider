@@ -7,7 +7,7 @@ import Row from './Row';
 import TitleCardContainer from './TitleCardContainer';
 import aclass from './ModalGlobalFunctions';
 
-import './index.css'
+import './index.css';
 
 const constant = {
 	LIST_CONTEXTS: {
@@ -256,7 +256,7 @@ export default class NetSlider extends Component {
 NetSlider.defaultProps = {
 	hideRowHeader: true,
 	videoRoot: 'reference',
-	className:'netslider',
+	className: 'netslider',
 	modal: {
 		isSoftBound: true,
 		setCache: undefined,

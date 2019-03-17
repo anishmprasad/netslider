@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { listContexts } from './constants';
 import TitleCard from './TitleCard';
-// import TitleCardS from './TitleCardS';
 import ReactDOM from 'react-dom';
 const r = [['summary'], ['title'], ['titleMaturity'], ['userRating'], ['userRatingRequestId']];
 import { willmount, update, getTrackingInfoFromContext } from './carddata';
