@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import Row from './Row';
 import TitleCardContainer from './TitleCardContainer';
 import aclass from './ModalGlobalFunctions';
+import { willmount, update, getTrackingInfoFromContext } from './carddata';
+import { listContexts } from './constants';
 
 import './index.css';
 
@@ -117,6 +119,8 @@ export default class NetSlider extends Component {
 							videoId={a}
 							isTallPanel={i}
 							videoRoot={e.props.videoRoot}
+							data={{ willmount, update, getTrackingInfoFromContext }}
+							listContexts={listContexts}
 						/>
 					);
 					// return React.createElement(TitleCardContainer, {

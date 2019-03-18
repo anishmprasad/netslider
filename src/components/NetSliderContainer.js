@@ -12,7 +12,7 @@ export default class NetSliderContainer extends Component {
 	render() {
 		return (
 			<div className='wrapper'>
-				<h1>NetSlider</h1>
+				<h1 style={{ textAlign: 'center', margin: '40px 0' }}>NetSlider</h1>
 				<NetSlider
 					historyState={undefined}
 					id={'83'}
