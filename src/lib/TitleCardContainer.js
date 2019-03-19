@@ -384,7 +384,7 @@ export default class TitleCardContainer extends Component {
 				rowNum={a.rowNum}
 				showProgress={d}
 				videoModel={r}
-				watchURL={this.getWatchURL()}
+				watchURL={this.props.data.willmount.watchURL}
 			>
 				<BobCardContainer
 					isBobOpen={this.state.isBobOpen}

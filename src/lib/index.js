@@ -125,7 +125,7 @@ export default class NetSlider extends Component {
 	handleSliderMove = () => {
 		this.state.fullDataLoaded ||
 			((this.state.fullDataLoaded = !0),
-			queue(function() {
+			queue(() => {
 				return aclass.subscribe(
 					noop,
 					() => {
