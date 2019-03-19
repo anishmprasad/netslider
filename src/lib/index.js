@@ -10,30 +10,6 @@ import { listContexts } from './constants';
 
 import './index.css';
 
-const constant = {
-	LIST_CONTEXTS: {
-		CONTINUE_WATCHING: 'continueWatching',
-		SUGGESTION_GALLERY: 'suggestionsForYouGallery',
-		SUGGESTION_ROW: 'galleryDisplayAsRow',
-		BILLBOARD: 'billboard',
-		SOCIAL_POPULAR: 'socialPopular',
-		RATE_MOVIES: 'rateMovies',
-		BIG_ROW: 'bigRow',
-		NETFLIX_ORIGINALS: 'netflixOriginals',
-		SIMILIARS: 'similars',
-		MY_LIST: 'queue',
-		CHARACTER_ROW: 'character',
-		WATCHLIST: 'watchlist',
-		SHORT_FORM: 'shortForm'
-	},
-	LIST_TYPES: {
-		FLAT: 'flat',
-		COMPOSITE: 'composite'
-	},
-	LAZY_LOADING: {
-		IMAGES: 6
-	}
-};
 function queue(e, t) {
 	return (
 		(t = t || 10),
@@ -42,6 +18,7 @@ function queue(e, t) {
 		}, t)
 	);
 }
+var noop = function() {};
 // function cancelQueuedItem(e) {
 // 	clearTimeout(e);
 // }
@@ -53,37 +30,21 @@ export default class NetSlider extends Component {
 			fullDataLoaded: !1
 		};
 	}
-	// getChildContext() {
-	// 	var e = this.getTrackIds();
-	// 	return {
-	// 		requestId: 'c7cbdd2c-10df-43e9-a73b-f46c056c17e4-373134675  ',
-	// 		trackId: e.trackId,
-	// 		jawBoneTrackId: e.trackId_jaw,
-	// 		jawBoneEpisodeTrackId: e.trackId_jawEpisode,
-	// 		jawBoneTrailerTrackId: e.trackId_jawTrailer,
-	// 		listContext: 'similars',
-	// 		listId: 'e85b5860-e170-47d7-a5c0-4d3b06d6c556_46833015X29X70099790X1541349833938',
-	// 		listType: 'flat',
-	// 		isTallRow: false,
-	// 		impressionToken: this.props.model.getValueSync(['impressionToken'])
-	// 	};
-	// }
+
 	componentDidMount() {
-		var e = this.context.renderTracker;
-		if (e) {
-			var t = e.startSession('lolomoRow' + this.props.rowNum);
-			u.trackBySelectors(['.boxart-image'])
-				.then(function() {
-					e.endSession(t);
-				})
-				.catch(function(o) {
-					e.endSession(t, o);
-				});
-		}
+		// var e = this.context.renderTracker;
+		// if (e) {
+		// 	var t = e.startSession('lolomoRow' + this.props.rowNum);
+		// 	u.trackBySelectors(['.boxart-image'])
+		// 		.then(function() {
+		// 			e.endSession(t);
+		// 		})
+		// 		.catch(function(o) {
+		// 			e.endSession(t, o);
+		// 		});
+		// }
 	}
-	// getVideoPath(e) {
-	// 	return this.props.videoRoot ? [this.props.videoRoot].concat(e) : e;
-	// }
+
 	getId() {
 		var e = this.props.model,
 			t = e.getValueSync(['genreId']),
@@ -140,17 +101,6 @@ export default class NetSlider extends Component {
 	getRowItems() {
 		var e = [],
 			t = this.getTitles();
-		// var orderedItemList = {
-		// 	70142436: 5,
-		// 	70254851: 4,
-		// 	70264888: 6,
-		// 	80002479: 0,
-		// 	80074249: 2,
-		// 	80130521: 3,
-		// 	80213025: 7,
-		// 	80235864: 1
-		// };
-		// console.log(this.getTitles())
 		return {
 			rowItems: e.concat(t.titleList).slice(0, 100),
 			orderedItemList: t.orderedItemList || {}
@@ -173,18 +123,16 @@ export default class NetSlider extends Component {
 		);
 	}
 	handleSliderMove = () => {
-		var e = this;
 		this.state.fullDataLoaded ||
 			((this.state.fullDataLoaded = !0),
 			queue(function() {
-				var t;
 				return aclass.subscribe(
-					function() {},
-					function() {
-						return e.forceUpdate();
+					noop,
+					() => {
+						return this.forceUpdate();
 					},
-					function() {
-						return e.forceUpdate();
+					() => {
+						return this.forceUpdate();
 					}
 				);
 			}));
@@ -200,7 +148,7 @@ export default class NetSlider extends Component {
 				'originals-panels-row': o
 			},
 			r = this.props.jawBoneRankNum,
-			s = this.props.listContext === constant.LIST_CONTEXTS.MY_LIST,
+			s = this.props.listContext === listContexts.LIST_CONTEXTS.MY_LIST,
 			a = this.getRowItems() || {},
 			l = a.rowItems || [],
 			u = s && a.orderedItemList,
