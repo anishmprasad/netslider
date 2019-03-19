@@ -1,11 +1,9 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { listContexts } from './constants';
 import TitleCard from './TitleCard';
 import ReactDOM from 'react-dom';
-const r = [['summary'], ['title'], ['titleMaturity'], ['userRating'], ['userRatingRequestId']];
-import { willmount, update, getTrackingInfoFromContext } from './carddata';
+// const r = [['summary'], ['title'], ['titleMaturity'], ['userRating'], ['userRatingRequestId']];
 import BobCardContainer from './BobCardContainer';
 import { Helpers } from './Helpers';
 
@@ -56,7 +54,7 @@ export default class TitleCardContainer extends Component {
 
 	componentWillMount() {
 		// this.videoModel = this.getVideoModel(this.state);
-		this.videoModel = willmount;
+		this.videoModel = this.props.data.willmount;
 	}
 	componentDidMount() {
 		// l.on('rating:set', this.onRating), (this._isMounted = !0);
@@ -64,7 +62,7 @@ export default class TitleCardContainer extends Component {
 	}
 	componentWillUpdate(e, t) {
 		// this.videoModel = this.getVideoModel(t);
-		this.videoModel = update;
+		this.videoModel = this.props.data.willmount;
 	}
 	componentWillReceiveProps(e) {
 		!this.props.myJawBoneOpen && e.myJawBoneOpen
@@ -120,7 +118,7 @@ export default class TitleCardContainer extends Component {
 		// 	i = t.matchScore,
 		// 	n = t.tooNewForMatchScore,
 		// 	s = t.predicted;
-		return getTrackingInfoFromContext;
+		return this.props.data.getTrackingInfoFromContext;
 		// return this.props.getTrackingInfoFromContext(
 		// 	{
 		// 		matchRequestId: o,
@@ -339,10 +337,11 @@ export default class TitleCardContainer extends Component {
 		// );
 	}
 	shouldShowProgress() {
-		return this.context.listContext === listContexts.LIST_CONTEXTS.WATCHLIST
-			? this.props.model.getValueSync(['context', 'isContinueWatching'])
-			: this.context.listContext === listContexts.LIST_CONTEXTS.CONTINUE_WATCHING &&
-					!!this.videoModel.episodeRuntime;
+		return false;
+		// return this.context.listContext === this.props.listContexts.LIST_CONTEXTS.WATCHLIST
+		// 	? this.props.model.getValueSync(['context', 'isContinueWatching'])
+		// 	: this.context.listContext === this.props.listContexts.LIST_CONTEXTS.CONTINUE_WATCHING &&
+		// 			!!this.videoModel.episodeRuntime;
 	}
 	render() {
 		var e = this.props,

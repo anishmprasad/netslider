@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NetSlider from '../lib';
+import { willmount, update, getTrackingInfoFromContext } from './carddata';
 // import 'styles/caroslider.scss'
 
 export default class NetSliderContainer extends Component {
@@ -12,7 +13,7 @@ export default class NetSliderContainer extends Component {
 	render() {
 		return (
 			<div className='wrapper'>
-				<h1>NetSlider</h1>
+				<h1 style={{ textAlign: 'center', margin: '40px 0' }}>NetSlider</h1>
 				<NetSlider
 					historyState={undefined}
 					id={'83'}
@@ -31,6 +32,7 @@ export default class NetSliderContainer extends Component {
 					uiView={'browseTitles'}
 					renderSource={'client'}
 					className='netslider'
+					data={{ willmount, update, getTrackingInfoFromContext }}
 				/>
 			</div>
 		);

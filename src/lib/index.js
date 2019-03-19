@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Row from './Row';
 import TitleCardContainer from './TitleCardContainer';
 import aclass from './ModalGlobalFunctions';
+import { listContexts } from './constants';
 
 import './index.css';
 
@@ -97,37 +98,26 @@ export default class NetSlider extends Component {
 			trackId_jawTrailer: 14232622
 		};
 	}
-	getTitles() {
-		var e = this,
-			i = false,
-			r = this.props.rowNum,
-			s = {};
+	getTitles = () => {
+		var s = {};
 		return {
-			titleList: this.props.getLoadedItemModels.map(function(t, o) {
-				var a = t.id,
-					l = 'title_' + a + '_' + r + '_' + o;
-				s[a] = o;
+			titleList: this.props.getLoadedItemModels.map((t, o) => {
+				s[t.id] = o;
+
 				try {
 					return (
 						<TitleCardContainer
-							key={l}
+							key={`${'title_' + t.id + '_' + this.props.rowNum + '_' + o}`}
 							model={t.model}
-							rowNum={r}
+							rowNum={this.props.rowNum}
 							rankNum={o}
-							videoId={a}
-							isTallPanel={i}
-							videoRoot={e.props.videoRoot}
+							videoId={t.id}
+							isTallPanel={false}
+							videoRoot={this.props.videoRoot}
+							data={this.props.data}
+							listContexts={listContexts}
 						/>
 					);
-					// return React.createElement(TitleCardContainer, {
-					// 	key: l,
-					// 	model: t.model,
-					// 	rowNum: r,
-					// 	rankNum: o,
-					// 	videoId: a,
-					// 	isTallPanel: i,
-					// 	videoRoot: e.props.videoRoot
-					// });
 				} catch (e) {
 					console.log('slider render error: ', o, e);
 				}
@@ -135,7 +125,7 @@ export default class NetSlider extends Component {
 			}),
 			orderedItemList: s
 		};
-	}
+	};
 	// getLoadedItemModels() {
 	// 	for (var e = this.props.model, t = e.getValueSync('length'), o = [], i = void 0, r = void 0, s = 0; s < t; s++)
 	// 		(i = e.bind([s])),
