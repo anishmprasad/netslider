@@ -8,44 +8,6 @@ import BobCard from './BobCard';
 export default class BobCardContainer extends Component {
 	constructor(props) {
 		super(props);
-		this.bobComponent = null;
-		this.statics = {
-			SIZE: '_665x375',
-			SIZE_PANEL: '_848x477',
-			getPaths: function(e, o) {
-				var s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
-					t = s.isTallPanel ? '_848x477' : '_665x375';
-				return [
-					['summary'],
-					['title'],
-					['availability'],
-					['evidence'],
-					['queue'],
-					['episodeCount'],
-					['boxarts', t, w.getExtensionForOpaqueImage(e)],
-					[
-						'current',
-						[
-							'summary',
-							'runtime',
-							'bookmarkPosition',
-							'interactiveBookmark',
-							'creditsOffset',
-							'episodeBadges'
-						]
-					]
-				].concat(
-					r.getPaths(e),
-					h.getPaths(e, null, {
-						isShow: s.isShow,
-						height: 480,
-						size: t
-					}),
-					g.getPaths(),
-					d.getPaths()
-				);
-			}
-		};
 	}
 
 	onClickJawHitZone = () =>
