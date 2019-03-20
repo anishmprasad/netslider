@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getModelDataTruths } from './getModelDataTruths';
 import BobCard from './BobCard';
 
 export default class BobCardContainer extends Component {
@@ -83,8 +82,6 @@ export default class BobCardContainer extends Component {
 			r = e.isTallPanel,
 			h = e.enableMetaDataHiding,
 			d = e.videoModel.hasVideoMerch,
-			w = getModelDataTruths,
-			l = w.videoMerchAudioOffByDefault,
 			g = this.getBobToggles();
 		// return false ? false ?
 		//     React.createElement({stub: true}, {
@@ -186,7 +183,7 @@ export default class BobCardContainer extends Component {
 			onBobOpen: s,
 			onBobClose: n,
 			onClickJawHitZone: this.onClickJawHitZone,
-			isMutedByDefault: l
+			isMutedByDefault: false
 		});
 		// : React.createElement(M, {
 		//     videoModel: t,
