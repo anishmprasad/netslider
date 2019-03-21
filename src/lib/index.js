@@ -51,14 +51,7 @@ export default class NetSlider extends Component {
 			o = e.getValueSync(['videoId']);
 		return t || (o || null);
 	}
-	getTrackIds() {
-		return {
-			trackId: 14232618,
-			trackId_jaw: 14232467,
-			trackId_jawEpisode: 14232620,
-			trackId_jawTrailer: 14232622
-		};
-	}
+	
 	getTitles = () => {
 		var s = {};
 		return {
@@ -125,7 +118,7 @@ export default class NetSlider extends Component {
 	handleSliderMove = () => {
 		this.state.fullDataLoaded ||
 			((this.state.fullDataLoaded = !0),
-			queue(function() {
+			queue(() => {
 				return aclass.subscribe(
 					noop,
 					() => {

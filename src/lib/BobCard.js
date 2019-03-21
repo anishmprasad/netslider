@@ -5,37 +5,25 @@ import React, { Component } from 'react';
 import TransitionGroup from 'react-addons-transition-group';
 import BobCardElement from './BobCardElement';
 
-class BobCardEle extends Component {
-	render() {
-		// var e = this.props.isBobOpen;
-		// return React.createElement(TransitionGroup, null, e && React.createElement(BobCardElement, {
-		//     boxShape: this.props.boxShape,
-		//     className: this.props.className,
-		//     videoModel: this.props.videoModel,
-		//     titleCardImage: this.props.titleCardImage,
-		//     getParentSliderItem: this.props.getParentSliderItem,
-		//     onBobOpen: this.props.onBobOpen,
-		//     onBobClose: this.props.onBobClose
-		// }, this.props.children))
-		return (
-			<TransitionGroup>
-				{this.props.isBobOpen && (
-					<BobCardElement
-						key={'BobCardElement'}
-						boxShape={this.props.boxShape}
-						className={this.props.className}
-						videoModel={this.props.videoModel}
-						titleCardImage={this.props.titleCardImage}
-						getParentSliderItem={this.props.getParentSliderItem}
-						onBobOpen={this.props.onBobOpen}
-						onBobClose={this.props.onBobClose}
-					>
-						{this.props.children}
-					</BobCardElement>
-				)}
-			</TransitionGroup>
-		);
-	}
+function BobCardEle(props){
+	return (
+		<TransitionGroup>
+			{props.isBobOpen && (
+				<BobCardElement
+					key={'BobCardElement'}
+					boxShape={props.boxShape}
+					className={props.className}
+					videoModel={props.videoModel}
+					titleCardImage={props.titleCardImage}
+					getParentSliderItem={props.getParentSliderItem}
+					onBobOpen={props.onBobOpen}
+					onBobClose={props.onBobClose}
+				>
+					{props.children}
+				</BobCardElement>
+			)}
+		</TransitionGroup>
+	);
 }
 
 export default function BobCard(e) {

@@ -69,7 +69,8 @@ export const update = {
 	watchState: 'unwatched',
 	wideImage:
 		'https://occ-0-2611-2186.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABeQ4xDzaDy0zIx_FGdEDrAm2fLLJ0VnGcKmyMtJbx_cp9LePkw-jxaEEqSguGcExK9ySXrPicysVm8P5QjCOmqgpo2sXG-0KckeM14GYRkQAbm8LnCizWKN1hEEF7RX4CLt6Lwzfi3o.webp',
-	isValid: true
+  isValid: true,
+  watchURL: '/iaminnocent'
 };
 
 export const willmount = {
@@ -121,7 +122,8 @@ export const willmount = {
 	watchState: 'unwatched',
 	wideImage:
 		'https://occ-0-2611-2186.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABZ3Qq-Hzea6WbaEEZaC2cfdLKk2FESlsZZgWY8mFM9G6_GV10UWfcQGrwBUH3shcFc02eClTihN9t0_w79mxi1y3Qxf8Ah890Et7Y7mQyqMefg3nsYO4ZCNWhX2KSRiKdwCgPtbwag.jpg',
-	isValid: true
+  isValid: true,
+  watchURL: '/thebossbaby'  
 };
 
 export const getTrackingInfoFromContext = {

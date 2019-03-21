@@ -384,7 +384,7 @@ export default class TitleCardContainer extends Component {
 				rowNum={a.rowNum}
 				showProgress={d}
 				videoModel={r}
-				watchURL={this.getWatchURL()}
+				watchURL={this.props.data.willmount.watchURL}
 			>
 				<BobCardContainer
 					isBobOpen={this.state.isBobOpen}
@@ -398,30 +398,6 @@ export default class TitleCardContainer extends Component {
 					videoModel={r}
 				/>
 			</TitleCard>
-			// React.createElement(
-			// 			TitleCard,
-			// 			{
-			// 				animateIn: i,
-			// 				className: o,
-			// 				isBobOpen: this.state.isBobOpen,
-			// 				isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
-			// 				isDisliked: this.isDisliked(),
-			// 				isFocused: this.props.myJawBoneOpen,
-			// 				isInvalid: !r.isValid,
-			// 				itemTabbable: t,
-			// 				// model: this.getFalcorVideoModel(),
-			// 				onClick: this.handleClick,
-			// 				onKeyDown: this.handleKeyDown,
-			// 				onMouseEnter: this.handleMouseEnter,
-			// 				onMouseLeave: this.handleMouseLeave,
-			// 				rankNum: a.rankNum,
-			// 				rowNum: a.rowNum,
-			// 				showProgress: d,
-			// 				videoModel: r,
-			// 				watchURL: this.getWatchURL()
-			// 			},
-			// 			u
-			// 	  )
 		);
 		// return (
 		// 	// s &&
