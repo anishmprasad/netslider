@@ -87,6 +87,7 @@ export const willmount = {
 	id: 80178943,
 	image:
 		'https://occ-0-2611-2186.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABZ3Qq-Hzea6WbaEEZaC2cfdLKk2FESlsZZgWY8mFM9G6_GV10UWfcQGrwBUH3shcFc02eClTihN9t0_w79mxi1y3Qxf8Ah890Et7Y7mQyqMefg3nsYO4ZCNWhX2KSRiKdwCgPtbwag.jpg',
+	imageHighRes:'https://occ-0-1009-1007.1.nflxso.net/dnm/api/v6/0DW6CdE4gYtYx8iy3aj8gs9WtXE/AAAABZkgH66DOjrC0-pNCF87xxKemsjiKFPbgx0xObXY6sLghHAS-MmThmCF-LZr2V42ed3VoScabV90v0cQHYxKZFULTwYq_sIBdA.jpg?r=2f8',
 	imageKey: 'sdp,11|AD_2e8f5e42-c904-11e8-9705-0eaa7fb7c3c4|en',
 	isBranchingTitle: false,
 	isInteractive: false,
@@ -139,3 +140,7 @@ export const getTrackingInfoFromContext = {
 	rowNum: 2,
 	rankNum: 1
 };
+
+
+// titleCardImage: "https://occ-0-1009-1007.1.nflxso.net/dnm/api/v6/0DW6CdE4gYtYx8iy3aj8gs9WtXE/AAAABVtZQnrKUwlRgPabtCFYi5jphx6ZJzeUsvmmk3q3Llf_KaEkWTxTxL9RK5NXf1_wT_xsy0eXdA_46fVU-EJZW7T-HE3PSKUO.jpg?r=2f8",
+// titleCardImageHighRes: "https://occ-0-1009-1007.1.nflxso.net/dnm/api/v6/0DW6CdE4gYtYx8iy3aj8gs9WtXE/AAAABZkgH66DOjrC0-pNCF87xxKemsjiKFPbgx0xObXY6sLghHAS-MmThmCF-LZr2V42ed3VoScabV90v0cQHYxKZFULTwYq_sIBdA.jpg?r=2f8",

@@ -76,41 +76,7 @@ export default class TitleCardContainer extends Component {
 			this.onBoxartFocusEnd && (this.onBoxartFocusEnd(), delete this.onBoxartFocusEnd),
 			(this._isMounted = !1);
 	}
-	// getBoxart(e, t, o) {
-	// 	return this.context.listContext === listContexts.LIST_CONTEXTS.SHORT_FORM
-	// 		? e.getValueSync(['interestingMoment', t, o])
-	// 		: e.getValueSync(['boxarts', t, o]);
-	// }
-	// getFalcorVideoModel() {
-	// 	return this.props.videoRoot ? this.props.model.bind([this.props.videoRoot]) : this.props.model;
-	// }
-	// getVideoModel() {
-	// 	var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.state,
-	// 		t = this.getFalcorVideoModel(),
-	// 		o = b.getExtensionForOpaqueImage(this.context.models),
-	// 		i = this.context.listContext === listContexts.LIST_CONTEXTS.SHORT_FORM,
-	// 		n = i ? 50 : 160,
-	// 		a = {
-	// 			bob: e.isBobOpen,
-	// 			shortForm: i,
-	// 			videoMerch: this.context.getModelData('truths').hasVideoMerchInBob,
-	// 			tallPanel: this.props.isTallPanel
-	// 		},
-	// 		r = {
-	// 			opaqueExtension: o,
-	// 			standardImageSize: J,
-	// 			highQualityImageSize: h.SIZE,
-	// 			maxSynopsisLength: n,
-	// 			tallVMEnabled: this.context.getModelData('truths').hasROAR30SecondPreview
-	// 		},
-	// 		d = x(t, a, r);
-	// 	if (k.get('web.ui.akira.enable.maturity.mismatch.logging')) {
-	// 		var c = s.get(this.context.models, 'userInfo.data.maturity', 1e6),
-	// 			u = s.get(t.getValueSync(['titleMaturity']), 'level', 0);
-	// 		c < u && ((d.maturityMisMatchEdgy = !0), u > 96 && (d.maturityMisMatchNonEdgy = !0));
-	// 	}
-	// 	return d;
-	// }
+	
 	getBobTrackingInfo = () => {
 		// var e = this.videoModel,
 		// 	t = e.userRating,
@@ -399,88 +365,6 @@ export default class TitleCardContainer extends Component {
 				/>
 			</TitleCard>
 		);
-		// return (
-		// 	// s &&
-		// 	// 	c &&
-		// 	// 	s.logEvent(p.DebugEvent, {
-		// 	// 		name: 'TitleCardError',
-		// 	// 		data: r
-		// 	// 	}),
-		// 	this.context.listContext === listContexts.LIST_CONTEXTS.SHORT_FORM
-		// 		? React.createElement(
-		// 				TitleCardS,
-		// 				{
-		// 					animateIn: i,
-		// 					className: o,
-		// 					isBobOpen: this.state.isBobOpen,
-		// 					isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
-		// 					isDisliked: this.isDisliked(),
-		// 					isFocused: this.props.myJawBoneOpen,
-		// 					isInvalid: !r.isValid,
-		// 					itemTabbable: t,
-		// 					// model: this.getFalcorVideoModel(),
-		// 					onClick: this.handleClick,
-		// 					onKeyDown: this.handleKeyDown,
-		// 					onMouseEnter: this.handleMouseEnter,
-		// 					onMouseLeave: this.handleMouseLeave,
-		// 					rankNum: a.rankNum,
-		// 					rowNum: a.rowNum,
-		// 					showProgress: d,
-		// 					videoModel: r,
-		// 					watchURL: this.getWatchURL()
-		// 				},
-		// 				u
-		// 		  )
-		// 		: n
-		// 		? React.createElement(
-		// 				TitleCardD,
-		// 				{
-		// 					animateIn: i,
-		// 					className: o,
-		// 					isBobOpen: this.state.isBobOpen,
-		// 					isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
-		// 					isDisliked: this.isDisliked(),
-		// 					isFocused: this.props.myJawBoneOpen,
-		// 					isInvalid: c,
-		// 					itemTabbable: t,
-		// 					// model: this.getFalcorVideoModel(),
-		// 					onClick: this.handleClick,
-		// 					onKeyDown: this.handleKeyDown,
-		// 					onMouseEnter: this.handleMouseEnter,
-		// 					onMouseLeave: this.handleMouseLeave,
-		// 					rankNum: a.rankNum,
-		// 					rowNum: a.rowNum,
-		// 					showProgress: d,
-		// 					videoModel: r,
-		// 					watchURL: this.getWatchURL()
-		// 				},
-		// 				u
-		// 		  )
-		// 		: React.createElement(
-		// 				TitleCard,
-		// 				{
-		// 					animateIn: i,
-		// 					className: o,
-		// 					isBobOpen: this.state.isBobOpen,
-		// 					isDimmed: this.props.aJawBoneOpen && !this.props.myJawBoneOpen,
-		// 					isDisliked: this.isDisliked(),
-		// 					isFocused: this.props.myJawBoneOpen,
-		// 					isInvalid: !r.isValid,
-		// 					itemTabbable: t,
-		// 					// model: this.getFalcorVideoModel(),
-		// 					onClick: this.handleClick,
-		// 					onKeyDown: this.handleKeyDown,
-		// 					onMouseEnter: this.handleMouseEnter,
-		// 					onMouseLeave: this.handleMouseLeave,
-		// 					rankNum: a.rankNum,
-		// 					rowNum: a.rowNum,
-		// 					showProgress: d,
-		// 					videoModel: r,
-		// 					watchURL: this.getWatchURL()
-		// 				},
-		// 				u
-		// 		  )
-		// );
 	}
 }
 

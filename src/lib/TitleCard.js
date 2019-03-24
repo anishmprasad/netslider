@@ -21,8 +21,8 @@ export default class TitleCard extends Component {
 	node = null;
 	getAnimationStyle() {
 		var e = this.props,
-			t = e.animateIn,
-			i = e.videoModel,
+			t = this.props.animateIn,
+			i = this.props.videoModel,
 			a = ((i.id % 20) * 2.5) / 100 + 0.3;
 		return t
 			? l.getAnimationStyle({
@@ -45,21 +45,21 @@ export default class TitleCard extends Component {
 	render() {
 		var e = this,
 			t = this.props,
-			i = t.isInvalid,
-			a = t.itemTabbable,
-			r = t.isDisliked,
-			l = t.isFocused,
-			y = t.isDimmed,
-			E = t.isBobOpen,
-			M = t.videoModel,
-			v = t.watchURL,
-			b = t.animateIn,
-			N = t.model,
-			g = t.showProgress,
-			k = t.showMetaData,
-			f = t.showRichTitle,
-			x = t.rowNum,
-			R = t.rankNum,
+			i = this.props.isInvalid,
+			a = this.props.itemTabbable,
+			r = this.props.isDisliked,
+			l = this.props.isFocused,
+			y = this.props.isDimmed,
+			E = this.props.isBobOpen,
+			M = this.props.videoModel,
+			v = this.props.watchURL,
+			b = this.props.animateIn,
+			N = this.props.model,
+			g = this.props.showProgress,
+			k = this.props.showMetaData,
+			f = this.props.showRichTitle,
+			x = this.props.rowNum,
+			R = this.props.rankNum,
 			w = this.e({
 				'title-card': !0,
 				'is-bob-open': E,
@@ -119,7 +119,7 @@ export default class TitleCard extends Component {
 						),
 						l &&
 							React.createElement(u, {
-								model: N,
+								model: this.props.model,
 								playbackQueryParams: this.props.playbackQueryParams
 							}),
 						this.props.children

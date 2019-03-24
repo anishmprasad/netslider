@@ -5,9 +5,6 @@ import PropTypes from 'prop-types';
 import lodash from 'lodash';
 
 export default class SliderItem extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		var e = lodash.extend(
 			{
@@ -19,14 +16,10 @@ export default class SliderItem extends Component {
 			className: 'slider-item';
 		}
 		return (
-			undefined !== this.props.viewportIndex && (e['slider-item-' + this.props.viewportIndex] = !0),
-			React.createElement(
-				'div',
-				{
-					className: 'slider-item'
-				},
-				this.props.children
-			)
+			this.props.viewportIndex && (e['slider-item-' + this.props.viewportIndex] = !0),
+			<div className= 'slider-item'>
+				{this.props.children}
+			</div>
 		);
 	}
 }

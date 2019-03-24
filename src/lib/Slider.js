@@ -485,14 +485,13 @@ export default class Slider extends Component {
 		});
 		if (e <= 1 || (t && !this.state.hasMovedOnce))
 			return this.props.showEmptyHandles
-				? React.createElement('span', {
-						className: r,
-						tabIndex: -1,
-						ref: i,
-						role: 'presentation',
-						'aria-label': ''
-				  })
-				: null;
+				&& <span
+					className={ r}
+					tabIndex={ -1}
+					ref={ i}
+					role= 'presentation'
+					aria-label= ''
+				  />
 		var a = this.context.isRtl,
 			h = l('indicator-icon', {
 				'icon-leftCaret': a ? !t : t,
@@ -503,25 +502,43 @@ export default class Slider extends Component {
 			p = this.props.sliderHandleNextString ? this.props.sliderHandleNextString : 'See more titles',
 			// : this.context.formatString(x.next),
 			c = t ? d : p;
-		return React.createElement(
-			'span',
-			{
-				className: r,
-				tabIndex: !t || this.state.hasMovedOnce ? 0 : -1,
-				ref: i,
-				onClick: n,
-				onKeyDown: this.executeOnEnterOrSpace(n),
-				onMouseEnter: this.props.onMouseEnterSliderHandle,
-				onFocus: this.props.onMouseEnterSliderHandle,
-				onMouseLeave: this.props.onMouseLeaveSliderHandle,
-				onBlur: this.props.onMouseLeaveSliderHandle,
-				role: 'button',
-				'aria-label': c
-			},
-			React.createElement('b', {
-				className: h
-			})
-		);
+		return(
+			<span
+				className={r}
+				tabIndex={ !t || this.state.hasMovedOnce ? 0 : -1}
+				ref={ i}
+				onClick={ n}
+				onKeyDown={ this.executeOnEnterOrSpace(n)}
+				onMouseEnter={ this.props.onMouseEnterSliderHandle}
+				onFocus={ this.props.onMouseEnterSliderHandle}
+				onMouseLeave={ this.props.onMouseLeaveSliderHandle}
+				onBlur={ this.props.onMouseLeaveSliderHandle}
+				role= 'button'
+				aria-label={c}
+			>
+				<b className={h}>
+				</b>
+			</span>
+		)
+		// return React.createElement(
+		// 	'span',
+		// 	{
+		// 		className: r,
+		// 		tabIndex: !t || this.state.hasMovedOnce ? 0 : -1,
+		// 		ref: i,
+		// 		onClick: n,
+		// 		onKeyDown: this.executeOnEnterOrSpace(n),
+		// 		onMouseEnter: this.props.onMouseEnterSliderHandle,
+		// 		onFocus: this.props.onMouseEnterSliderHandle,
+		// 		onMouseLeave: this.props.onMouseLeaveSliderHandle,
+		// 		onBlur: this.props.onMouseLeaveSliderHandle,
+		// 		role: 'button',
+		// 		'aria-label': c
+		// 	},
+		// 	React.createElement('b', {
+		// 		className: h
+		// 	})
+		// );
 	}
 	render() {
 		var e = this.getReactAnimationStyle(this.getBaseSliderOffset()),
