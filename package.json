@@ -1,6 +1,6 @@
 {
 	"name": "netslider",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"main": "dist/index.js",
 	"style": "dist/styles.css",
 	"files": [
@@ -38,21 +38,6 @@
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-2": "^6.24.1",
 		"babelrc-rollup": "3.0.0",
-		"peer-deps-externals-webpack-plugin": "^1.0.4",
-		"rollup": "^1.2.2",
-		"rollup-plugin-babel": "^2.6.1",
-		"rollup-plugin-commonjs": "^9.2.0",
-		"rollup-plugin-filesize": "^6.0.1",
-		"rollup-plugin-gzip": "^2.2.0",
-		"rollup-plugin-istanbul": "^2.0.1",
-		"rollup-plugin-json": "^3.1.0",
-		"rollup-plugin-node-resolve": "^4.0.0",
-		"rollup-plugin-postcss": "^2.0.3",
-		"rollup-plugin-progress": "^1.0.0",
-		"rollup-plugin-replace": "^2.1.0",
-		"rollup-plugin-scss": "^0.4.0",
-		"rollup-plugin-uglify": "^6.0.2",
-		"rollup-plugin-visualizer": "^0.9.2",
 		"webpack-cli": "^3.3.0"
 	},
 	"peerDependencies": {
