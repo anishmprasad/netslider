@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Slider from './Slider';
-// import JawBoneOnRow from './JawBoneOnRow';
 import PresTrackedContainer from './PresTrackedContainer';
 import Animate from './Animate';
 import ReactDOM from 'react-dom';
@@ -199,54 +198,68 @@ export default class Row extends Component {
 			bobOpen: this.state.isBobOpen,
 			rowContainer_title_card: !0
 		});
-		return React.createElement(
-			'div',
-			{
-				className: c,
-				id: 'row-' + this.props.rowNum
-			},
-			React.createElement(
-				PresTrackedContainer,
-				null,
-				React.createElement(
-					'div',
-					{
-						className: 'rowContent slider-hover-trigger-layer',
-						onMouseLeave: this.handleRowBlur
-					},
-					React.createElement(
-						Slider,
-						{
-							ref: 'slider',
-							itemsInRow: o,
-							totalItems: this.props.totalItems,
-							onSliderMove: this.handleSliderMove,
-							enableLooping: !0,
-							enablePeek: !0,
-							enablePaginationIndicator: this.props.enablePaginationIndicator,
-							parentContext: {
+		return(
+			<div
+				className={ c}
+				id={ 'row-' + this.props.rowNum}
+			>
+				<PresTrackedContainer>
+					<div
+						className={ 'rowContent slider-hover-trigger-layer'}
+						onMouseLeave={ this.handleRowBlur}
+					>
+						<Slider
+							ref= {'slider'}
+							itemsInRow={ o}
+							totalItems= {this.props.totalItems}
+							onSliderMove= {this.handleSliderMove}
+							enableLooping= {!0}
+							enablePeek= {!0}
+							enablePaginationIndicator= {this.props.enablePaginationIndicator}
+							parentContext= {{
 								rowIndex: this.props.rowNum
-							}
-						},
-						this.wrapChildItems(this.props.children)
-					)
-				)
-				// React.createElement(JawBoneOnRow, {
-				// 	model: e,
-				// 	sliderRef: this.refs.slider,
-				// 	jawBoneRankNum: this.props.jawBoneRankNum,
-				// 	showJawBone: this.isJawBoneOpen(),
-				// 	lowestVisibleItemIndex: this.state.lowestVisibleItemIndex,
-				// 	sliderMoveDirection: this.sliderMoveDirection,
-				// 	infinite: !this.props.isGallery,
-				// 	jawBoneModelIndex: this.props.jawBoneModelIndex,
-				// 	playbackQueryParams: this.props.playbackQueryParams,
-				// 	videoRoot: this.props.videoRoot,
-				// 	disableClose: this.props.disableJawClose,
-				// 	hasVideoMerchInJaw: true
-				// })
-			)
-		);
+							}}
+						>
+							{this.wrapChildItems(this.props.children)}
+						</Slider>
+					</div>
+				</PresTrackedContainer>
+			</div>
+		)
+		// return React.createElement(
+		// 	'div',
+		// 	{
+		// 		className: c,
+		// 		id: 'row-' + this.props.rowNum
+		// 	},
+		// 	React.createElement(
+		// 		PresTrackedContainer,
+		// 		null,
+		// 		React.createElement(
+		// 			'div',
+		// 			{
+		// 				className: 'rowContent slider-hover-trigger-layer',
+		// 				onMouseLeave: this.handleRowBlur
+		// 			},
+		// 			React.createElement(
+		// 				Slider,
+		// 				{
+		// 					ref: 'slider',
+		// 					itemsInRow: o,
+		// 					totalItems: this.props.totalItems,
+		// 					onSliderMove: this.handleSliderMove,
+		// 					enableLooping: !0,
+		// 					enablePeek: !0,
+		// 					enablePaginationIndicator: this.props.enablePaginationIndicator,
+		// 					parentContext: {
+		// 						rowIndex: this.props.rowNum
+		// 					}
+		// 				},
+		// 				this.wrapChildItems(this.props.children)
+		// 			)
+		// 		)
+		// 	)
+		// );
 	}
 }
 

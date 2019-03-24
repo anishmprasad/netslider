@@ -1,7 +1,8 @@
 /* eslint-disable */
 
 import lodash from 'lodash';
-import { l } from './constants';
+// import { l } from './constants';
+const l = {};
 
 function GlobalFunction() {
 	this._viewportRegion = null;
