@@ -1,6 +1,6 @@
 {
 	"name": "netslider",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"main": "dist/index.js",
 	"style": "dist/styles.css",
 	"files": [
@@ -46,7 +46,7 @@
 		"react-addons-css-transition-group": "^15.6.2",
 		"react-addons-transition-group": "^15.6.2",
 		"react-dom": "^16.7.0",
-		"lodash":"^4.17.11"
+		"lodash": "^4.17.11"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
