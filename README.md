@@ -39,10 +39,12 @@ import 'netslider/styles.min.css'
 
 ### TODO
 
--   [x] Production Level
 -   [x] Minification
+-   [ ] Production Level
 -   [ ] CSS Polishing and Transitions
 -   [ ] Documentation
+
+### Under Active Development
 
 ### License
 
