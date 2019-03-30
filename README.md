@@ -44,6 +44,11 @@ import 'netslider/styles.min.css'
 -   [ ] CSS Polishing and Transitions
 -   [ ] Documentation
 
+### Disclaimer
+
+This plugin is not officially commisioned/supported by Netflix.
+The trademark "Netflix" is registered by "Netflix, Inc."
+
 ### License
 
 Apache 2.0
