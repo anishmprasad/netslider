@@ -18,6 +18,7 @@ An Animated Slider Component in React
 
 ```Javascript
 import NetSlider from 'netslider';
+import 'netslider/styles.min.css'
 
 <NetSlider
     {...commingsoon}
@@ -39,15 +40,10 @@ import NetSlider from 'netslider';
 ### TODO
 
 -   [x] Production Level
+-   [x] Minification
 -   [ ] CSS Polishing and Transitions
 -   [ ] Documentation
 
-**Run example**
-
-```
-$ npm start
-```
-
 ### License
 
-MIT
+Apache 2.0
