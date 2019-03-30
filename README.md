@@ -42,6 +42,11 @@ import 'netslider/styles.min.css'
 
 ### Under Active Development
 
+### Disclaimer
+
+This plugin is not officially commisioned/supported by Netflix.
+The trademark "Netflix" is registered by "Netflix, Inc."
+
 ### License
 
 Apache 2.0
