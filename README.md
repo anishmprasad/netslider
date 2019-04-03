@@ -1,6 +1,6 @@
 # NetSlider
 
-A Animated Slider Component for React.
+An Animated Slider Component for React.
 
 ### Installation
 
@@ -21,7 +21,7 @@ import NetSlider from 'netslider';
 import 'netslider/styles.min.css'
 
 <NetSlider
-    {...commingsoon}
+    {...comingsoon}
 />
 ```
 
