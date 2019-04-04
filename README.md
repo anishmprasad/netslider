@@ -23,7 +23,7 @@ import SliderContainer from '../lib/SliderContainer';
 
 function SliderTemplate(props) {
 	return (
-		<div className='bob-overview-wrapper'>
+		<div className='slider-container-wrapper'>
 			<SliderContainer videoModel={props.videoModel} model={props.model} />
 		</div>
 	);
@@ -51,9 +51,9 @@ import React from 'react';
 
 export default function SliderContainer(props) {
 	return (
-        <div className= 'bob-title'>
-            {props.videoModel.title}
-        </div>
+		<div className= 'slider-container-title'>
+		    {props.videoModel.title}
+		</div>
 	);
 }
 
