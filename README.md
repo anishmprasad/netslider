@@ -18,7 +18,7 @@ $ yarn add netslider
 
 import NetSlider from 'netslider';
 import 'netslider/styles.min.css';
-mport { data, trackContext } from './carddata'; /* Update Soon */
+import { data, trackContext } from './carddata'; /* Update Soon */
 import SliderContainer from '../lib/SliderContainer';
 
 function SliderTemplate(props) {
