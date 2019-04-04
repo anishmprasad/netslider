@@ -24,7 +24,7 @@ import SliderContainer from '../lib/SliderContainer';
 function SliderTemplate(props) {
 	return (
 		<div className='bob-overview-wrapper'>
-			<BobOverview videoModel={props.videoModel} model={props.model} />
+			<SliderContainer videoModel={props.videoModel} model={props.model} />
 		</div>
 	);
 }
