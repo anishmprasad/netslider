@@ -14,15 +14,50 @@ $ yarn add netslider
 
 ### Usage
 
-An Animated Slider Component in React
+```Javascript
+
+import NetSlider from 'netslider';
+import 'netslider/styles.min.css';
+mport { data, trackContext } from './carddata'; /* Update Soon */
+import SliderContainer from '../lib/SliderContainer';
+
+function SliderTemplate(props) {
+	return (
+		<div className='bob-overview-wrapper'>
+			<BobOverview videoModel={props.videoModel} model={props.model} />
+		</div>
+	);
+}
+export default function NetSliderContainer(props) {
+	return (
+		<div className='wrapper'>
+			<h1 style={{ textAlign: 'center', margin: '40px 0' }}>NetSlider</h1>
+			<NetSlider
+				className=''
+				data={{ data, trackContext }}
+				slideTemplate={props => <SliderTemplate {...props} />}
+			/>
+		</div>
+	);
+}
+
+```
 
 ```Javascript
-import NetSlider from 'netslider';
-import 'netslider/styles.min.css'
 
-<NetSlider
-    {...comingsoon}
-/>
+// SliderContainer.js
+
+import React from 'react';
+
+export default function SliderContainer(props) {
+	return (
+        <div className= 'bob-title'>
+            {props.videoModel.title}
+        </div>
+	);
+}
+
+
 ```
 
 ### Props
