@@ -30,10 +30,10 @@ function SliderTemplate(props) {
 }
 export default function NetSliderContainer(props) {
 	return (
-		<div className='wrapper'>
+		<div className='netslider-container' style={{ overflow: 'hidden', height: '400px' }}>
 			<h1 style={{ textAlign: 'center', margin: '40px 0' }}>NetSlider</h1>
 			<NetSlider
-				className=''
+				className='netslider_title_card'
 				data={{ data, trackContext }}
 				slideTemplate={props => <SliderTemplate {...props} />}
 			/>
