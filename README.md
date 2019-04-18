@@ -6,7 +6,7 @@ An Animated Slider Component for React.
 
 ```
 // with npm
-$ npm install netslider  --save
+$ npm install netslider --save
 
 // with yarn
 $ yarn add netslider
