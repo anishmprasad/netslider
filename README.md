@@ -18,7 +18,7 @@ $ yarn add netslider
 
 import NetSlider from 'netslider';
 import 'netslider/styles.min.css';
-import { data, trackContext } from './carddata'; /* Update Soon */
+import { data } from './carddata'; /* Update Soon */
 import SliderContainer from '../lib/SliderContainer';
 
 function SliderTemplate(props) {
@@ -34,7 +34,7 @@ export default function NetSliderContainer(props) {
 			<h1 style={{ textAlign: 'center', margin: '40px 0' }}>NetSlider</h1>
 			<NetSlider
 				className='netslider_title_card'
-				data={{ data, trackContext }}
+				data={{ data }}
 				slideTemplate={props => <SliderTemplate {...props} />}
 			/>
 		</div>
@@ -67,6 +67,12 @@ export default function SliderContainer(props) {
 | className     | `string` | `true`   | the src of image            |
 | data          | `object` | `true`   | slider data object          |
 | slideTemplate | `object` | `true`   | template for slider content |
+
+### Screenshot
+
+![Preview][screenshot]
+
+[screenshot]: https://raw.githubusercontent.com/anishmprasad/netslider/master/screenshot/Screenshot.png 'Preview screenshot'
 
 ### TODO
 
