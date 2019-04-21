@@ -77,7 +77,7 @@ export default function SliderContainer(props) {
 ### Demo
 
 * anish.m.prasad.com : update soon
-* [anishmprasad.github.io](anishmprasad.github.io/opensource/netslider)
+* [anishmprasad.github.io](https://anishmprasad.github.io/opensource/netslider)
 * [codesandbox.io](https://codesandbox.io/embed/0xq2on1mwv)
 
 ### TODO
