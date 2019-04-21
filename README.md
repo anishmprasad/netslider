@@ -34,7 +34,7 @@ export default function NetSliderContainer(props) {
 			<h1 style={{ textAlign: 'center', margin: '40px 0' }}>NetSlider</h1>
 			<NetSlider
 				className='netslider_title_card'
-				data={{ data }}
+				data={ data }
 				slideTemplate={props => <SliderTemplate {...props} />}
 			/>
 		</div>
