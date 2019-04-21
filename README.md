@@ -75,9 +75,10 @@ export default function SliderContainer(props) {
 [screenshot]: https://raw.githubusercontent.com/anishmprasad/netslider/master/screenshot/Screenshot.png 'Preview screenshot'
 
 ### Demo
-anish.m.prasad.com : update soon
-anishmprasad.github.io : anishmprasad.github.io/opensource/netslider
-codesandbox.io : https://codesandbox.io/embed/0xq2on1mwv
+
+* anish.m.prasad.com : update soon
+* [anishmprasad.github.io](anishmprasad.github.io/opensource/netslider)
+* [codesandbox.io](https://codesandbox.io/embed/0xq2on1mwv)
 
 ### TODO
 
