@@ -1,10 +1,17 @@
 {
 	"name": "netslider",
-	"version": "1.2.8",
+	"version": "1.2.9",
 	"main": "dist/index.js",
 	"style": "dist/styles.min.css",
 	"files": [
 		"dist"
+	],
+	"license": "Apache-2.0",
+	"licenses": [
+		{
+			"type": "Apache-2.0",
+			"url": "http://www.apache.org/licenses/LICENSE-2.0"
+		}
 	],
 	"dependencies": {
 		"classnames": "^2.2.6",
@@ -14,14 +21,6 @@
 		"react-addons-transition-group": "^15.6.2",
 		"react-dom": "^16.8.6",
 		"react-scripts": "2.1.8"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"rollup": "rollup -c",
-		"dist": "webpack --config webpack.config.js"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-class-properties": "^7.4.0",
@@ -38,7 +37,8 @@
 		"@babel/core": "^7.4.3",
 		"babel-preset-latest": "^6.24.1",
 		"babel-preset-stage-1": "^6.24.1",
-		"postcss-modules": "^1.4.1"
+		"postcss-modules": "^1.4.1",
+		"prop-types": "^15.7.2"
 	},
 	"peerDependencies": {
 		"classnames": "^2.2.6",
@@ -46,7 +46,8 @@
 		"react-addons-css-transition-group": "^15.6.2",
 		"react-addons-transition-group": "^15.6.2",
 		"react-dom": "^16.8.6",
-		"lodash": "^4.17.11"
+		"lodash": "^4.17.11",
+		"prop-types": "^15.7.2"
 	},
 	"keywords": [
 		"react",
