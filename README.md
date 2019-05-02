@@ -14,8 +14,9 @@ $ yarn add netslider
 
 ### Usage
 
-```Javascript
+Here is a quick example to get you started, **it's all you need**:
 
+```jsx
 import NetSlider from 'netslider';
 import 'netslider/styles.min.css';
 import { data } from './carddata'; /* Update Soon */
@@ -34,31 +35,27 @@ export default function NetSliderContainer(props) {
 			<h1 style={{ textAlign: 'center', margin: '40px 0' }}>NetSlider</h1>
 			<NetSlider
 				className='netslider_title_card'
-				data={ data }
+				data={data}
 				slideTemplate={props => <SliderTemplate {...props} />}
 			/>
 		</div>
 	);
 }
-
 ```
 
-```Javascript
-
+```jsx
 // SliderContainer.js
 
 import React from 'react';
 
 export default function SliderContainer(props) {
-	return (
-		<div className= 'slider-container-title'>
-		    {props.videoModel.title}
-		</div>
-	);
+	return <div className='slider-container-title'>{props.videoModel.title}</div>;
 }
-
-
 ```
+
+Yes, it's really all you need to get started as you can see in this live and interactive demo:
+
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/0xq2on1mwv)
 
 ### Props
 
@@ -76,9 +73,9 @@ export default function SliderContainer(props) {
 
 ### Demo
 
-* anish.m.prasad.com : update soon
-* [anishmprasad.github.io](https://anishmprasad.github.io/opensource/netslider)
-* [codesandbox.io](https://codesandbox.io/embed/0xq2on1mwv)
+-   [anish.m.prasad.com](https://anishmprasad.com/opensource/netslider)
+-   [anishmprasad.github.io](https://anishmprasad.github.io/opensource/netslider)
+-   [codesandbox.io](https://codesandbox.io/embed/0xq2on1mwv)
 
 ### TODO
 
