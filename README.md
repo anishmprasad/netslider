@@ -19,7 +19,7 @@ Here is a quick example to get you started, **it's all you need**:
 ```jsx
 import NetSlider from 'netslider';
 import 'netslider/styles.min.css';
-import data from './Data.json'; /* Update Soon */
+import data from './Data.json';
 import SliderContainer from '../lib/SliderContainer';
 
 function SliderTemplate(props) {
