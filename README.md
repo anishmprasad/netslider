@@ -108,9 +108,9 @@ Yes, it's really all you need to get started as you can see in this live and int
 ### TODO
 
 -   [x] Minification
--   [ ] Production Level
+-   [x] Documentation
 -   [ ] CSS Polishing and Transitions
--   [ ] Documentation
+-   [ ] Production Level
 
 ### Under Active Development
 
