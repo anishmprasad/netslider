@@ -53,8 +53,9 @@ export default function SliderContainer(props) {
 }
 ```
 
+> Data.json
+
 ```json
-// Data.json
 [
 	{
 		"evidenceData": {
@@ -122,5 +123,3 @@ The trademark "Netflix" is registered by "Netflix, Inc."
 ### License
 
 Apache 2.0
-
-
