@@ -43,9 +43,9 @@ export default function NetSliderContainer(props) {
 }
 ```
 
-```jsx
-// SliderContainer.js
+> SliderContainer.js
 
+```jsx
 import React from 'react';
 
 export default function SliderContainer(props) {
