@@ -110,8 +110,8 @@ Yes, it's really all you need to get started as you can see in this live and int
 
 -   [x] Minification
 -   [x] Documentation
--   [ ] CSS Polishing and Transitions
--   [ ] Production Level
+-   [x] CSS Polishing and Transitions
+-   [x] Production Level
 
 ### Under Active Development
 
