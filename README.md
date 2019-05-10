@@ -113,8 +113,6 @@ Yes, it's really all you need to get started as you can see in this live and int
 -   [x] CSS Polishing and Transitions
 -   [x] Production Level
 
-### Under Active Development
-
 ### Disclaimer
 
 This plugin is not officially commisioned/supported by Netflix.
