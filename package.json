@@ -1,6 +1,6 @@
 {
 	"name": "netslider",
-	"version": "1.3.2",
+	"version": "1.3.3",
 	"main": "dist/index.js",
 	"style": "dist/styles.min.css",
 	"files": [
@@ -13,6 +13,14 @@
 			"url": "http://www.apache.org/licenses/LICENSE-2.0"
 		}
 	],
+	"author": {
+		"name": "Anish M Prasad",
+		"email": "anish.m.prasad@gmail.com",
+		"url": "http://www.anishmprasad.com/"
+	},
+	"bugs": {
+		"url": "https://github.com/anishmprasad/netslider/issues"
+	},
 	"dependencies": {
 		"classnames": "^2.2.6",
 		"node-sass": "^4.12.0",
