@@ -1,6 +1,6 @@
 # NetSlider
 
-An Animated Slider Component for React.
+An animated slider component for React.
 
 ### Installation
 
