@@ -5,6 +5,10 @@ An animated slider component for React.
 ### Installation
 
 ```
+
+// with npm
+$ npm install react-extensions --save
+
 // with npm
 $ npm install netslider --save
 
